@@ -5,6 +5,8 @@ $block_args = [
 get_template_part('components/block', 'start', $block_args);
 ?>
 <div class="container">
+    
 	<?php echo get_sub_field('text')?>
+
 </div>
 <?php get_template_part('components/block', 'end');
