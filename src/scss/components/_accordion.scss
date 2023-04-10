@@ -1,0 +1,44 @@
+.accordion {
+  $self: &;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacer-element-sm);
+  &__content {
+    overflow: hidden;
+    padding: 0 var(--input-x-padding);
+  }
+  &__item {
+    background-color: var(--color-surface);
+  }
+
+  &__button {
+    width: 100%;
+    &:not([aria-expanded="true"]) {
+      color: inherit;
+      border-color: transparent;
+      background-color: var(--color-surface);
+    }
+  }
+
+  &__icon {
+    font-size: 1.5em;
+    flex: 0 0 auto;
+    transition: transform var(--transition);
+  }
+
+  &__button[aria-expanded="true"] {
+    #{$self}__icon {
+      transform: rotate(180deg);
+    }
+  }
+
+  &__title {
+    font-size: 1em;
+    margin: 0;
+  }
+
+  &__label {
+    text-align: left;
+    flex-grow: 1;
+  }
+}

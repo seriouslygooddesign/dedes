@@ -1,0 +1,27 @@
+{
+  "name": "srsly",
+  "private": true,
+  "dependencies": {
+    "bootstrap": "latest",
+    "swiper": "latest"
+  },
+  "devDependencies": {
+    "autoprefixer": "latest",
+    "browser-sync-webpack-plugin": "latest",
+    "css-loader": "latest",
+    "cssnano": "^5.1.14",
+    "mini-css-extract-plugin": "latest",
+    "postcss": "latest",
+    "postcss-combine-media-query": "latest",
+    "postcss-loader": "latest",
+    "sass": "latest",
+    "sass-loader": "latest",
+    "svg-sprite-loader": "latest",
+    "webpack": "latest",
+    "webpack-cli": "latest"
+  },
+  "scripts": {
+    "build": "webpack --mode production",
+    "dev": "webpack --mode development --watch"
+  }
+}

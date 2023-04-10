@@ -1,0 +1,68 @@
+:root {
+  /*
+  Typography
+  */
+  --line-height: 1.7;
+  --heading-font-weight: 400;
+  --heading-text-transform: uppercase;
+  --heading-font-family: var(--ff-primary);
+
+  //Generate --h variables from h6 to h2
+  $min: 18px;
+  $max: 20px;
+  $min-scale: 1.1;
+  $max-scale: 1.2;
+  $i: 6;
+  @while $i >= 2 {
+    --h#{$i}: #{clamp-smart($min, $max)};
+    $min: $min * $min-scale;
+    $max: $max * $max-scale;
+    $i: $i - 1;
+  }
+  --h1: #{clamp-smart(40px, 72px)};
+
+  --fs-xs: 0.75em;
+  --fs-sm: 0.875em;
+  --fs-lg: 1.125em;
+  --fs-xl: 1.25em;
+
+  /*
+  Structure Variables
+  */
+
+  --header-height: #{clamp-smart(54px, 75px, 768px, 1900px)};
+
+  --spacer-element: #{clamp-smart(14px, 18px)};
+  --spacer-element-sm: calc(var(--spacer-element) / 2);
+
+  --spacer-section: #{clamp-smart(30px, 70px)};
+
+  --spacer-base: #{clamp-smart(20px, 30px)};
+  --spacer-1: calc(var(--spacer-base) * 0.33);
+  --spacer-2: calc(var(--spacer-base) * 0.66);
+  --spacer-3: calc(var(--spacer-base));
+  --spacer-4: calc(var(--spacer-base) * 1.33);
+  --spacer-5: calc(var(--spacer-base) * 1.66);
+
+  --container-width: 1300px;
+  --container-padding: #{clamp-smart(16px, 38px)};
+
+  --input-height: 3em;
+  --input-x-padding: 1.25em;
+  --input-y-padding: 0.75em;
+
+  --border-width: 1px;
+
+  --shadow: 0 0.25em 0.5em 0.5em var(--color-shadow);
+
+  /*
+  Transitions
+  */
+  --transition-duration-value: 300;
+  --transition-duration: calc(1ms * var(--transition-duration-value));
+  --transition-timing-function: ease;
+  --transition: var(--transition-duration) var(--transition-timing-function);
+
+  --animate-transition: 500ms ease;
+  --animate-distance: 1.5rem;
+}

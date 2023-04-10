@@ -1,0 +1,13 @@
+a {
+  color: var(--color-link);
+  background-color: transparent;
+  @include underline-base;
+  @include underline;
+  transition: color var(--transition), text-decoration-color var(--transition);
+}
+
+.underline-reverse {
+  a {
+    @include underline-reverse;
+  }
+}

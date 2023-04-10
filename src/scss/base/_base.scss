@@ -1,0 +1,77 @@
+body {
+  margin: 0;
+  -webkit-text-size-adjust: 100%;
+  -webkit-tap-highlight-color: rgba(black, 0);
+  accent-color: var(--color-primary);
+  background: var(--color-body);
+  color: var(--color-text);
+  font-family: var(--ff-primary, sans-serif);
+  line-height: var(--line-height);
+  font-size: 0.875em;
+  @include bp(xl) {
+    font-size: 1rem;
+  }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ul,
+ol,
+dl,
+blockquote,
+address,
+table,
+hr,
+.spacer-element {
+  margin: var(--spacer-element) 0;
+}
+
+::selection {
+  background-color: rgba(var(--color-primary-rgb), 0.5);
+  color: var(--color-white);
+}
+
+:focus-within {
+  scroll-behavior: smooth;
+}
+
+*,
+::before,
+::after {
+  box-sizing: border-box;
+  @media (prefers-reduced-motion: reduce) {
+    animation-delay: -1ms !important;
+    animation-duration: 1ms !important;
+    animation-iteration-count: 1 !important;
+    background-attachment: initial !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0s !important;
+    transition-delay: 0s !important;
+  }
+}
+
+details,
+main {
+  display: block;
+}
+
+summary {
+  display: list-item;
+}
+
+template,
+[hidden] {
+  display: none;
+}
+
+hr {
+  background-color: var(--color-border);
+  border: 0;
+  height: var(--border-width);
+  overflow: visible;
+}

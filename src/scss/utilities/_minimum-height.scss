@@ -1,0 +1,14 @@
+.min-height {
+  &-small {
+    min-height: clamp-smart(300px, 400px);
+  }
+  &-medium {
+    min-height: clamp-smart(400px, 600px);
+  }
+  &-large {
+    min-height: clamp-smart(500px, 800px);
+  }
+  &-fullheight {
+    min-height: 100vh;
+  }
+}

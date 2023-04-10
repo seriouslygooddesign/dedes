@@ -1,0 +1,63 @@
+blockquote {
+  overflow: hidden;
+  padding: var(--spacer-4);
+  background-color: var(--color-surface);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacer-element);
+  > * {
+    margin: 0;
+  }
+}
+
+mark {
+  background: none;
+}
+
+address {
+  font-style: normal;
+  line-height: inherit;
+}
+
+abbr[title] {
+  text-decoration: underline dotted;
+  cursor: help;
+  text-decoration-skip-ink: none;
+}
+
+b,
+strong {
+  font-weight: bolder;
+}
+
+sub,
+sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+
+sub {
+  bottom: -0.25em;
+}
+
+sup {
+  top: -0.5em;
+}
+
+code,
+kbd,
+samp,
+pre {
+  font-family: monospace, monospace;
+  font-size: 1em;
+}
+
+pre {
+  code {
+    font-size: inherit;
+    color: inherit;
+    word-break: normal;
+  }
+}

@@ -1,0 +1,88 @@
+@include bp(lg, max) {
+  .is-locked {
+    overflow: hidden;
+  }
+}
+
+.align-items {
+  &-center {
+    align-items: center;
+  }
+  &-end {
+    align-items: flex-end;
+  }
+}
+
+.justify-content {
+  &-center {
+    justify-content: center;
+  }
+  &-between {
+    justify-content: space-between;
+  }
+  &-end {
+    justify-content: flex-end;
+  }
+}
+
+.flex {
+  &-column-reverse {
+    flex-direction: column-reverse;
+  }
+  &-md-row {
+    @include bp(md) {
+      flex-direction: row;
+    }
+  }
+}
+
+.stretch-child > :first-child,
+.stretch {
+  @include stretch;
+}
+
+.pos {
+  &-rel {
+    position: relative;
+  }
+  &-fixed {
+    position: fixed;
+  }
+}
+
+.overflow {
+  &-hidden {
+    overflow: hidden;
+  }
+}
+
+.element-collapsing {
+  height: 0;
+  overflow: hidden;
+  transition: height var(--transition);
+}
+
+.element-collapse {
+  &:not(.element-show) {
+    display: none;
+  }
+}
+
+.screen-reader-text {
+  @include visually-hidden;
+}
+
+.icon-label {
+  display: inline-flex;
+  gap: var(--spacer-element-sm);
+  align-items: center;
+  @include underline-reverse;
+}
+
+.vstack {
+  @include vstack;
+}
+
+.hstack {
+  @include hstack;
+}

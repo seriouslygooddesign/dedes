@@ -1,0 +1,90 @@
+:root {
+  --color-primary: #2271b1;
+  --color-surface: #f0f0f1;
+  --color-white: #fff;
+  --color-text: rgba(34,34,34,1);
+  --color-text-muted: rgba(34,34,34,.6);
+}
+
+body {
+  font-family: sans-serif;
+  background-color: var(--color-surface);
+  font-weight: normal;
+}
+
+a {
+  color: var(--color-primary);
+}
+
+
+.mce-content-body a.button{
+  color: #fff ;
+  display: inline-block;
+  padding: .5em 1em;
+  border-radius: 2px;
+  font-weight: bolder;
+  box-shadow: none;
+  text-decoration: none ;
+  background: var(--color-primary);
+  border: 1px solid var(--color-primary);
+  cursor: pointer;
+}
+
+.mce-content-body a.button--outline {
+  background: none;
+  color: inherit;
+  border-color: currentColor;
+}
+
+.mce-content-body a.button--white {
+  background: var(--color-white);
+  color: var(--color-primary);
+  border-color: transparent;
+}
+
+blockquote {
+  border: 1px solid;
+  margin-left: 0;
+  margin-right: 0;
+  padding: .5rem 2rem;
+}
+
+hr {
+  border: none;
+  border-top: 1px solid;
+}
+
+h1,h2,h3,h4,h5,h6 {
+  margin: 1.5rem 0;
+}
+
+.color-text-primary {
+  color: var(--color-primary);
+}
+
+.color-text-muted {
+  color: var(--color-text-muted);
+}
+
+.fs-lg {
+  font-size: 1.125em;
+}
+
+h1, .h1 {
+  font-size: 48px;
+}
+h2, .h2 {
+  font-size: 40px;
+}
+h3,.h3 {
+  font-size: 36px;
+}
+h4, .h4 {
+  font-size: 32px;
+}
+h5, .h5{
+  font-size: 24px;
+}
+h6, .h6 {
+  font-size: 20px;
+}

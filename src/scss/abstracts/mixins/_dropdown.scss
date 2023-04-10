@@ -1,0 +1,36 @@
+@mixin dropdown() {
+  position: absolute;
+  list-style: none;
+  margin: 0;
+  top: 100%;
+  left: calc(var(--spacer-element) * -1);
+  padding: var(--spacer-element-sm) 0;
+  z-index: 10;
+  white-space: nowrap;
+  background-color: var(--color-white);
+  box-shadow: var(--shadow);
+  transform: translateY(-10px);
+  transition: opacity var(--transition), visibility var(--transition),
+    transform var(--transition);
+  opacity: 0;
+  visibility: hidden;
+
+  ul {
+    top: calc(var(--spacer-element-sm) * -1);
+    left: 100%;
+  }
+
+  li:hover {
+    background: var(--color-surface);
+  }
+
+  a {
+    padding: var(--spacer-element-sm) var(--spacer-element);
+  }
+}
+
+@mixin dropdown-visible() {
+  visibility: visible;
+  opacity: 1;
+  transform: translateY(0);
+}

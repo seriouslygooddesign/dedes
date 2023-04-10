@@ -1,0 +1,19 @@
+%heading-base {
+  font-weight: var(--heading-font-weight);
+  text-transform: var(--heading-text-transform);
+  font-family: var(--heading-font-family, inherit);
+  line-height: 1.25;
+}
+
+$i: 6;
+@while $i >= 1 {
+  h#{$i},
+  .h#{$i} {
+    font-size: var(--h#{$i});
+    @extend %heading-base;
+    @if $i == 1 {
+      line-height: 1;
+    }
+  }
+  $i: $i - 1;
+}

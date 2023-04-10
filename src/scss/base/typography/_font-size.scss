@@ -1,0 +1,15 @@
+small {
+  font-size: var(--fs-sm);
+}
+
+.fs {
+  &-xs {
+    font-size: var(--fs-xs);
+  }
+  &-sm {
+    font-size: var(--fs-sm);
+  }
+  &-lg {
+    font-size: var(--fs-lg);
+  }
+}

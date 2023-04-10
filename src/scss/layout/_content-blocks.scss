@@ -1,0 +1,24 @@
+.content-block {
+  $self: &;
+  position: relative;
+  display: flex;
+  align-items: center;
+
+  &__content {
+    position: relative;
+    flex: 1 0 100%;
+    width: 100%;
+  }
+  &--columns {
+    align-items: stretch;
+    .row {
+      height: 100%;
+    }
+  }
+  &--panels {
+    #{$self}__content,
+    .row {
+      min-height: inherit;
+    }
+  }
+}

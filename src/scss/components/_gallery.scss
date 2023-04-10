@@ -1,0 +1,34 @@
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.5rem;
+  @include bp(md) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  @include bp(lg) {
+    &-columns-4,
+    &-columns-6,
+    &-columns-8 {
+      grid-template-columns: repeat(4, 1fr);
+    }
+    &-columns-5,
+    &-columns-7,
+    &-columns-9 {
+      grid-template-columns: repeat(5, 1fr);
+    }
+  }
+  @include bp(xl) {
+    &-columns-6 {
+      grid-template-columns: repeat(6, 1fr);
+    }
+    &-columns-7 {
+      grid-template-columns: repeat(7, 1fr);
+    }
+    &-columns-8 {
+      grid-template-columns: repeat(8, 1fr);
+    }
+    &-columns-9 {
+      grid-template-columns: repeat(9, 1fr);
+    }
+  }
+}

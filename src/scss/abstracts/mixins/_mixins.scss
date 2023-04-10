@@ -1,0 +1,82 @@
+@mixin reset-list() {
+  list-style: none;
+  padding: 0;
+}
+
+@mixin mask-icon($icon: facebook, $color: currentColor) {
+  background-color: $color;
+  mask-image: url("../sprite/sprite.svg##{$icon}-usage");
+}
+
+@mixin visually-hidden() {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
+
+@mixin vstack {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacer-element);
+  > * {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+}
+
+@mixin hstack {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: var(--spacer-element);
+  > * {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+}
+
+@mixin stretch($position: absolute) {
+  position: $position;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+// Hover only for mouse users, focus only for keyboard
+@mixin hover($focus: null) {
+  @media (hover: hover) and (pointer: fine) {
+    &:hover {
+      @content;
+    }
+  }
+
+  @if $focus == focus {
+    &:focus-visible {
+      @content;
+    }
+  }
+}
+
+// Invisible space for better link and button select
+@mixin target-space($size: 44px, $width: 100%, $height: 100%) {
+  position: relative;
+
+  &::before {
+    content: "";
+    position: absolute;
+    display: block;
+    width: $width;
+    height: $height;
+    min-width: $size;
+    min-height: $size;
+    top: 50%;
+    left: 50%;
+    translate: -50% -50%;
+  }
+}

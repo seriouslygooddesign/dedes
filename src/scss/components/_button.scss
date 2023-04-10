@@ -1,0 +1,16 @@
+.button {
+  @include button;
+
+  &:hover {
+    @include button-hover;
+  }
+}
+
+.button {
+  &--outline {
+    @include button-outline;
+  }
+  &--white {
+    @include button-white;
+  }
+}

@@ -1,0 +1,27 @@
+.site-icon {
+  width: 1em;
+  height: 1em;
+  display: inline-flex;
+  &--chevron {
+    @include mask-icon("chevron");
+  }
+  &--close {
+    @include mask-icon("close");
+  }
+  &-rounded {
+    background: var(--color-surface);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.5em;
+    height: 2.5em;
+    flex: 0 0 auto;
+    border-radius: 100%;
+    transition: background-color var(--transition), color var(--transition);
+    &:hover,
+    a:hover & {
+      color: var(--color-white);
+      background: var(--color-primary);
+    }
+  }
+}

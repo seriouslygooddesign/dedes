@@ -1,0 +1,41 @@
+.tab {
+  $self: &;
+  width: 100%;
+  justify-content: flex-start;
+  &s__menu {
+    margin: 0;
+    #{$self}__icon {
+      transform: rotate(-90deg);
+    }
+  }
+
+  &:not(&--active):not(:hover) {
+    background-color: var(--color-surface);
+    border-color: transparent;
+    color: currentColor;
+  }
+
+  &--active {
+    cursor: default;
+  }
+
+  &__title {
+    font-size: 1em;
+    margin: 0;
+  }
+
+  &:not(:first-of-type) {
+    margin-top: var(--spacer-element-sm);
+  }
+  &__icon {
+    font-size: 1.5em;
+    transition: transform var(--transition);
+  }
+  &__content {
+    overflow: hidden;
+    width: 100% !important;
+  }
+  &--accordion#{&}--active &__icon {
+    transform: rotate(-180deg);
+  }
+}

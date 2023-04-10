@@ -1,0 +1,23 @@
+//Colors
+$color-primary: #0151b9;
+$color-dark: #272b34;
+
+//Bootstrap
+$spacer: 1.5rem;
+$spacers: (
+  0: 0,
+  1: $spacer * 0.25,
+  2: $spacer * 0.5,
+  3: $spacer,
+  4: $spacer * 1.5,
+  5: $spacer * 3,
+);
+$grid-gutter-width: $spacer;
+$grid-breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px,
+  xxl: 1600px,
+);

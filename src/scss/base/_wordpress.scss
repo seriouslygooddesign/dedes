@@ -1,0 +1,29 @@
+.post-date {
+  display: block;
+  font-size: var(--fs-sm);
+}
+
+.alignleft {
+  float: left;
+  margin-right: var(--spacer-element);
+  margin-bottom: var(--spacer-element);
+}
+
+.alignright {
+  float: right;
+  margin-left: var(--spacer-element);
+  margin-bottom: var(--spacer-element);
+}
+
+.aligncenter {
+  clear: both;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+#wpadminbar {
+  position: relative;
+  z-index: 1600;
+}

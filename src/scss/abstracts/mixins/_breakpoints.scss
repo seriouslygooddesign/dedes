@@ -1,0 +1,11 @@
+@use "sass:map";
+
+@mixin bp($breakpoint: md, $minmax: min) {
+  $breakpoint-value: map-get($grid-breakpoints, $breakpoint);
+  @if ($minmax == max) {
+    $breakpoint-value: #{map-get($grid-breakpoints, $breakpoint) - 1};
+  }
+  @media (#{$minmax}-width: $breakpoint-value) {
+    @content;
+  }
+}

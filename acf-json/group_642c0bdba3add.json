@@ -1,0 +1,322 @@
+{
+    "key": "group_642c0bdba3add",
+    "title": "Styles",
+    "fields": [
+        {
+            "key": "field_642c0f1a154dd",
+            "label": "Colors",
+            "name": "colors",
+            "aria-label": "",
+            "type": "group",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "layout": "row",
+            "sub_fields": [
+                {
+                    "key": "field_642c0f2c154de",
+                    "label": "Primary",
+                    "name": "primary",
+                    "aria-label": "",
+                    "type": "color_picker",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "#2C4296",
+                    "enable_opacity": 0,
+                    "return_format": "array"
+                },
+                {
+                    "key": "field_642c19daa0f15",
+                    "label": "Secondary",
+                    "name": "secondary",
+                    "aria-label": "",
+                    "type": "color_picker",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "#2C4296",
+                    "enable_opacity": 0,
+                    "return_format": "array"
+                },
+                {
+                    "key": "field_642d91b006ceb",
+                    "label": "Surface",
+                    "name": "surface",
+                    "aria-label": "",
+                    "type": "color_picker",
+                    "instructions": "Leave empty to generate automaticly from \"Primary\"",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "enable_opacity": 1,
+                    "return_format": "string"
+                },
+                {
+                    "key": "field_642d9308b918b",
+                    "label": "Body",
+                    "name": "body",
+                    "aria-label": "",
+                    "type": "color_picker",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "#ffffff",
+                    "enable_opacity": 0,
+                    "return_format": "string"
+                },
+                {
+                    "key": "field_642d94ed15ba4",
+                    "label": "Text",
+                    "name": "text",
+                    "aria-label": "",
+                    "type": "color_picker",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "#111111",
+                    "enable_opacity": 0,
+                    "return_format": "array"
+                }
+            ]
+        },
+        {
+            "key": "field_642c0bdbf62bb",
+            "label": "Fonts",
+            "name": "fonts",
+            "aria-label": "",
+            "type": "repeater",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "layout": "row",
+            "pagination": 0,
+            "min": 0,
+            "max": 0,
+            "collapsed": "field_642c0c2ff62bc",
+            "button_label": "Add Font",
+            "rows_per_page": 20,
+            "sub_fields": [
+                {
+                    "key": "field_642c0c2ff62bc",
+                    "label": "Title",
+                    "name": "title",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "parent_repeater": "field_642c0bdbf62bb"
+                },
+                {
+                    "key": "field_642c14b8c1edd",
+                    "label": "Type",
+                    "name": "type",
+                    "aria-label": "",
+                    "type": "button_group",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "choices": {
+                        "primary": "Primary",
+                        "secondary": "Secondary"
+                    },
+                    "default_value": "primary",
+                    "return_format": "value",
+                    "allow_null": 0,
+                    "layout": "horizontal",
+                    "parent_repeater": "field_642c0bdbf62bb"
+                },
+                {
+                    "key": "field_642c184840ce2",
+                    "label": "Variations",
+                    "name": "variations",
+                    "aria-label": "",
+                    "type": "repeater",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "layout": "row",
+                    "min": 0,
+                    "max": 0,
+                    "collapsed": "",
+                    "button_label": "Add Variation",
+                    "rows_per_page": 20,
+                    "parent_repeater": "field_642c0bdbf62bb",
+                    "sub_fields": [
+                        {
+                            "key": "field_642c184840ce3",
+                            "label": "Style",
+                            "name": "style",
+                            "aria-label": "",
+                            "type": "select",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "choices": {
+                                "normal": "Normal",
+                                "italic": "Italic"
+                            },
+                            "default_value": false,
+                            "return_format": "value",
+                            "multiple": 0,
+                            "allow_null": 0,
+                            "ui": 0,
+                            "ajax": 0,
+                            "placeholder": "",
+                            "parent_repeater": "field_642c184840ce2"
+                        },
+                        {
+                            "key": "field_642c184840ce4",
+                            "label": "Weight",
+                            "name": "weight",
+                            "aria-label": "",
+                            "type": "select",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "choices": {
+                                "normal": "Normal",
+                                "bold": "Bold"
+                            },
+                            "default_value": false,
+                            "return_format": "value",
+                            "multiple": 0,
+                            "allow_null": 0,
+                            "ui": 0,
+                            "ajax": 0,
+                            "placeholder": "",
+                            "parent_repeater": "field_642c184840ce2"
+                        },
+                        {
+                            "key": "field_642c184840ce5",
+                            "label": "WOFF",
+                            "name": "woff",
+                            "aria-label": "",
+                            "type": "file",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "return_format": "url",
+                            "library": "all",
+                            "min_size": "",
+                            "max_size": "",
+                            "mime_types": "woff",
+                            "parent_repeater": "field_642c184840ce2"
+                        },
+                        {
+                            "key": "field_642c184840ce6",
+                            "label": "WOFF2",
+                            "name": "woff2",
+                            "aria-label": "",
+                            "type": "file",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "return_format": "url",
+                            "library": "all",
+                            "min_size": "",
+                            "max_size": "",
+                            "mime_types": "woff2",
+                            "parent_repeater": "field_642c184840ce2"
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "options_page",
+                "operator": "==",
+                "value": "acf-options-styles"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "modified": 1680781712
+}
