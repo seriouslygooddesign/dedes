@@ -1,4 +1,4 @@
-# How to use Dedes theme
+# How to use Dedes theme 
 
 ## 1. Install
 
