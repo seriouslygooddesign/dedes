@@ -1,4 +1,4 @@
-# How to use Srsly theme
+# How to use Dedes theme
 
 ## 1. Install
 
