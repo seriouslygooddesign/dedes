@@ -113,8 +113,8 @@ function core_scripts()
 
 
 	//Core Files
-	wp_enqueue_style('main', get_template_directory_uri() . '/dist/main/main.css', array(), '1.0.0');
-	wp_enqueue_script('core-defer-main', get_template_directory_uri() . '/dist/main/main.js', array(), '1.0.0');
+	wp_enqueue_style('main', get_template_directory_uri() . '/dist/main/main.css', array(), '1.0.1');
+	wp_enqueue_script('core-defer-main', get_template_directory_uri() . '/dist/main/main.js', array(), '1.0.1');
 
 	//Swiper
 	if (have_rows('content_blocks')) {
