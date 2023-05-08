@@ -19,6 +19,7 @@ $sites = get_sites(array(
             restore_current_blog();
 
             if (!$hide_site) :
+                
                 $card_args = array(
                     'image' => $site_image,
                     'title' => $site_name,
