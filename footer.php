@@ -24,19 +24,17 @@
 			$hide_site = get_field('hide_site', 'options');
 			restore_current_blog();
 
-			return $count + (!$hide_site ? 1 : 0);
+			return $count + !$hide_site;
 		}, 0);
-
-		if (count($sites) > 0 && $visible_sites_count > 0) {
-			$accordion_args = [
-				'total' => 1,
-				'label_class' => false,
-				'content_class' => 'container',
-				'title' => 'Discover Dedes Websites',
-				'text' => do_shortcode('[dedes-sites]'),
-			];
-			get_template_part('components/accordion', null, $accordion_args);
-		}
+		
+		$accordion_args = [
+			'total' => $visible_sites_count,
+			'label_class' => false,
+			'content_class' => 'container',
+			'title' => 'Discover Dedes Websites',
+			'text' => do_shortcode('[dedes-sites]'),
+		];
+		get_template_part('components/accordion', null, $accordion_args);
 	}
 	?>
 
