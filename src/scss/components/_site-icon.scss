@@ -8,8 +8,23 @@
   &--close {
     @include mask-icon("close");
   }
+  &--left {
+    rotate: 90deg;
+  }
+  &--right {
+    rotate: -90deg;
+  }
+  &--arrow {
+    flex: 0 0 auto;
+    rotate: -45deg;
+    transition: rotate var(--transition);
+    vertical-align: middle;
+    a:hover & {
+      rotate: 0deg;
+    }
+  }
   &-rounded {
-    background: var(--color-surface);
+    background: var(--color-primary);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -18,10 +33,10 @@
     flex: 0 0 auto;
     border-radius: 100%;
     transition: background-color var(--transition), color var(--transition);
+    color: var(--color-white);
     &:hover,
     a:hover & {
-      color: var(--color-white);
-      background: var(--color-primary);
+      background: var(--color-button-background-hover);
     }
   }
 }

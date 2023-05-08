@@ -1,29 +1,26 @@
 <?php
+$post_type = 'event';
+
 $loop = get_posts([
-    'post_type' => 'event',
-    'posts_per_page' => -1
+    'post_type' => $post_type,
+    'posts_per_page' => 4
 ]);
+
+$loop = get_sub_field('type') == 'select' ? get_sub_field($post_type) : $loop;
+
+$event_args = [
+    'loop' => $loop
+];
+
 if ($loop) : ?>
     <?php
     $block_args = [
         'modifier' => basename(__FILE__, '.php'),
     ];
     get_template_part('components/block', 'start', $block_args);
-    ?>
-    <div class="container text-center" data-animate>
-        <h2>Events</h2>
-        <div class="row g-3 justify-content-center row-cols-1 rows-cols-sm-2 row-cols-md-3">
-            <?php
-            foreach ($loop as $post) :
-                setup_postdata($post); ?>
-                <div class="col">
-                    <?php get_template_part('components/post'); ?>
-                </div>
-            <?php
-            endforeach;
-            wp_reset_postdata(); ?>
-        </div>
-    </div>
-    <?php
-    get_template_part('components/block', 'end'); ?>
-<?php endif;
+
+    get_template_part('components/events', null, $event_args);
+
+    get_template_part('components/block', 'end');
+
+endif;

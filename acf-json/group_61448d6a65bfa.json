@@ -43,10 +43,10 @@
         },
         {
             "key": "field_61448da94ad0e",
-            "label": "Gallery",
-            "name": "gallery",
+            "label": "",
+            "name": "galleries",
             "aria-label": "",
-            "type": "gallery",
+            "type": "repeater",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -55,19 +55,65 @@
                 "class": "",
                 "id": ""
             },
-            "return_format": "array",
-            "preview_size": "medium",
-            "insert": "append",
-            "library": "all",
-            "min": "",
-            "max": "",
-            "min_width": "",
-            "min_height": "",
-            "min_size": "",
-            "max_width": "",
-            "max_height": "",
-            "max_size": "",
-            "mime_types": ""
+            "layout": "table",
+            "pagination": 0,
+            "min": 1,
+            "max": 0,
+            "collapsed": "",
+            "button_label": "Add Gallery",
+            "rows_per_page": 20,
+            "sub_fields": [
+                {
+                    "key": "field_643e5591d10ff",
+                    "label": "Gallery Name",
+                    "name": "title",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "15",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "parent_repeater": "field_61448da94ad0e"
+                },
+                {
+                    "key": "field_643e5573d10fe",
+                    "label": "Gallery",
+                    "name": "gallery",
+                    "aria-label": "",
+                    "type": "gallery",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "return_format": "array",
+                    "library": "all",
+                    "min": "",
+                    "max": "",
+                    "min_width": "",
+                    "min_height": "",
+                    "min_size": "",
+                    "max_width": "",
+                    "max_height": "",
+                    "max_size": "",
+                    "mime_types": "",
+                    "insert": "append",
+                    "preview_size": "thumbnail",
+                    "parent_repeater": "field_61448da94ad0e"
+                }
+            ]
         },
         {
             "key": "field_62b06402eef71",
@@ -151,5 +197,5 @@
     "active": false,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1680780266
+    "modified": 1681807640
 }

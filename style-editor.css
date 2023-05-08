@@ -55,7 +55,8 @@ hr {
 }
 
 h1,h2,h3,h4,h5,h6 {
-  margin: 1.5rem 0;
+  margin: 1.2rem 0;
+  font-family: serif;
 }
 
 .color-text-primary {
@@ -87,4 +88,17 @@ h5, .h5{
 }
 h6, .h6 {
   font-size: 20px;
+}
+
+.text-indent {
+  padding-left: 40px;
+}
+
+.site-subtitle {
+  color: var(--color-primary);
+  font-family: serif;
+  text-decoration: underline;
+  text-underline-offset: 20%;
+  text-decoration-thickness: 1px;
+  text-decoration-color: currentColor;
 }

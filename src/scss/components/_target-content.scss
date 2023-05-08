@@ -1,0 +1,10 @@
+.target-content {
+  &__content:not(:first-child) {
+    padding-top: var(--spacer-5);
+  }
+  &__buttons {
+    position: sticky;
+    top: calc(var(--header-height) - 1px);
+    background-color: var(--color-body);
+  }
+}

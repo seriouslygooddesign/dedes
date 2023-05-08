@@ -82,6 +82,17 @@ function fb_mce_before_init($settings)
             'classes' => 'button',
         ),
         array(
+            'title' => 'Subtitle',
+            'selector' => 'p',
+            'classes' => 'site-subtitle',
+        ),
+        array(
+            'title' => 'Text Indent',
+            'block' => 'div',
+            'wrapper' => true,
+            'classes' => 'text-indent',
+        ),
+        array(
             'title' => 'Button Styles',
             'items' => array(
                 array(

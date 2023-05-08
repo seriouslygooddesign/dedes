@@ -86,3 +86,75 @@
 .hstack {
   @include hstack;
 }
+
+.text-indent {
+  padding-left: var(--text-indent);
+}
+
+.site-subtitle {
+  color: var(--color-primary);
+  @include underline-base;
+  @include underline(false);
+}
+
+.custom-logo {
+  max-height: var(--header-height);
+  width: 100%;
+  padding: 0.3em 0;
+}
+
+.site-decor {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: var(--decor-width);
+  background: var(--color-primary);
+  opacity: 0.8;
+  border-radius: 50%;
+  aspect-ratio: 1;
+  translate: -50% -50%;
+  transition: width calc(var(--transition-duration) * 1.4) var(--transition-timing-function);
+  a:hover & {
+    width: 150%;
+  }
+}
+
+.banner-decor {
+  padding: 20% 10% 10%;
+  background: var(--color-surface-solid);
+  border-radius: 100rem 100rem 0 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  aspect-ratio: 2/1;
+  margin: 0 auto;
+  @include bp(md) {
+    padding: 10% 10% 5%;
+    max-width: 70%;
+  }
+}
+
+.uppercase {
+  text-transform: uppercase;
+}
+
+.search {
+  &-form {
+    display: flex;
+    flex-wrap: wrap;
+    label {
+      flex: 1 0 auto;
+    }
+  }
+  &-submit {
+    @extend .button;
+  }
+}
+
+.simpleParallax {
+  @include stretch;
+}
+
+.img-parallax {
+  transform: scale(1.5);
+}

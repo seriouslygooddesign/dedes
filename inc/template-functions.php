@@ -189,3 +189,15 @@ function get_core_column_width($width = 'default', $breakpoint = 'medium')
     $breakpoint_class = $breakpoint_class !== 'sm' ? "-$breakpoint_class" : '';
     return $width === 'default' ? "col$breakpoint_class" : "col$breakpoint_class-$width";
 }
+
+function overlay_menu_toggle_button($label, $icon)
+{
+    ob_start();
+?>
+    <button type="button" role="button" class="overlay-menu-toggle" aria-label="<?php echo $label; ?>" data-overlay-menu-toggle>
+        <?php get_template_part('components/site-icon', null, ['icon' => $icon, 'class' => 'overlay-menu-toggle__icon']); ?>
+        <span class="overlay-menu-toggle__label"><?php echo $label; ?></span>
+    </button>
+<?php
+    return ob_get_clean();
+}

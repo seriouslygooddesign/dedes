@@ -1,34 +1,50 @@
 .gallery {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 0.5rem;
-  @include bp(md) {
-    grid-template-columns: repeat(3, 1fr);
+  gap: var(--spacer-element);
+  grid-template-columns: 3fr 2fr 3fr 2fr;
+  grid-auto-rows: minmax(0, 23vw);
+  grid-auto-flow: dense;
+
+  > a {
+    grid-column: span 2;
+    @include bp(md, max) {
+      &:nth-child(2n + 1) {
+        grid-row: span 2;
+      }
+    }
+    @include bp(md) {
+      &:nth-child(5n + 2) {
+        grid-row: span 2;
+      }
+      &:nth-child(5n + 3),
+      &:nth-child(6n + 4) {
+        grid-column: span 1;
+      }
+      &:last-child {
+        grid-column: span 1;
+        grid-row: span 1;
+      }
+    }
   }
-  @include bp(lg) {
-    &-columns-4,
-    &-columns-6,
-    &-columns-8 {
-      grid-template-columns: repeat(4, 1fr);
-    }
-    &-columns-5,
-    &-columns-7,
-    &-columns-9 {
-      grid-template-columns: repeat(5, 1fr);
+  .galleries & {
+    opacity: 1;
+    visibility: visible;
+    transition: opacity var(--transition);
+    &:not(.active) {
+      opacity: 0;
+      visibility: hidden;
+      position: absolute;
+      z-index: -100;
+      top: 0;
+      left: 0;
     }
   }
-  @include bp(xl) {
-    &-columns-6 {
-      grid-template-columns: repeat(6, 1fr);
-    }
-    &-columns-7 {
-      grid-template-columns: repeat(7, 1fr);
-    }
-    &-columns-8 {
-      grid-template-columns: repeat(8, 1fr);
-    }
-    &-columns-9 {
-      grid-template-columns: repeat(9, 1fr);
-    }
+  &__images {
+    position: relative;
+    padding: 0 var(--spacer-element);
+  }
+  img {
+    height: 100%;
+    width: 100%;
   }
 }

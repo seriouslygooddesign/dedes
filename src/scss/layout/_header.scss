@@ -1,17 +1,14 @@
 $overlay-menu-breakpoint: lg;
 
 .site-header {
-  background: var(--color-body);
+  background: var(--color-surface-solid);
   position: sticky;
   top: 0;
+  bottom: 0;
   left: 0;
   z-index: 1500;
-  &::after {
-    content: '';
-    @include stretch;
-    background: var(--color-surface);
-    z-index: -1;
-  }
+  display: flex;
+  align-items: center;
   &-space {
     min-height: var(--header-height);
   }
@@ -31,7 +28,7 @@ $overlay-menu-breakpoint: lg;
   align-items: center;
   gap: var(--spacer-element);
 
-  .current-menu-item {
+  .current-menu-item, .current-menu-parent, .current-menu-ancestor {
     > a,
     > .dropdown-toggle {
       color: var(--color-primary);
@@ -52,7 +49,9 @@ $overlay-menu-breakpoint: lg;
   > li > a {
     padding: var(--spacer-element-sm) 0;
   }
-
+  a:hover {
+    color: var(--color-primary);
+  }
   a {
     display: flex;
     align-items: center;
@@ -67,8 +66,7 @@ $overlay-menu-breakpoint: lg;
     @include bp($overlay-menu-breakpoint) {
       .dropdown-toggle {
         pointer-events: none;
-        padding: var(--spacer-element-sm) var(--spacer-element)
-          var(--spacer-element-sm) calc(var(--spacer-element) / 4);
+        padding: var(--spacer-element-sm) var(--spacer-element) var(--spacer-element-sm) calc(var(--spacer-element) / 4);
       }
 
       .dropdown-responsive {
@@ -84,6 +82,9 @@ $overlay-menu-breakpoint: lg;
         .dropdown-toggle__icon {
           transform: rotate(-90deg);
         }
+        a {
+          text-decoration: none;
+        }
       }
 
       li:hover > .dropdown-responsive {
@@ -98,9 +99,12 @@ $overlay-menu-breakpoint: lg;
 
     //Mobile - Start
     @include bp($overlay-menu-breakpoint, max) {
-      gap: var(--spacer-element-sm);
+      gap: 0;
       align-items: stretch;
       flex-direction: column;
+      margin: 1.8em 0;
+      font-size: 1.25em;
+
       .dropdown-responsive {
         width: 100%;
         a {
@@ -111,9 +115,11 @@ $overlay-menu-breakpoint: lg;
       li {
         flex-wrap: wrap;
       }
-
+      a {
+        text-decoration: none;
+      }
       > li > a {
-        font-size: 1.25em;
+        font-size: 1.4em;
       }
 
       .dropdown-toggle {
@@ -145,10 +151,9 @@ $overlay-menu-breakpoint: lg;
 
 .overlay-menu-toggle {
   min-height: var(--header-height);
+  text-transform: capitalize;
   line-height: 1;
-  font-weight: bold;
-  padding: 0 var(--container-padding) 0 0;
-  margin-right: calc(var(--container-padding) * -1);
+  padding: 0 var(--container-padding) 0;
   display: flex;
   align-items: center;
   &,
@@ -159,6 +164,9 @@ $overlay-menu-breakpoint: lg;
     border: none;
   }
   &__icon {
+    .has-logo & {
+      order: 1;
+    }
     font-size: 1.5em;
   }
 }
@@ -168,19 +176,35 @@ $overlay-menu-breakpoint: lg;
   .overlay-menu {
     &__header {
       display: flex;
-      justify-content: flex-end;
     }
-    padding: 0 var(--container-padding) var(--container-padding);
+    &__wrap {
+      padding: 0 var(--container-padding) var(--container-padding);
+      margin: auto 0;
+      > :last-child {
+        margin-bottom: 0;
+      }
+    }
+    &--left {
+      left: 0;
+      transform: translateX(-100%);
+    }
+    &--right {
+      right: 0;
+      transform: translateX(100%);
+      .overlay-menu__header {
+        justify-content: flex-end;
+      }
+    }
     position: fixed;
+    display: flex;
+    flex-direction: column;
     top: 0;
-    right: 0;
     bottom: 0;
     z-index: 1000;
     overflow-y: auto;
     width: 85%;
     max-width: 30rem;
-    background: var(--color-white);
-    transform: translateX(100%);
+    background: var(--color-body);
     visibility: hidden;
     transition: transform var(--transition);
     &--visible,
@@ -189,6 +213,16 @@ $overlay-menu-breakpoint: lg;
     }
     &--visible {
       transform: translateX(0);
+    }
+  }
+}
+
+.cta-link {
+  flex: 0 0 auto;
+  .has-logo & {
+    display: none;
+    @include bp(md) {
+      display: block;
     }
   }
 }

@@ -7,9 +7,12 @@ body {
   color: var(--color-text);
   font-family: var(--ff-primary, sans-serif);
   line-height: var(--line-height);
-  font-size: 0.875em;
-  @include bp(xl) {
-    font-size: 1rem;
+  font-size: var(--fs-sm);
+  @include bp(md) {
+    font-size: var(--fs-base);
+  }
+  @include bp(xxl) {
+    font-size: var(--fs-lg);
   }
 }
 
@@ -39,7 +42,10 @@ hr,
 :focus-within {
   scroll-behavior: smooth;
 }
-
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: var(--header-height);
+}
 *,
 ::before,
 ::after {
@@ -70,7 +76,7 @@ template,
 }
 
 hr {
-  background-color: var(--color-border);
+  background-color: var(--color-text);
   border: 0;
   height: var(--border-width);
   overflow: visible;

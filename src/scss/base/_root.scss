@@ -8,10 +8,10 @@
   --heading-font-family: var(--ff-primary);
 
   //Generate --h variables from h6 to h2
-  $min: 18px;
-  $max: 20px;
+  $min: 20px;
+  $max: 22px;
   $min-scale: 1.1;
-  $max-scale: 1.2;
+  $max-scale: 1.22;
   $i: 6;
   @while $i >= 2 {
     --h#{$i}: #{clamp-smart($min, $max)};
@@ -19,10 +19,11 @@
     $max: $max * $max-scale;
     $i: $i - 1;
   }
-  --h1: #{clamp-smart(40px, 72px)};
+  --h1: #{clamp-smart(36px, 66px)};
 
   --fs-xs: 0.75em;
   --fs-sm: 0.875em;
+  --fs-base: 1em;
   --fs-lg: 1.125em;
   --fs-xl: 1.25em;
 
@@ -30,10 +31,13 @@
   Structure Variables
   */
 
-  --header-height: #{clamp-smart(54px, 75px, 768px, 1900px)};
+  --header-height: #{clamp-smart(48px, 75px, 768px, 1900px)};
 
-  --spacer-element: #{clamp-smart(14px, 18px)};
+  --text-indent: #{clamp-smart(30px, 60px)};
+
+  --spacer-element: #{clamp-smart(16px, 23px)};
   --spacer-element-sm: calc(var(--spacer-element) / 2);
+  --spacer-element-md: #{clamp-smart(16px, 23px * 2)};
 
   --spacer-section: #{clamp-smart(30px, 70px)};
 
@@ -44,8 +48,13 @@
   --spacer-4: calc(var(--spacer-base) * 1.33);
   --spacer-5: calc(var(--spacer-base) * 1.66);
 
-  --container-width: 1300px;
+  --container-width: 1440px;
   --container-padding: #{clamp-smart(16px, 38px)};
+
+  --decor-width: 70%;
+  @include bp(md) {
+    --decor-width: 50%;
+  }
 
   --input-height: 3em;
   --input-x-padding: 1.25em;

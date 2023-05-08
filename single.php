@@ -10,7 +10,7 @@ while (have_posts()) :
 			$cats = get_core_categories();
 			$tags = get_core_tags();
 			if ($cats || $tags) {
-				echo "<hr>$cats$tags";
+				echo "<br><hr>$cats$tags";
 			}
 			?>
 		</div>
@@ -21,9 +21,10 @@ while (have_posts()) :
 	if (empty($next_post)) {
 		$first_post = get_posts(array(
 			'post_type' => get_post_type(),
-			'numberposts' => 1
+			'numberposts' => 1,
+			'exclude' => get_the_ID()
 		));
-		$next_post = $first_post[0];
+		$next_post = $first_post[0] ?? null;
 	}
 	if ($next_post) : ?>
 		<div class="color-background-surface spacer-section-py" data-animate>
@@ -56,16 +57,14 @@ $related = get_posts(
 	)
 );
 if ($related) : ?>
-	<div class="container spacer-section-py">
-		<h2 class="text-center" data-animate>Other <a href="<?= esc_url(get_permalink(get_option('page_for_posts'))); ?>">News</a></h2>
-		<div class="row g-3 row-cols-1 row-cols-sm-2 row-cols-lg-4">
+	<div class="overflow-hidden">
+		<div class="container spacer-section-py">
+			<h2 class="text-center" data-animate>Other <a href="<?= esc_url(get_permalink(get_option('page_for_posts'))); ?>">News</a></h2>
 			<?php
 			foreach ($related as $post) :
 				setup_postdata($post);
 			?>
-				<div class="col">
-					<?php get_template_part('components/post'); ?>
-				</div>
+				<?php get_template_part('components/post'); ?>
 			<?php endforeach;
 			wp_reset_postdata(); ?>
 		</div>

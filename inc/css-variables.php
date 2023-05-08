@@ -101,6 +101,7 @@ function css_variables()
         --color-secondary-rgb: $color_secondary_rgb;
         --color-secondary: rgb(var(--color-secondary-rgb));
         --color-surface: $color_surface; 
+        --color-surface-solid: linear-gradient(var(--color-surface), var(--color-surface)), linear-gradient(var(--color-body), var(--color-body));
         --color-body: $color_body;
         --color-text-rgb: $color_text_rgb;
         --color-text: rgb(var(--color-text-rgb));
@@ -109,9 +110,10 @@ function css_variables()
         --color-white-muted: rgba(255, 255, 255, 0.6);
         --color-error: #f44336;
         --color-success: #0f834d;
-        --color-curtain: rgba(0,0,0,0.1);
+        --color-curtain: var(--color-surface);
         --color-link: var(--color-primary);
         --color-button-background: var(--color-primary);
+        --color-button-background-hover: var(--color-text);
         --color-button-border: var(--color-primary);
         --color-button-text: var(--color-white);
         --color-border: rgba(var(--color-text-rgb),0.2);

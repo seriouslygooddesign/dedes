@@ -11,7 +11,8 @@ $block_name = CONTENT_BLOCK_CLASS . ' ' . CONTENT_BLOCK_MODIFIER . basename(__FI
 $block_class = get_core_filter_implode([
     $block_name,
     'color-text-white',
-    'color-background-dark',
+    'color-background-surface',
+    ' overflow-hidden',
     $height
 ]);
 ?>
@@ -24,7 +25,22 @@ $block_class = get_core_filter_implode([
     ];
     get_template_part('components/background-image', null, $img_args);
     ?>
+    <div class="site-decor"></div>
     <div class="<?= CONTENT_BLOCK_CONTENT; ?> container spacer-section-py text-center" data-animate>
-        <h1><?= wp_kses_post($title); ?></h1>
+        <?php get_template_part('components/breadcrumbs') ?>
+        <h1 class="uppercase"><?= wp_kses_post($title); ?></h1>
+        <?php
+        $file = get_field('file');
+        if ($file && is_single()) :
+            $url = $file['url'];
+            $type = $file['subtype'];
+        ?>
+            <a class="button button--outline uppercase" href="<?php echo esc_attr($url); ?>" download="">Download <?php echo esc_html($type); ?></a>
+        <?php endif; ?>
+        <?php
+        if (is_singular(['post', 'event'])) {
+            echo get_the_date();
+        }
+        ?>
     </div>
 </div>

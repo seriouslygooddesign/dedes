@@ -87,7 +87,7 @@ function core_widgets_init()
 			array(
 				'name'          => esc_html__("Footer Widget $register_footer_widget_counter", 'core'),
 				'id'            => "footer-sidebar-$register_footer_widget_counter",
-				'before_sidebar' => '<div id="%1$s" class="col-md">',
+				'before_sidebar' => '<div id="%1$s">',
 				'after_sidebar' => '</div>',
 				'before_widget' => '<div class="widget %2$s">',
 				'after_widget'  => '</div>',
@@ -100,9 +100,15 @@ function core_widgets_init()
 }
 add_action('widgets_init', 'core_widgets_init');
 
+
 /**
  * Enqueue scripts and styles.
  */
+function swiper_js_css()
+{
+	wp_enqueue_style('swiper', get_template_directory_uri() . '/dist/swiper/swiper.css', array(), '1.0.3');
+	wp_enqueue_script('core-defer-swiper', get_template_directory_uri() . '/dist/swiper/swiper.js', array(), '1.0.3');
+}
 function core_scripts()
 {
 	//Dequeue
@@ -113,18 +119,23 @@ function core_scripts()
 
 
 	//Core Files
-	wp_enqueue_style('main', get_template_directory_uri() . '/dist/main/main.css', array(), '1.0.1');
-	wp_enqueue_script('core-defer-main', get_template_directory_uri() . '/dist/main/main.js', array(), '1.0.1');
+	wp_enqueue_style('main', get_template_directory_uri() . '/dist/main/main.css', array(), '1.0.2');
+	wp_enqueue_script('core-defer-main', get_template_directory_uri() . '/dist/main/main.js', array(), '1.0.2');
 
-	//Swiper
-	if (have_rows('content_blocks')) {
-		while (have_rows('content_blocks')) {
-			the_row();
-			if (get_row_layout() === 'gallery' && get_core_hide_block()) {
-				wp_enqueue_style('swiper', get_template_directory_uri() . '/dist/swiper/swiper.css', array(), '1.0.1');
-				wp_enqueue_script('core-defer-swiper', get_template_directory_uri() . '/dist/swiper/swiper.js', array(), '1.0.1');
-			}
-		}
+
+	// Swiper
+	global $post;
+	global $wpdb;
+	$post_id = $post->ID??null;
+	$post_meta_sql = "select * from $wpdb->postmeta where post_id = {$post_id} and meta_key not like '\_%' and meta_value like '%[gallery%'";
+	$post_meta_results = $wpdb->get_results($post_meta_sql);
+	// run the has_shortcode() as usual, works for all the_content() cases
+	if (is_a($post, 'WP_Post') && has_shortcode($post->post_content, 'gallery')) {
+		swiper_js_css();
+	}
+	// for shortcodes in post_meta
+	else if (is_a($post, 'WP_Post') && !empty($post_meta_results)) {
+		swiper_js_css();
 	}
 }
 add_action('wp_enqueue_scripts', 'core_scripts');

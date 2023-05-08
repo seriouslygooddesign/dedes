@@ -1,6 +1,6 @@
 .social-icons {
   @include reset-list;
-  display: flex;
+  display: inline-flex;
   align-items: center;
   flex-wrap: wrap;
   gap: var(--spacer-element-sm);

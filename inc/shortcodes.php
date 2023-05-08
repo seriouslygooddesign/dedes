@@ -48,10 +48,23 @@ add_shortcode('cta-link', 'cta_link');
 function cta_link()
 {
     $link = get_field('cta_link', 'option');
+    ob_start();
+    get_template_part('components/site-icon', null, ['icon' => 'arrow', 'class'=>'site-icon--arrow']);
+    $icon = ob_get_clean();
+
     if ($link) {
         $link_url = esc_url($link['url']);
         $link_title = esc_html($link['title']);
         $link_target = $link['target'] ? esc_attr($link['target']) : '_self';
-        return "<a class='button' href='$link_url' target='$link_target'>$link_title</a>";
+        return "<a class='button' href='$link_url' target='$link_target'>$link_title$icon</a>";
     }
 }
+
+add_shortcode( 'dedes-sites', 'dedes_sites' );
+function dedes_sites() {
+    ob_start();
+    get_template_part('components/sites');
+    return ob_get_clean();
+}
+
+

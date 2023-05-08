@@ -5,19 +5,17 @@ $page_header_args = [
 ];
 get_template_part('components/page-header', null, $page_header_args);
 ?>
-<div class="container spacer-section-py">
-    <?php if (have_posts()) : ?>
-        <div class="row g-3 row-cols-1 row-cols-sm-2 row-cols-md-3">
+<div class="overflow-hidden">
+    <div class="container spacer-section-py">
+        <?php if (have_posts()) : ?>
             <?php while (have_posts()) : the_post(); ?>
-                <div class="col">
-                    <?php get_template_part('components/post'); ?>
-                </div>
+                <?php get_template_part('components/post'); ?>
             <?php endwhile; ?>
-        </div>
-        <?php get_template_part('components/pagination'); ?>
-    <?php else : ?>
-        <h2>Nothing Found</h2>
-    <?php endif; ?>
+            <?php get_template_part('components/pagination'); ?>
+        <?php else : ?>
+            <h2>Nothing Found</h2>
+        <?php endif; ?>
+    </div>
 </div>
 <?php
 get_footer();

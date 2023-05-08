@@ -1,0 +1,12 @@
+.breadcrumbs {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: .3em;
+    margin: var(--spacer-element) 0;
+    font-size: var(--fs-sm);
+    a {
+        color: currentColor;
+    }
+}

@@ -1,2 +1,11 @@
 $themeColor: var(--color-primary);
 @import "swiper/scss";
+
+.swiper {
+    &-nav {
+        gap: var(--spacer-element);
+    }
+    img {
+        width: 100%;
+    }
+}

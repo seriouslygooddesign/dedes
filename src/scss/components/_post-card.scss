@@ -1,0 +1,62 @@
+$link-width: 3em;
+.post-card {
+    position: relative;
+    transition: border-color var(--transition), color var(--transition);
+    padding: var(--spacer-element-md) 0;
+    display: block;
+    text-decoration: none;
+    &:not(:hover) {
+        color: currentColor;
+    }
+    &::after,
+    &::before {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        translate: -50%;
+        transition: height var(--transition), width var(--transition);
+        z-index: -1;
+    }
+    &::after {
+        height: 0;
+        width: 100vw;
+        background: var(--color-surface);
+    }
+    &::before {
+        height: 1px;
+        width: 100%;
+        opacity: .2;
+        background: var(--color-text);
+    }
+    &:hover {
+        &::after {
+            height: 100%;
+        }
+        &::before {
+            width: 100vw;
+        }
+    }
+    &__title {
+        text-transform: uppercase;
+    }
+    &__content {
+        display: flex;
+        flex-direction: column;
+        gap: var(--spacer-element-sm);
+        padding: var(--spacer-element) 0;
+        color: var(--color-text);
+        > * {
+            margin: 0;
+        }
+    }
+    &__date {
+        @include bp(md) {
+            order: -1;
+        }
+    }
+    img {
+        aspect-ratio: 4/3;
+        width: 100%;
+    }
+}

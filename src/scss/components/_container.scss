@@ -5,6 +5,7 @@
   margin-right: auto;
   max-width: var(--container-width);
   width: 100%;
+
   &-xs {
     @extend .container;
     max-width: calc(var(--container-width) * 0.4);
@@ -28,5 +29,12 @@
   &-fluid {
     @extend .container;
     max-width: none;
+  }
+
+  &--panel {
+    @include bp(md) {
+      padding-left: var(--spacer-section);
+      padding-right: var(--spacer-section);
+    }
   }
 }

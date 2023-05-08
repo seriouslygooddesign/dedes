@@ -4,16 +4,20 @@
   text-decoration-thickness: var(--border-width);
 }
 
-@mixin underline {
+@mixin underline($hover: true) {
   text-decoration-color: currentColor;
-  &:hover {
-    text-decoration-color: transparent;
+  @if $hover {
+    &:hover {
+      text-decoration-color: transparent;
+    }
   }
 }
 
-@mixin underline-reverse {
+@mixin underline-reverse($hover: true) {
   text-decoration-color: transparent;
-  &:hover {
-    text-decoration-color: currentColor;
+  @if $hover {
+    &:hover {
+      text-decoration-color: currentColor;
+    }
   }
 }

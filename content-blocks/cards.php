@@ -7,13 +7,13 @@ get_template_part('components/block', 'start', $block_args);
 <div class="container">
 	<?php get_template_part('components/block', 'header'); ?>
 	<?php if (have_rows('cards')) : ?>
-		<div class="row justify-content-center g-2 row-cols-md-3">
+		<div class="row justify-content-center g-3 row-cols-md-3">
 			<?php while (have_rows('cards')) : the_row(); ?>
 				<div class="col-12" data-animate>
 					<?php
 					$link = get_sub_field('link');
 					$card_args = array(
-						'image' => get_sub_field('image'),
+						'image' => wp_get_attachment_image(get_sub_field('image'), 'small', false, ['class' => 'stretch']),
 						'title' => get_sub_field('title'),
 						'content' => get_sub_field('content'),
 						'link' => $link ? [

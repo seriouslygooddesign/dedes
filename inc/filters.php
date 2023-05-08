@@ -30,21 +30,29 @@ add_filter('get_the_archive_title', 'my_theme_archive_title');
 
 
 //Read More
-function new_excerpt_more($more)
-{
-    return '...<br><a href="' . get_permalink(get_the_ID()) . '"><b>Read More</b></a>';
+function new_excerpt_length($length) {
+    return 25;
+}
+add_filter('excerpt_length', 'new_excerpt_length', 999);
+
+function new_excerpt_more($more) {
+    return '...';
 }
 add_filter('excerpt_more', 'new_excerpt_more');
 
-// Function for defer parsing of javascripts, for loading the website faster
-function defer_parsing_of_js($url)
+
+// Add custom attributes to the script tag
+function add_attributes_to_script_tag($url)
 {
     if (strpos($url, 'core-defer')) {
-        return str_replace(' src', ' defer src', $url);
+        $url = str_replace(' src', ' defer src', $url);
+    }
+    if (strpos($url, 'core-module')) {
+        $url = str_replace(' src', ' type="module" src', $url);
     }
     return $url;
 }
-add_filter('script_loader_tag', 'defer_parsing_of_js', 10);
+add_filter('script_loader_tag', 'add_attributes_to_script_tag', 10);
 
 
 // Change the button text after clicking it
@@ -77,3 +85,64 @@ function add_custom_upload_mimes($existing_mimes)
     $existing_mimes['woff2'] = 'application/x-font-woff2';
     return $existing_mimes;
 }
+
+//Add Custom Attributes To Gallery Links
+function add_custom_attributes_to_gallery_links($link_html, $id, $size)
+{
+    $full_img_object = wp_get_attachment_image_src($id, '1536x1536');
+    $full_img_src = $full_img_object[0];
+    $full_img_width = $full_img_object[1];
+    $full_img_height = $full_img_object[2];
+    $preview_img = wp_get_attachment_image($id, 'medium_large');
+
+    wp_enqueue_style('photoswipe', get_template_directory_uri() . '/src/static-plugins/photoswipe/photoswipe.css', array(), '1.1.4');
+    wp_enqueue_script('photoswipe-core-module', get_template_directory_uri() . '/src/static-plugins/photoswipe/photoswipe.js', array(), '1.1.4');
+
+    $link_html = "<a data-cropped='true' data-pswp-width='$full_img_width' data-pswp-height='$full_img_height' href='$full_img_src'>$preview_img</a>";
+    return $link_html;
+}
+
+add_filter('wp_get_attachment_link', 'add_custom_attributes_to_gallery_links', 10, 6);
+
+// Custom gallery
+add_filter('post_gallery', 'custom_gallery', 10, 2);
+function custom_gallery($output, $attr)
+{
+    $images = get_posts([
+        'post_type' => 'attachment',
+        'include' => $attr['ids'],
+        'orderby' => $attr['orderby'] ?? 'post__in'
+    ]);
+    if ($images) {
+
+        $columns = $attr['columns'] ?? 3;
+        $size = $attr['size'] ?? 'thumbnail';
+        $link = $attr['link'] ?? 'attachment';
+        $link_none = $link === 'none';
+
+        $output = "<div class='swiper swiper--center' data-swiper-gallery data-slides-per-view='$columns'><div class='swiper-wrapper'>";
+
+        foreach ($images as $image) {
+            $image_id = $image->ID;
+            $output .= "<div class='swiper-slide text-center'>";
+            if ($link_none) {
+                $output .= wp_get_attachment_image($image_id, $size);
+            } else {
+                $output .= wp_get_attachment_link($image_id, $size);
+            }
+            $output .= "</div>";
+        }
+
+        $output .= "</div>"; //swiper-wrapper
+        $output .= "<div class='text-center spacer-element'>";
+        ob_start();
+        get_template_part('components/slider-controls');
+        $slider_controls = ob_get_clean();
+        $output .= $slider_controls;
+        $output .= "</div>"; //text-center
+        $output .= "</div>"; //swiper
+    }
+
+    return $output;
+}
+

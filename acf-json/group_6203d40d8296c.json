@@ -3,11 +3,11 @@
     "title": "Block Header",
     "fields": [
         {
-            "key": "field_62b0648e66739",
-            "label": "Block Header",
-            "name": "block_header_show",
+            "key": "field_643fdaed28054",
+            "label": "",
+            "name": "block_header_group",
             "aria-label": "",
-            "type": "true_false",
+            "type": "group",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -16,11 +16,53 @@
                 "class": "",
                 "id": ""
             },
-            "message": "",
-            "default_value": 0,
-            "ui": 1,
-            "ui_on_text": "",
-            "ui_off_text": ""
+            "layout": "table",
+            "sub_fields": [
+                {
+                    "key": "field_62b0648e66739",
+                    "label": "Block Header",
+                    "name": "block_header_show",
+                    "aria-label": "",
+                    "type": "true_false",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "message": "",
+                    "default_value": 0,
+                    "ui": 1,
+                    "ui_on_text": "",
+                    "ui_off_text": ""
+                },
+                {
+                    "key": "field_643fd91f32899",
+                    "label": "Link",
+                    "name": "link",
+                    "aria-label": "",
+                    "type": "link",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_62b0648e66739",
+                                "operator": "==",
+                                "value": "1"
+                            }
+                        ]
+                    ],
+                    "wrapper": {
+                        "width": "30",
+                        "class": "",
+                        "id": ""
+                    },
+                    "return_format": "array"
+                }
+            ]
         },
         {
             "key": "field_6203d4162b831",
@@ -69,5 +111,5 @@
     "active": false,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1680780237
+    "modified": 1681917892
 }

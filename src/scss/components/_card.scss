@@ -1,33 +1,48 @@
 .card {
   $self: &;
-  background-color: var(--color-white);
-  box-shadow: var(--shadow);
   color: inherit;
   height: 100%;
   display: flex;
   flex-direction: column;
   text-decoration: none;
-  &__content {
-    height: 100%;
+  text-align: center;
+  gap: var(--spacer-element-sm);
+  &__body {
     display: flex;
-    padding: var(--spacer-3);
     flex-direction: column;
-    gap: var(--spacer-element);
+    flex: 1 0 auto;
+    gap: var(--spacer-element-sm);
+  }
+  &__content {
+    padding: var(--spacer-element-sm) 0;
     > * {
       margin: 0;
     }
   }
+  &__header {
+    position: relative;
+    aspect-ratio: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--spacer-element);
+  }
+  &__title {
+    position: relative;
+    color: var(--color-white);
+  }
+  &__content + &__link {
+    background: var(--color-surface);
+  }
   &__link {
-    color: var(--color-primary);
-    font-weight: bold;
+    padding: var(--spacer-element-sm);
+    color: currentColor;
     margin-top: auto;
     display: flex;
     align-items: center;
-  }
-  &__icon {
-    opacity: 0;
-    font-size: 1.5em;
-    transition: opacity var(--transition);
+    justify-content: center;
+    text-transform: uppercase;
+    gap: var(--spacer-element-sm);
   }
   @at-root #{selector-append(a, &)} {
     &:hover {

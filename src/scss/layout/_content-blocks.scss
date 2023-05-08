@@ -21,4 +21,9 @@
       min-height: inherit;
     }
   }
+  &--page-header {
+    @include bp(md, max) {
+      --decor-width: 90%;
+    }
+  }
 }

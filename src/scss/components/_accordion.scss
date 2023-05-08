@@ -8,12 +8,21 @@
     padding: 0 var(--input-x-padding);
   }
   &__item {
+    .site-footer & {
+      background-color: transparent;
+    }
     background-color: var(--color-surface);
   }
 
   &__button {
     width: 100%;
+    text-transform: capitalize;
     &:not([aria-expanded="true"]) {
+      .site-footer & {
+        color: currentColor;
+        border-color: transparent;
+        background-color: var(--color-white);
+      }
       color: inherit;
       border-color: transparent;
       background-color: var(--color-surface);

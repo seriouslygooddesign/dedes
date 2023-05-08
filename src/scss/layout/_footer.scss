@@ -1,14 +1,36 @@
 .site-footer {
   a:not([class]) {
     display: inline-block;
+    &:not(:hover) {
+      color: currentColor;
+    }
+  }
+  &__widgets {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacer-element);
   }
   .menu {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacer-element) var(--spacer-5);
+    flex-wrap: wrap;
+    justify-content: center;
+    @include bp(md) {
+      flex-direction: row;
+    }
+    .sub-menu {
+      padding: 0;
+      font-size: 0.75em;
+    }
     @include reset-list;
     li {
-      margin-top: calc(var(--spacer-element) / 1.25);
+      margin: 0;
     }
     a {
       @include target-space;
+      font-size: 1.125em;
     }
     ul {
       list-style: none;

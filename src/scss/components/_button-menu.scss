@@ -1,0 +1,25 @@
+.button-menu {
+    margin: 2em 0;
+    padding: 1em var(--container-padding);
+    overflow-x: auto;
+    white-space: nowrap;
+    text-align: center;
+    @include bp(md, max) {
+        font-size: 0.75em;
+    }
+
+    .button {
+        &:not(:last-child) {
+            margin-right: var(--spacer-element-sm);
+        }
+        &:hover {
+            @include button-primary;
+        }
+        &:not(.active):not(:hover) {
+            @include button-surface;
+        }
+    }
+    .active {
+        pointer-events: none;
+    }
+}

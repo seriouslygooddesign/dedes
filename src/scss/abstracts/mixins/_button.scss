@@ -1,25 +1,40 @@
 @mixin button() {
   padding: 0 calc(var(--input-x-padding) * 1.4);
   min-height: var(--input-height);
-  border: var(--border-width) solid var(--color-button-border);
-  background: var(--color-button-background);
   display: inline-flex;
   justify-content: center;
   gap: var(--spacer-element-sm);
   align-items: center;
+  @include button-primary();
   text-decoration: none;
-  color: var(--color-button-text);
   cursor: pointer;
+  text-transform: uppercase;
   border-radius: 0;
   text-align: center;
-  text-transform: uppercase;
-  transition: border-color var(--transition), color var(--transition), background-color var(--transition);
+  transition: border-color var(--transition), color var(--transition), background var(--transition),
+    filter var(--transition);
 }
 
 @mixin button-outline {
   background: none;
   color: inherit;
   border-color: currentColor;
+}
+
+@mixin button-primary {
+  background: var(--color-button-background);
+  border: var(--border-width) solid var(--color-button-border);
+  color: var(--color-button-text);
+}
+
+@mixin button-surface {
+  background: var(--color-surface);
+  border-color: transparent;
+  color: inherit;
+}
+@mixin button-square {
+  padding: 0.5em;
+  min-width: var(--input-height);
 }
 
 @mixin button-white {
@@ -29,8 +44,7 @@
 }
 
 @mixin button-hover() {
-  background: var(--color-button-background);
-  border-color: var(--color-button-background);
+  background: var(--color-button-background-hover);
+  border-color: var(--color-button-background-hover);
   color: var(--color-white);
-  filter: saturate(150%);
 }

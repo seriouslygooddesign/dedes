@@ -13,4 +13,15 @@
   &--white {
     @include button-white;
   }
+  &--surface {
+    @include button-surface;
+  }
+  &--square {
+    @include button-square;
+  }
+  &--backgroundless:not(:hover):not(:focus) {
+    background-color: transparent;
+    color: inherit;
+    border-color: transparent;
+  }
 }

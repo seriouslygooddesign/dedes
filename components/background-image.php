@@ -16,13 +16,14 @@ if ($img_id) {
     }
 
     $img_args = [
-        'class' => 'stretch',
+        'class' => 'img-parallax stretch',
         'alt' => esc_attr($img_alt),
         'loading' => 'eager'
     ];
 
     $image = wp_get_attachment_image($img_id, '2048x2048', false, $img_args);
-    echo get_core_remove_width_height_attr($image);
+
+    echo '<div class="overflow-hidden stretch">' . get_core_remove_width_height_attr($image) . '</div>';
     if ($curtain) {
         get_template_part('components/curtain');
     }

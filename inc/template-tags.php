@@ -41,7 +41,7 @@ class Sub_Menu_Toggle extends Walker_Nav_Menu
 		ob_start();
 		get_template_part('components/site-icon', null, ['icon' => 'chevron', 'class' => 'dropdown-toggle__icon']);
 		$icon = ob_get_clean();
-		$output .= "<button role='button' class='dropdown-toggle' aria-label='Show Submenu'>$icon</button>\n<ul class='dropdown-responsive element-collapse'>\n";
+		$output .= "<button role='button' type='button' class='dropdown-toggle' aria-label='Show Submenu'>$icon</button>\n<ul class='dropdown-responsive element-collapse'>\n";
 	}
 	function end_lvl(&$output, $depth = 0, $args = array())
 	{
@@ -57,8 +57,8 @@ function core_pagination()
 	echo paginate_links(array(
 		'base' => str_replace($big, '%#%', get_pagenum_link($big)),
 		'format' => '?paged=%#%',
-		'prev_text' => 'Previous',
-		'next_text' => 'Next',
+		'prev_text' => '<span class="site-icon site-icon--chevron site-icon--left"></span>',
+		'next_text' => '<span class="site-icon site-icon--chevron site-icon--right"></span>',
 		'current' => max(1, get_query_var('paged')),
 		'total' => $wp_query->max_num_pages
 	));

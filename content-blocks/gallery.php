@@ -4,34 +4,34 @@ $block_args = [
 	'class' => 'overflow-hidden'
 ];
 get_template_part('components/block', 'start', $block_args);
-$gallery = get_sub_field('gallery');
-if ($gallery) : ?>
-	<?php get_template_part('components/block', 'header', ['class' => 'container']); ?>
-	<div class="swiper" data-swiper-gallery>
-		<div class="swiper-wrapper">
-			<?php foreach ($gallery as $item) : ?>
-				<div class="swiper-slide"><?= wp_get_attachment_image($item['ID'], 'large'); ?></div>
-			<?php endforeach; ?>
-		</div>
-		<div class="container">
-			<div class="row align-items-center justify-content-center spacer-element">
-				<div class="col-auto">
-					<button role="button" aria-label="Previous slide" class="button button--outline swiper-button-prev">
-						<?php get_template_part('components/site-icon', null, ['icon' => 'chevron', 'class' => 'rotate-90']); ?>
-					</button>
-				</div>
-				<div class="col-auto">
-					<div class="swiper-pagination text-center"></div>
-				</div>
-				<div class="col-auto">
-					<button role="button" aria-label="Next slide" class="button button--outline swiper-button-next">
-						<?php get_template_part('components/site-icon', null, ['icon' => 'chevron', 'class' => 'rotate-270']); ?>
-					</button>
-				</div>
+get_template_part('components/block', 'header', ['class' => 'container']);
+
+$galleries = get_sub_field('galleries');
+if (have_rows('galleries')) :
+	$has_galleries = count($galleries) > 1 && array_column($galleries, 'title') ? 'galleries' : ''; ?>
+	<div class="<?= $has_galleries; ?>" data-animate>
+		<?php if ($has_galleries) : ?>
+			<div class="button-menu">
+				<?php while (have_rows('galleries')) : the_row(); ?>
+					<?php $title = get_sub_field('title'); ?>
+					<button type="button" class="button<?= get_row_index() === 1 ? ' active' : ''; ?>"><?= esc_html($title); ?></button>
+				<?php endwhile; ?>
 			</div>
+		<?php endif; ?>
+		<div class="gallery__images">
+			<?php while (have_rows('galleries')) : the_row();
+				$gallery = get_sub_field('gallery');
+				$title = sanitize_title(get_sub_field('title'));
+			?>
+				<div class="gallery<?= get_row_index() === 1 && $has_galleries ? ' active' : ''; ?>" <?= $has_galleries ? "data-gallery-name='" . esc_attr($title) . "'" : ''; ?>>
+					<?php foreach ($gallery as $item) : ?>
+						<?= wp_get_attachment_link($item['ID']); ?>
+					<?php endforeach; ?>
+				</div>
+			<?php endwhile; ?>
 		</div>
 	</div>
-	<?php get_template_part('components/block', 'footer', ['class' => 'container']); ?>
-<?php
-endif;
-get_template_part('components/block', 'end');
+<?php endif;
+
+get_template_part('components/block', 'footer', ['class' => 'container']);
+get_template_part('components/block', 'end'); ?>
