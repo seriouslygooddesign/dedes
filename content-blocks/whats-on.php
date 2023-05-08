@@ -10,19 +10,19 @@ if ($loop) : ?>
     ];
     get_template_part('components/block', 'start', $block_args);
     ?>
-    <div class="container text-center" data-animate>
-        <h2>What's On</h2>
-        <div class="row g-3 justify-content-center row-cols-1 rows-cols-sm-2 row-cols-md-3">
-            <?php
-            foreach ($loop as $post) :
-                setup_postdata($post); ?>
-                <div class="col">
-                    <?php get_template_part('components/post'); ?>
-                </div>
-            <?php
-            endforeach;
-            wp_reset_postdata(); ?>
+    <div class="container" data-animate>
+        <div class="block-header text-center">
+            <h2>What's On</h2>
         </div>
+        <?php
+        foreach ($loop as $post) :
+            setup_postdata($post); ?>
+            <div class="col">
+                <?php get_template_part('components/post'); ?>
+            </div>
+        <?php
+        endforeach;
+        wp_reset_postdata(); ?>
     </div>
     <?php
     get_template_part('components/block', 'end'); ?>
