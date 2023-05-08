@@ -1,4 +1,5 @@
 .target-content {
+  --spacer-element: 1em;
   &__content:not(:first-child) {
     padding-top: var(--spacer-5);
   }
