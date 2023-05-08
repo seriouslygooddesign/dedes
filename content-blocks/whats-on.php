@@ -1,8 +1,13 @@
 <?php
+$post_type = 'whats_on';
+
 $loop = get_posts([
-    'post_type' => 'whats_on',
-    'posts_per_page' => -1
+    'post_type' => $post_type,
+    'posts_per_page' => 4
 ]);
+
+$loop = get_sub_field('type') == 'select' ? get_sub_field($post_type) : $loop;
+
 if ($loop) : ?>
     <?php
     $block_args = [
@@ -10,19 +15,21 @@ if ($loop) : ?>
     ];
     get_template_part('components/block', 'start', $block_args);
     ?>
-    <div class="container" data-animate>
-        <div class="block-header text-center">
-            <h2>What's On</h2>
-        </div>
-        <?php
-        foreach ($loop as $post) :
-            setup_postdata($post); ?>
-            <div class="col">
-                <?php get_template_part('components/post'); ?>
+    <div class="overflow-hidden">
+        <div class="container" data-animate>
+            <div class="block-header text-center">
+                <h2>What's On</h2>
             </div>
-        <?php
-        endforeach;
-        wp_reset_postdata(); ?>
+            <?php
+            foreach ($loop as $post) :
+                setup_postdata($post); ?>
+                <div class="col">
+                    <?php get_template_part('components/post'); ?>
+                </div>
+            <?php
+            endforeach;
+            wp_reset_postdata(); ?>
+        </div>
     </div>
     <?php
     get_template_part('components/block', 'end'); ?>

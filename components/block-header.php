@@ -27,5 +27,4 @@ if ($show) {
 			</div>
 		</div>
 	</div>
-	<br>
 <?php }

@@ -17,7 +17,17 @@
 			'public' => 1,
 			'site__not_in' => get_current_blog_id(),
 		));
-		if (count($sites) > 0) {
+
+		$visible_sites_count = array_reduce($sites, function ($count, $site) {
+			$site_id = $site->blog_id;
+			switch_to_blog($site_id);
+			$hide_site = get_field('hide_site', 'options');
+			restore_current_blog();
+
+			return $count + (!$hide_site ? 1 : 0);
+		}, 0);
+
+		if (count($sites) > 0 && $visible_sites_count > 0) {
 			$accordion_args = [
 				'total' => 1,
 				'label_class' => false,

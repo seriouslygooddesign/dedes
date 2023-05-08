@@ -6,10 +6,10 @@ while (have_posts()) : the_post(); ?>
     </div>
 <?php
 endwhile;
-
+$post_type = get_post_type();
 $event_args = [
     'loop' => get_posts([
-        'post_type' => 'event',
+        'post_type' => $post_type,
         'posts_per_page' => 3,
         'exclude' => get_the_ID()
     ])
