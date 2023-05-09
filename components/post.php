@@ -14,7 +14,7 @@ $image = get_the_post_thumbnail(get_the_ID(), 'small', ['class' => 'post-card__i
                 <?php the_excerpt() ?>
             </div>
         </div>
-        <?php if (in_array(get_post_type(), ['post', 'event'])) : ?>
+        <?php if (in_array(get_post_type(), ['post', 'event', 'whats_on'])) : ?>
             <div class="col col-md-auto post-card__date">
                 <div class="row g-2 align-items-center" style="min-width: 150px">
                     <div class="col-auto">
