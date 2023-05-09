@@ -119,7 +119,7 @@ function core_scripts()
 
 
 	//Core Files
-	wp_enqueue_style('main', get_template_directory_uri() . '/dist/main/main.css', array(), '1.0.4');
+	wp_enqueue_style('main', get_template_directory_uri() . '/dist/main/main.css', array(), '1.0.5');
 	wp_enqueue_script('core-defer-main', get_template_directory_uri() . '/dist/main/main.js', array(), '1.0.3');
 
 

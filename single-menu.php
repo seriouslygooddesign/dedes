@@ -23,7 +23,7 @@ if (have_rows('categories')) : ?>
                             $price = esc_html(get_sub_field('price'));
                             $col = $price ? 'col-9' : 'col-12';
                             if ($text) {
-                                echo $text ? "<div class='$col'>$text</div>" : "";
+                                echo "<div class='$col'>$text</div>";
                                 echo $price ? "<div class='col-3'><span class='spacer-element d-block text-right'>$price</span></div>" : "";
                             }
                         endwhile; ?>
