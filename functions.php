@@ -109,13 +109,6 @@ function swiper_js_css()
 	wp_enqueue_style('swiper', get_template_directory_uri() . '/dist/swiper/swiper.css', array(), '1.0.3');
 	wp_enqueue_script('core-defer-swiper', get_template_directory_uri() . '/dist/swiper/swiper.js', array(), '1.0.3');
 }
-
-function photoswipe_js_css()
-{
-	wp_enqueue_style('photoswipe', get_template_directory_uri() . '/src/static-plugins/photoswipe/photoswipe.css', array(), '1.1.51');
-    wp_enqueue_script('photoswipe-core-module', get_template_directory_uri() . '/src/static-plugins/photoswipe/photoswipe.js', array(), '1.1.51');
-}
-
 function core_scripts()
 {
 	//Dequeue
@@ -139,12 +132,10 @@ function core_scripts()
 	// run the has_shortcode() as usual, works for all the_content() cases
 	if (is_a($post, 'WP_Post') && has_shortcode($post->post_content, 'gallery')) {
 		swiper_js_css();
-		photoswipe_js_css();
 	}
 	// for shortcodes in post_meta
 	else if (is_a($post, 'WP_Post') && !empty($post_meta_results)) {
 		swiper_js_css();
-		photoswipe_js_css();
 	}
 }
 add_action('wp_enqueue_scripts', 'core_scripts');
