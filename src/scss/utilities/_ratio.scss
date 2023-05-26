@@ -1,19 +1,23 @@
+$ratio-list: (
+  (16, 10),
+  (16, 9),
+  (4, 3),
+  (1, 1),
+);
+
 %ratio {
   display: block;
   position: relative;
 }
 
-.ratio {
-  &-16-9 {
+@each $values in $ratio-list {
+  $width: nth($values, 1);
+  $height: nth($values, 2);
+  $name: $width + "-" + $height;
+  $padding-bottom: percentage(calc($height / $width));
+
+  .ratio-#{$name} {
     @extend %ratio;
-    padding-bottom: percentage(calc(9 / 16));
-  }
-  &-4-3 {
-    @extend %ratio;
-    padding-bottom: percentage(calc(3 / 4));
-  }
-  &-1-1 {
-    @extend %ratio;
-    padding-bottom: 100%;
+    padding-bottom: $padding-bottom;
   }
 }

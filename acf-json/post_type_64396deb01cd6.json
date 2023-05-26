@@ -51,7 +51,7 @@
     "show_in_menu": true,
     "admin_menu_parent": "",
     "show_in_admin_bar": true,
-    "show_in_nav_menus": true,
+    "show_in_nav_menus": false,
     "show_in_rest": true,
     "rest_base": "",
     "rest_namespace": "wp\/v2",
@@ -80,5 +80,5 @@
     "can_export": true,
     "delete_with_user": false,
     "register_meta_box_cb": "",
-    "modified": 1681485592
+    "modified": 1685113542
 }

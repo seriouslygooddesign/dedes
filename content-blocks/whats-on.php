@@ -22,11 +22,8 @@ if ($loop) : ?>
             </div>
             <?php
             foreach ($loop as $post) :
-                setup_postdata($post); ?>
-                <div class="col">
-                    <?php get_template_part('components/post'); ?>
-                </div>
-            <?php
+                setup_postdata($post);
+                get_template_part('components/post');
             endforeach;
             wp_reset_postdata(); ?>
         </div>

@@ -1,6 +1,6 @@
 .site-icon {
-  width: 1em;
-  height: 1em;
+  width: 1.1em;
+  height: 1.1em;
   display: inline-flex;
   &--chevron {
     @include mask-icon("chevron");
@@ -16,15 +16,21 @@
   }
   &--arrow {
     flex: 0 0 auto;
-    rotate: -45deg;
-    transition: rotate var(--transition);
+    clip-path: content-box;
+    transform: var(--site-arrow-transform);
     vertical-align: middle;
+    transition: transform var(--transition);
     a:hover & {
-      rotate: 0deg;
+      transform: rotate(0deg) translate(0);
+    }
+    &::after {
+      content: "";
+      @include mask-icon(var(--site-arrow), currentColor, true);
+      width: inherit;
+      height: inherit;
     }
   }
   &-rounded {
-    background: var(--color-primary);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -33,9 +39,18 @@
     flex: 0 0 auto;
     border-radius: 100%;
     transition: background-color var(--transition), color var(--transition);
+    background: var(--color-primary);
     color: var(--color-white);
+    .color-text-white & {
+      background: var(--color-white);
+      color: var(--color-primary);
+    }
     &:hover,
     a:hover & {
+      .color-text-white & {
+        background: var(--color-primary);
+        color: var(--color-white);
+      }
       background: var(--color-button-background-hover);
     }
   }

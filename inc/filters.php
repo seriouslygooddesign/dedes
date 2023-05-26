@@ -1,11 +1,20 @@
 <?php
 //Body Class
-add_filter('body_class', 'core_custom_body_class');
-function core_custom_body_class($classes)
+function core_custom_body_class($classes, $custom_classes = '')
 {
     $classes[] = 'sticky-footer';
+
+    if (!empty($custom_classes)) {
+        if (is_array($custom_classes)) {
+            $classes = array_merge($classes, $custom_classes);
+        } else {
+            $classes[] = $custom_classes;
+        }
+    }
+
     return $classes;
 }
+add_filter('body_class', 'core_custom_body_class');
 
 //Remove WordPress Version Number
 add_filter('the_generator', '__return_empty_string');
@@ -95,8 +104,8 @@ function add_custom_attributes_to_gallery_links($link_html, $id, $size)
     $full_img_height = $full_img_object[2];
     $preview_img = wp_get_attachment_image($id, 'medium_large');
 
-    wp_enqueue_style('photoswipe', get_template_directory_uri() . '/src/static-plugins/photoswipe/photoswipe.css', array(), '1.1.5');
-    wp_enqueue_script('photoswipe-core-module', get_template_directory_uri() . '/src/static-plugins/photoswipe/photoswipe.js', array(), '1.1.5');
+    wp_enqueue_style('photoswipe', get_template_directory_uri() . '/src/static-plugins/photoswipe/photoswipe.css', array(), '1.1.6');
+    wp_enqueue_script('photoswipe-core-module', get_template_directory_uri() . '/src/static-plugins/photoswipe/photoswipe.js', array(), '1.1.6');
 
     $link_html = "<a data-cropped='true' data-pswp-width='$full_img_width' data-pswp-height='$full_img_height' href='$full_img_src'>$preview_img</a>";
     return $link_html;
@@ -120,7 +129,7 @@ function custom_gallery($output, $attr)
         $link = $attr['link'] ?? 'attachment';
         $link_none = $link === 'none';
 
-        $output = "<div class='swiper swiper--center' data-swiper-gallery data-slides-per-view='$columns'><div class='swiper-wrapper'>";
+        $output = "<div class='swiper swiper--center' data-photoswipe data-swiper-slider data-slides-per-view='$columns'><div class='swiper-wrapper'>";
 
         foreach ($images as $image) {
             $image_id = $image->ID;

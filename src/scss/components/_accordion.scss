@@ -18,10 +18,15 @@
     width: 100%;
     text-transform: capitalize;
     &:not([aria-expanded="true"]) {
-      .site-footer & {
+      .site-footer:not(.theme-color-dark) & {
         color: currentColor;
         border-color: transparent;
         background-color: var(--color-white);
+      }
+      .site-footer.theme-color-dark & {
+        color: currentColor;
+        border-color: transparent;
+        background-color: var(--color-button-background);
       }
       color: inherit;
       border-color: transparent;

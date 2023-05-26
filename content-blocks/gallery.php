@@ -23,7 +23,7 @@ if (have_rows('galleries')) :
 				$gallery = get_sub_field('gallery');
 				$title = sanitize_title(get_sub_field('title'));
 			?>
-				<div class="gallery<?= get_row_index() === 1 && $has_galleries ? ' active' : ''; ?>" <?= $has_galleries ? "data-gallery-name='" . esc_attr($title) . "'" : ''; ?>>
+				<div class="gallery<?= get_row_index() === 1 && $has_galleries ? ' active' : ''; ?>" <?= $has_galleries ? "data-gallery-name='" . esc_attr($title) . "'" : ''; ?> data-photoswipe>
 					<?php foreach ($gallery as $item) : ?>
 						<?= wp_get_attachment_link($item['ID']); ?>
 					<?php endforeach; ?>

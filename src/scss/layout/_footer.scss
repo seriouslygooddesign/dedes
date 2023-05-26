@@ -1,4 +1,7 @@
 .site-footer {
+  &:not(.theme-color-dark) {
+    background: var(--color-surface);
+  }
   a:not([class]) {
     display: inline-block;
     &:not(:hover) {

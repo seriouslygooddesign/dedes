@@ -108,19 +108,22 @@ function css_variables()
         --color-text-muted: rgba(var(--color-text-rgb),0.6);
         --color-white: #ffffff;
         --color-white-muted: rgba(255, 255, 255, 0.6);
+        --color-white-muted-max: rgba(255, 255, 255, 0.1);
         --color-error: #f44336;
         --color-success: #0f834d;
         --color-curtain: var(--color-surface);
+        --color-bg-overlay-menu: var(--color-body);
+        --color-current-link: var(--color-primary);
         --color-link: var(--color-primary);
         --color-button-background: var(--color-primary);
         --color-button-background-hover: var(--color-text);
         --color-button-border: var(--color-primary);
         --color-button-text: var(--color-white);
         --color-border: rgba(var(--color-text-rgb),0.2);
-        --color-input-border: var(--color-border);
+        --color-input-border: transparent;
         --color-input-border-hover: var(--color-text);
         --color-input-border-focus: var(--color-primary);
-        --color-input-background: var(--color-white);
+        --color-input-background: var(--color-surface);
         --color-shadow: rgba(var(--color-primary-rgb),0.025);
         $fonts_css_variables
     }

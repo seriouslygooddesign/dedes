@@ -9,6 +9,7 @@
   "devDependencies": {
     "autoprefixer": "latest",
     "browser-sync-webpack-plugin": "latest",
+    "clean-webpack-plugin": "latest",
     "css-loader": "latest",
     "cssnano": "^5.1.14",
     "mini-css-extract-plugin": "latest",
@@ -19,7 +20,8 @@
     "sass-loader": "latest",
     "svg-sprite-loader": "latest",
     "webpack": "latest",
-    "webpack-cli": "latest"
+    "webpack-cli": "latest",
+    "webpack-manifest-plugin": "latest"
   },
   "scripts": {
     "build": "webpack --mode production",

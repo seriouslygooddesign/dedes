@@ -2,7 +2,7 @@
     "key": "post_type_642d78ba97a9b",
     "title": "Events",
     "menu_order": 0,
-    "active": true,
+    "active": false,
     "post_type": "event",
     "advanced_configuration": true,
     "import_source": "",
@@ -43,7 +43,7 @@
         "item_link_description": "A link to a event."
     },
     "description": "",
-    "public": true,
+    "public": false,
     "hierarchical": false,
     "exclude_from_search": false,
     "publicly_queryable": true,
@@ -81,5 +81,5 @@
     "can_export": true,
     "delete_with_user": false,
     "register_meta_box_cb": "",
-    "modified": 1681144527
+    "modified": 1685093064
 }

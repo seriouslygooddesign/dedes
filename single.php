@@ -10,7 +10,7 @@ while (have_posts()) :
 			$cats = get_core_categories();
 			$tags = get_core_tags();
 			if ($cats || $tags) {
-				echo "<br><hr>$cats$tags";
+				echo "$cats$tags";
 			}
 			?>
 		</div>
@@ -26,7 +26,7 @@ while (have_posts()) :
 		));
 		$next_post = $first_post[0] ?? null;
 	}
-	if ($next_post) : ?>
+	if ($next_post && false) : ?>
 		<div class="color-background-surface spacer-section-py" data-animate>
 			<div class="container-md">
 				<div class="row gx-2 gx-sm-3 align-items-center">
@@ -52,23 +52,43 @@ endwhile;
 <?php
 $related = get_posts(
 	array(
-		'numberposts'  => 4,
+		'numberposts'  => 3,
 		'exclude' => get_the_ID(),
 	)
 );
+
 if ($related) : ?>
-	<div class="overflow-hidden">
-		<div class="container spacer-section-py">
-			<h2 class="text-center" data-animate>Other <a href="<?= esc_url(get_permalink(get_option('page_for_posts'))); ?>">News</a></h2>
-			<?php
-			foreach ($related as $post) :
-				setup_postdata($post);
+	<div class="container spacer-section-py">
+		<?php
+		$args = [
+			'show' => true,
+			'content' => '<h2 data-animate>Latest Posts</h2>',
+			'link_url' =>  esc_url(get_permalink(get_option('page_for_posts'))),
+			'link_title' => 'view all',
+		];
+		get_template_part('components/block-header', null, $args) ?>
+		<div class="row g-3 row-cols-sm-2 row-cols-lg-3">
+
+			<?php foreach ($related as $post) : setup_postdata($post);
+				$card_args = [
+					'decor' => null,
+					'content' => null,
+					'extra_class' => 'card--alt',
+					'link' => [
+						'link_title' => get_the_date(),
+						'link_url' => get_permalink(),
+					]
+				];
 			?>
-				<?php get_template_part('components/post'); ?>
+
+				<div class="col-12" data-animate>
+					<?php get_template_part('components/card', null, $card_args); ?>
+				</div>
 			<?php endforeach;
 			wp_reset_postdata(); ?>
 		</div>
 	</div>
+	<div class="spacer-section-pb"></div>
 <?php endif; ?>
 
 <?php

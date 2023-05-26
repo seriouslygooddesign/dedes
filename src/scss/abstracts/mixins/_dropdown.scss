@@ -10,8 +10,7 @@
   background-color: var(--color-white);
   box-shadow: var(--shadow);
   transform: translateY(-10px);
-  transition: opacity var(--transition), visibility var(--transition),
-    transform var(--transition);
+  transition: opacity var(--transition), visibility var(--transition), transform var(--transition);
   opacity: 0;
   visibility: hidden;
 
@@ -20,7 +19,7 @@
     left: 100%;
   }
 
-  li:hover {
+  li:hover, .current-menu-item, .current-menu-parent, .current-menu-ancestor {
     background: var(--color-surface);
   }
 

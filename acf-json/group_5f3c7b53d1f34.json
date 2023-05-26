@@ -177,38 +177,6 @@
                     "min": "",
                     "max": ""
                 },
-                "layout_64074029287f3": {
-                    "key": "layout_64074029287f3",
-                    "name": "events",
-                    "label": "Events",
-                    "display": "block",
-                    "sub_fields": [
-                        {
-                            "key": "field_64074029287f4",
-                            "label": "",
-                            "name": "",
-                            "aria-label": "",
-                            "type": "clone",
-                            "instructions": "",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "clone": [
-                                "group_64073fede3c4f"
-                            ],
-                            "display": "seamless",
-                            "layout": "block",
-                            "prefix_label": 0,
-                            "prefix_name": 0
-                        }
-                    ],
-                    "min": "",
-                    "max": ""
-                },
                 "layout_640740d3773a8": {
                     "key": "layout_640740d3773a8",
                     "name": "whats-on",
@@ -496,6 +464,70 @@
                     ],
                     "min": "",
                     "max": ""
+                },
+                "layout_6470bb262c749": {
+                    "key": "layout_6470bb262c749",
+                    "name": "rooms",
+                    "label": "Rooms",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_6470bb332c74c",
+                            "label": "",
+                            "name": "",
+                            "aria-label": "",
+                            "type": "clone",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "clone": [
+                                "group_6470ba494b795"
+                            ],
+                            "display": "seamless",
+                            "layout": "block",
+                            "prefix_label": 0,
+                            "prefix_name": 0
+                        }
+                    ],
+                    "min": "",
+                    "max": ""
+                },
+                "layout_6470c36ecca6f": {
+                    "key": "layout_6470c36ecca6f",
+                    "name": "team",
+                    "label": "Team",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_6470c374cca72",
+                            "label": "",
+                            "name": "",
+                            "aria-label": "",
+                            "type": "clone",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "clone": [
+                                "group_6470c318a544c"
+                            ],
+                            "display": "seamless",
+                            "layout": "block",
+                            "prefix_label": 0,
+                            "prefix_name": 0
+                        }
+                    ],
+                    "min": "",
+                    "max": ""
                 }
             },
             "min": "",
@@ -517,6 +549,13 @@
                 "operator": "==",
                 "value": "global_content_block"
             }
+        ],
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "whats_on"
+            }
         ]
     ],
     "menu_order": 0,
@@ -530,5 +569,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1683046926
+    "modified": 1685112917
 }

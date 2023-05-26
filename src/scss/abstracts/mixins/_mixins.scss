@@ -3,9 +3,13 @@
   padding: 0;
 }
 
-@mixin mask-icon($icon: facebook, $color: currentColor) {
+@mixin mask-icon($icon: facebook, $color: currentColor, $full-url: false) {
   background-color: $color;
-  mask-image: url("../sprite/sprite.svg##{$icon}-usage");
+  @if ($full-url == false) {
+    mask-image: url("../sprite/sprite.svg##{$icon}-usage");
+  } @else {
+    mask-image: $icon;
+  }
 }
 
 @mixin visually-hidden() {

@@ -1,5 +1,5 @@
 </main>
-<footer class="site-footer color-background-surface">
+<footer class="site-footer<?= get_core_theme_color() ?>">
 	<div class="container underline-reverse spacer-section-py">
 		<div class="site-footer__widgets">
 			<?php
@@ -26,7 +26,7 @@
 
 			return $count + !$hide_site;
 		}, 0);
-		
+
 		$accordion_args = [
 			'total' => $visible_sites_count,
 			'label_class' => false,

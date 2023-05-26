@@ -32,6 +32,7 @@
   }
 
   &--panel {
+    width: fit-content;
     @include bp(md) {
       padding-left: var(--spacer-section);
       padding-right: var(--spacer-section);

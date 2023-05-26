@@ -1,8 +1,10 @@
 <?php
+$post_type = get_post_type();
+$img_options = get_field("banner_$post_type", 'options');
 $args = wp_parse_args($args,    [
     'title' => get_the_title(),
     'height' => 'min-height-small',
-    'img_id' => get_post_thumbnail_id(),
+    'img_id' => $img_options && is_archive() ? $img_options : get_post_thumbnail_id(),
     'img_alt' => get_the_title(),
 ]);
 extract($args);
@@ -26,9 +28,9 @@ $block_class = get_core_filter_implode([
     get_template_part('components/background-image', null, $img_args);
     ?>
     <div class="site-decor"></div>
-    <div class="<?= CONTENT_BLOCK_CONTENT; ?> container spacer-section-py text-center" data-animate>
+    <div class="<?= CONTENT_BLOCK_CONTENT; ?> container-md spacer-section-py text-center" data-animate>
         <?php get_template_part('components/breadcrumbs') ?>
-        <h1 class="uppercase"><?= wp_kses_post($title); ?></h1>
+        <h1 class="uppercase page-header-title"><?= wp_kses_post($title); ?></h1>
         <?php
         $file = get_field('file');
         if ($file && is_single()) :

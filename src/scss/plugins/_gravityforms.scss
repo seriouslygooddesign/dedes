@@ -43,7 +43,7 @@ div.gform_wrapper.gravity-theme {
   .gsection {
     border: none;
     padding: 0;
-    border-top: var(--border-width) solid var(--color-primary);
+    border-top: var(--border-width) solid currentColor;
   }
 
   .gsection_title {
@@ -93,7 +93,7 @@ div.gform_wrapper.gravity-theme {
   .gfield_radio {
     display: flex;
     flex-direction: column;
-    gap: 0.5em;
+    gap: 1em;
     label {
       font-size: inherit;
       max-width: none;
@@ -104,22 +104,6 @@ div.gform_wrapper.gravity-theme {
   .gform_ajax_spinner {
     display: none !important;
   }
-
-  // .gchoice {
-  //   line-height: 1.5;
-  // }
-
-  // .gfield-choice-input {
-  //   vertical-align: top;
-  //   margin-top: 0.2em;
-  // }
-
-  // .gfield_checkbox,
-  // .gfield_radio {
-  //   label {
-  //     margin-bottom: 0.5em;
-  //   }
-  // }
 
   .ginput_container_time {
     min-width: 5rem;

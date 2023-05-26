@@ -5,6 +5,7 @@
   &-white {
     --color-text-muted: var(--color-white-muted);
     color: var(--color-white);
+    
     a:not([class]) {
       color: inherit;
     }

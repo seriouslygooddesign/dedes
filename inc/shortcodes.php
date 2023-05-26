@@ -2,45 +2,42 @@
 /*------------------------------------*\
 	Shortcodes
 \*------------------------------------*/
-
-add_shortcode('phone', function ($atts) {
-    extract(get_field('phone', 'option'));
+function generate_shortcode($field, $icon, $atts)
+{
+    $field = str_replace('-', '_', $field);
+    extract(get_field($field, 'option'));
     $a = shortcode_atts(array(
         'wrap' => 'true',
     ), $atts);
     $wrap = $a['wrap'] === 'true' ? true : false;
-    if ($link) {
-        return get_core_icon_label('phone', $label, $link, 'phone', $wrap);
-    }
-});
 
-add_shortcode('email', function ($atts) {
-    extract(get_field('email', 'option'));
-    $a = shortcode_atts(array(
-        'wrap' => 'true',
-    ), $atts);
-    $wrap = $a['wrap'] === 'true' ? true : false;
-    if ($link) {
-        return get_core_icon_label('email', $label, $link, 'email', $wrap);
-    }
-});
+    $link = $link ?? false;
 
-add_shortcode('address', function ($atts) {
-    extract(get_field('address', 'option'));
-    $a = shortcode_atts(array(
-        'wrap' => 'true',
-    ), $atts);
-    $wrap = $a['wrap'] === 'true' ? true : false;
-    if ($link) {
-        return get_core_icon_label('pin', $label, $link, 'address', $wrap);
-    }
-});
+    return get_core_icon_label($icon, $label, $link, $field, $wrap, $title);
+}
+
+$shortcodes = array(
+    'phone' => 'phone',
+    'email' => 'email',
+    'address' => 'pin',
+    'opening-hours' => 'clock'
+);
+
+foreach ($shortcodes as $shortcode => $icon) {
+    add_shortcode($shortcode, function ($atts) use ($shortcode, $icon) {
+        return generate_shortcode($shortcode, $icon, $atts);
+    });
+}
+
 
 add_shortcode('social-icons', 'social_icons');
-function social_icons()
+function social_icons($atts)
 {
+    $is_single = shortcode_atts(['type' => ''], $atts)['type'] === 'alt';
+    $fields = get_field('social_icons', $is_single ? false : 'options');
+
     ob_start();
-    get_template_part('components/social-icons');
+    get_template_part('components/social-icons', null, ['social_icons' => $fields]);
     return ob_get_clean();
 }
 
@@ -48,9 +45,7 @@ add_shortcode('cta-link', 'cta_link');
 function cta_link()
 {
     $link = get_field('cta_link', 'option');
-    ob_start();
-    get_template_part('components/site-icon', null, ['icon' => 'arrow', 'class'=>'site-icon--arrow']);
-    $icon = ob_get_clean();
+    $icon = '<span class="site-icon site-icon--arrow"></span>';
 
     if ($link) {
         $link_url = esc_url($link['url']);
@@ -60,11 +55,10 @@ function cta_link()
     }
 }
 
-add_shortcode( 'dedes-sites', 'dedes_sites' );
-function dedes_sites() {
+add_shortcode('dedes-sites', 'dedes_sites');
+function dedes_sites()
+{
     ob_start();
     get_template_part('components/sites');
     return ob_get_clean();
 }
-
-

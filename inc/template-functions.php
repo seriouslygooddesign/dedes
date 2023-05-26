@@ -25,6 +25,8 @@ if (!function_exists('get_core_get_sprite_url')) {
     }
 }
 
+
+
 //Hide Block Logic
 if (!function_exists('get_core_hide_block')) {
     function get_core_hide_block()
@@ -125,6 +127,17 @@ if (!function_exists('get_core_color_text_white')) {
         return $color_text_white ? $color_text_class : null;
     }
 }
+//White Text Color
+if (!function_exists('get_core_theme_color')) {
+    function get_core_theme_color()
+    {
+        $theme_color = get_field('theme_color', 'options');
+        if ($theme_color == 'dark') {
+            $class = ' color-text-white color-background-primary theme-color-dark';
+        }
+        return $class ?? null;
+    }
+}
 
 
 //Edit First <p> In Accordion for SEO
@@ -134,10 +147,11 @@ function get_core_accordion_first_p($content)
 }
 
 //Icon Label Component
-function get_core_icon_label($icon = 'email', $label = 'Label', $href = '#', $type = '', $wrap = false)
+function get_core_icon_label($icon = 'email', $label = 'Label', $href = '#', $type = '', $wrap = false, $title)
 {
-    $label = esc_html($label);
+    $label = nl2br(esc_html($label));
     $href = esc_html($href);
+    $title = esc_html($title);
 
     //link attributes based on $type
     $attributes = '';
@@ -156,20 +170,20 @@ function get_core_icon_label($icon = 'email', $label = 'Label', $href = '#', $ty
             $attributes = "href='$href'";
     }
 
-    //icon
+    // Get icon
     ob_start();
     get_template_part('components/site-icon', null, ['icon' => $icon]);
-    $icon = "<span class='site-icon-rounded'>" . ob_get_clean() . "</span>";
+    $icon_html = ob_get_clean();
 
-    //wrap in <p>
-    $before = '';
-    $after = '';
-    if ($wrap) {
-        $before = '<p>';
-        $after = '</p>';
-    }
+    // Determine content
+    $content = ($href) ? "<a $attributes>$label</a>" : $label;
 
-    return "$before<a class='icon-label' $attributes>$icon$label</a>$after";
+    // Prepare wrapping tags if required
+    $before = $wrap ? '<p class="contact-spacer">' : '';
+    $after = $wrap ? '</p>' : '';
+
+    // Construct the result
+    return "$before<span class='icon-label'>$icon_html$title</span><span class='d-block text-indent fs-lg'>$content</span>$after";
 }
 
 //Column Width

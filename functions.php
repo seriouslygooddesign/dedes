@@ -52,7 +52,15 @@ if (!function_exists('core_setup')) :
 		add_image_size('small', 384, 384, false);
 
 		add_theme_support('editor-styles');
-		add_editor_style('style-editor.css');
+
+		function plugin_mce_css($mce_css)
+		{
+			if (!empty($mce_css)) {
+				$mce_css .= ',';
+			}
+			return $mce_css . get_template_directory_uri() . '/style-editor.css?v=1.0.22';
+		}
+		add_filter('mce_css', 'plugin_mce_css');
 	}
 endif;
 add_action('after_setup_theme', 'core_setup');
@@ -104,11 +112,23 @@ add_action('widgets_init', 'core_widgets_init');
 /**
  * Enqueue scripts and styles.
  */
+function get_asset_manifest($asset)
+{
+	$dir = '/dist/';
+	$manifest_file_path = get_template_directory() . $dir . 'manifest.json';
+
+	if (file_exists($manifest_file_path)) {
+		$manifest_data = json_decode(file_get_contents($manifest_file_path), true);
+		return  $dir . $manifest_data[$asset];
+	}
+}
+
 function swiper_js_css()
 {
-	wp_enqueue_style('swiper', get_template_directory_uri() . '/dist/swiper/swiper.css', array(), '1.0.3');
-	wp_enqueue_script('core-defer-swiper', get_template_directory_uri() . '/dist/swiper/swiper.js', array(), '1.0.3');
+	wp_enqueue_style('swiper', get_template_directory_uri() . get_asset_manifest('swiper.css'), [], null);
+	wp_enqueue_script('core-defer-swiper', get_template_directory_uri() . get_asset_manifest('swiper.js'), [], null);
 }
+
 function core_scripts()
 {
 	//Dequeue
@@ -119,16 +139,17 @@ function core_scripts()
 
 
 	//Core Files
-	wp_enqueue_style('main', get_template_directory_uri() . '/dist/main/main.css', array(), '1.0.5');
-	wp_enqueue_script('core-defer-main', get_template_directory_uri() . '/dist/main/main.js', array(), '1.0.3');
+	wp_enqueue_style('main', get_template_directory_uri() . get_asset_manifest('main.css'), [], null);
+	wp_enqueue_script('core-defer-main', get_template_directory_uri() . get_asset_manifest('main.js'), [], null, true);
 
 
 	// Swiper
 	global $post;
 	global $wpdb;
-	$post_id = $post->ID??null;
+	$post_id = $post->ID ?? null;
 	$post_meta_sql = "select * from $wpdb->postmeta where post_id = {$post_id} and meta_key not like '\_%' and meta_value like '%[gallery%'";
 	$post_meta_results = $wpdb->get_results($post_meta_sql);
+
 	// run the has_shortcode() as usual, works for all the_content() cases
 	if (is_a($post, 'WP_Post') && has_shortcode($post->post_content, 'gallery')) {
 		swiper_js_css();
@@ -136,21 +157,29 @@ function core_scripts()
 	// for shortcodes in post_meta
 	else if (is_a($post, 'WP_Post') && !empty($post_meta_results)) {
 		swiper_js_css();
+
+		// if the content blocks contain a slider
+	} else if (have_rows('content_blocks')) { ?>
+			<?php while (have_rows('content_blocks')) : the_row();
+				if (in_array(get_row_layout(), ['posts']) && get_core_hide_block()) {
+					swiper_js_css();
+				} ?>
+			<?php endwhile;
+		}
 	}
-}
-add_action('wp_enqueue_scripts', 'core_scripts');
+	add_action('wp_enqueue_scripts', 'core_scripts');
 
 
-/**
- * Require
- */
-require get_template_directory() . '/inc/variables.php';
-require get_template_directory() . '/inc/template-functions.php';
-require get_template_directory() . '/inc/template-tags.php';
-require get_template_directory() . '/inc/acf.php';
-require get_template_directory() . '/inc/actions.php';
-require get_template_directory() . '/inc/filters.php';
-require get_template_directory() . '/inc/shortcodes.php';
-require get_template_directory() . '/inc/tiny-mce.php';
-require get_template_directory() . '/inc/gravity-forms.php';
-require get_template_directory() . '/inc/css-variables.php';
+	/**
+	 * Require
+	 */
+	require get_template_directory() . '/inc/variables.php';
+	require get_template_directory() . '/inc/template-functions.php';
+	require get_template_directory() . '/inc/template-tags.php';
+	require get_template_directory() . '/inc/acf.php';
+	require get_template_directory() . '/inc/actions.php';
+	require get_template_directory() . '/inc/filters.php';
+	require get_template_directory() . '/inc/shortcodes.php';
+	require get_template_directory() . '/inc/tiny-mce.php';
+	require get_template_directory() . '/inc/gravity-forms.php';
+	require get_template_directory() . '/inc/css-variables.php';

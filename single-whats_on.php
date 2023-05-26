@@ -1,11 +1,5 @@
 <?php get_header();
-get_template_part('components/page-header');
-while (have_posts()) : the_post(); ?>
-    <div class="container-sm spacer-section-py">
-        <?php the_content(); ?>
-    </div>
-<?php
-endwhile;
+get_template_part('components/content-blocks');
 
 $loop = get_posts([
     'post_type' => 'whats_on',

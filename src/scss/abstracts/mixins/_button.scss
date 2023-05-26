@@ -8,11 +8,12 @@
   @include button-primary();
   text-decoration: none;
   cursor: pointer;
+  font-weight: var(--heading-font-weight);
   text-transform: uppercase;
   border-radius: 0;
   text-align: center;
   transition: border-color var(--transition), color var(--transition), background var(--transition),
-    filter var(--transition);
+    filter var(--transition), opacity var(--transition);
 }
 
 @mixin button-outline {
@@ -35,6 +36,7 @@
 @mixin button-square {
   padding: 0.5em;
   min-width: var(--input-height);
+  border-color: transparent;
 }
 
 @mixin button-white {
@@ -45,6 +47,6 @@
 
 @mixin button-hover() {
   background: var(--color-button-background-hover);
-  border-color: var(--color-button-background-hover);
+  border-color: transparent;
   color: var(--color-white);
 }

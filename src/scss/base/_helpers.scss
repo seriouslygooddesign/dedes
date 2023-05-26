@@ -54,6 +54,9 @@
   &-hidden {
     overflow: hidden;
   }
+  &-visible {
+    overflow: visible !important;
+  }
 }
 
 .element-collapsing {
@@ -77,6 +80,14 @@
   gap: var(--spacer-element-sm);
   align-items: center;
   @include underline-reverse;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.contact-spacer {
+  &:not(:first-child) {
+    margin-top: 3em;
+  }
 }
 
 .vstack {
@@ -162,3 +173,4 @@
 .block-header {
   margin: var(--spacer-element) 0 var(--spacer-element-md);
 }
+

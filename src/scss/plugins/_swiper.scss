@@ -2,8 +2,23 @@ $themeColor: var(--color-primary);
 @import "swiper/scss";
 
 .swiper {
-    &-nav {
-        gap: var(--spacer-element);
+    &-wrapper--autoheight-sm-none {
+        @media (min-width:576px) {
+            height: initial !important;
+            align-items: initial !important;
+        }
+    }
+    &-button-disabled {
+        opacity: .1;
+        background: var(--color-text);
+        pointer-events: none;
+    }
+    &-controls {
+        display: inline-flex;
+    }
+    &-pagination {
+        text-align: center;
+        min-width: 4em;
     }
     img {
         width: 100%;

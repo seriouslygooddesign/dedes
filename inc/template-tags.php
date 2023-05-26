@@ -12,8 +12,9 @@ if (!function_exists('get_core_categories')) :
 	function get_core_categories()
 	{
 		if ('post' === get_post_type()) {
-			$categories_list = get_the_category_list(esc_html__(', ', 'core'));
+			$categories_list = get_the_category_list(esc_html__(' ', 'core'));
 			if ($categories_list) {
+				$categories_list = str_replace('<a', '<a class="button button--surface fs-xs"', $categories_list);
 				return sprintf("<p>" . esc_html__('%1$s', 'core') . '</p>', $categories_list); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 			}
 		}

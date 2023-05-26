@@ -74,4 +74,10 @@
 
   --animate-transition: 500ms ease;
   --animate-distance: 1.5rem;
+
+  // Sprites (for Additional CSS)
+  --sprite-arrow: url("../sprite/sprite.svg#arrow-usage");
+  --sprite-chevron: url("../sprite/sprite.svg#chevron-usage");
+  --site-arrow: var(--sprite-arrow);
+  --site-arrow-transform: rotate(-45deg)
 }

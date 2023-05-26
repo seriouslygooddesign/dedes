@@ -32,7 +32,7 @@ $sites = get_sites(array(
                     ]
                 ); ?>
 
-                <div class="col-12">
+                <div class="col-12" data-animate>
                     <?php get_template_part('components/card', null, $card_args) ?>
                 </div>
 

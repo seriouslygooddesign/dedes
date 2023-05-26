@@ -1,6 +1,12 @@
 .color-background {
   &-primary {
     background: var(--color-primary);
+    .button, .card__link {
+      --color-button-background: var(--color-white-muted-max);
+      --color-button-background-hover: rgba(255,255,255, .15);
+      --color-button-border: transparent;
+      --color-surface: var(--color-button-background)
+  }
   }
   &-surface {
     background: var(--color-surface);

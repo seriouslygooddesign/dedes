@@ -112,11 +112,42 @@ textarea {
   overflow: auto;
 }
 
+[type="file"] {
+  border: var(--border-width) dashed var(--color-surface);
+  padding: var(--spacer-element);
+}
+
 [type="checkbox"],
 [type="radio"] {
-  padding: 0;
-  width: 1em;
-  height: 1em;
+  color: currentColor;
+  appearance: none;
+  background-color: var(--color-surface);
+  border: none;
+  border-radius: 0;
+  display: inline-flex !important;
+  align-items: center;
+  font: inherit;
+  height: 1.5em;
+  width: 1.5em;
+  margin: 0;
+  place-content: center;
+  &,
+  & + label {
+    cursor: pointer;
+  }
+  &:checked::before {
+    scale: 1;
+  }
+  &:before {
+    content: "";
+    display: block;
+    background-color: currentColor;
+    border-radius: 0;
+    height: 0.7em;
+    width: 0.7em;
+    scale: 0;
+    transition: scale 0.12s;
+  }
 }
 
 [type="number"]::-webkit-inner-spin-button,
@@ -133,14 +164,10 @@ textarea {
   -webkit-appearance: none;
 }
 
+::file-selector-button,
 ::-webkit-file-upload-button {
   -webkit-appearance: button;
   font: inherit;
-}
-
-::file-selector-button {
-  font: inherit;
-  -webkit-appearance: button;
 }
 
 output {

@@ -1,0 +1,5 @@
+.theme-color-dark {
+    &.site-header {
+        --color-current-link: var(--color-white-muted);
+    }
+}

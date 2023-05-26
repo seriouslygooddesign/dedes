@@ -1,4 +1,6 @@
 <?php
+$theme_color = get_core_theme_color();
+
 $cta_link_shortcode = do_shortcode('[cta-link]');
 $custom_logo_id = get_custom_logo();
 $has_logo = $custom_logo_id ? ' has-logo' : '';
@@ -7,7 +9,7 @@ $extra_class = $has_logo;
 if ($custom_logo_id || $cta_link_shortcode || has_nav_menu('menu-1')) :
 ?>
 
-    <header class="site-header underline-reverse<?= $extra_class; ?>">
+    <header class="site-header underline-reverse<?= $extra_class . $theme_color; ?>">
 
         <div class="hide-header-element<?= $custom_logo_id ? ' order-1' : null; ?>">
             <?php get_template_part('components/toggle-menu') ?>
