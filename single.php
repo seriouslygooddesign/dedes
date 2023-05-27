@@ -58,13 +58,13 @@ $related = get_posts(
 );
 
 if ($related) : ?>
-	<div class="container spacer-section-py">
+	<div class="container spacer-section-pb">
 		<?php
 		$args = [
 			'show' => true,
-			'content' => '<h2 data-animate>Latest Posts</h2>',
+			'content' => '<h2>Latest Posts</h2>',
 			'link_url' =>  esc_url(get_permalink(get_option('page_for_posts'))),
-			'link_title' => 'view all',
+			'link_title' => 'View All',
 		];
 		get_template_part('components/block-header', null, $args) ?>
 		<div class="row g-3 row-cols-sm-2 row-cols-lg-3">
@@ -88,7 +88,6 @@ if ($related) : ?>
 			wp_reset_postdata(); ?>
 		</div>
 	</div>
-	<div class="spacer-section-pb"></div>
 <?php endif; ?>
 
 <?php
