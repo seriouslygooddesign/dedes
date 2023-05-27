@@ -41,7 +41,7 @@
   }
   &__images {
     position: relative;
-    padding: 0 var(--spacer-element);
+    padding: 0 var(--spacer-element) var(--spacer-element);
   }
   img {
     height: 100%;

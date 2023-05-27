@@ -127,7 +127,7 @@ if (!function_exists('get_core_color_text_white')) {
         return $color_text_white ? $color_text_class : null;
     }
 }
-//White Text Color
+//Theme Color
 if (!function_exists('get_core_theme_color')) {
     function get_core_theme_color()
     {
