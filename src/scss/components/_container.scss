@@ -16,7 +16,7 @@
   }
   &-md {
     @extend .container;
-    max-width: calc(var(--container-width) * 0.8);
+    max-width: calc(var(--container-width) * 0.7);
   }
   &-lg {
     @extend .container;
