@@ -20,7 +20,7 @@ if (!function_exists('get_core_remove_width_height_attr')) {
 if (!function_exists('get_core_get_sprite_url')) {
     function get_core_get_sprite_url()
     {
-        $file_name = "sprite.svg?1.0.1";
+        $file_name = "sprite.svg?1.0.2";
         return  get_stylesheet_directory_uri() . "/dist/sprite/$file_name";
     }
 }
