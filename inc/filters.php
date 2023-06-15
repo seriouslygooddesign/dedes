@@ -104,8 +104,8 @@ function add_custom_attributes_to_gallery_links($link_html, $id, $size)
     $full_img_height = $full_img_object[2];
     $preview_img = wp_get_attachment_image($id, 'medium_large');
 
-    wp_enqueue_style('photoswipe', get_template_directory_uri() . '/src/static-plugins/photoswipe/photoswipe.css', array(), '1.1.6');
-    wp_enqueue_script('photoswipe-core-module', get_template_directory_uri() . '/src/static-plugins/photoswipe/photoswipe.js', array(), '1.1.6');
+    wp_enqueue_style('photoswipe', get_template_directory_uri() . '/src/static-plugins/photoswipe/photoswipe.css', array(), '1.1.7');
+    wp_enqueue_script('photoswipe-core-module', get_template_directory_uri() . '/src/static-plugins/photoswipe/photoswipe.js', array(), '1.1.7');
 
     $link_html = "<a data-cropped='true' data-pswp-width='$full_img_width' data-pswp-height='$full_img_height' href='$full_img_src'>$preview_img</a>";
     return $link_html;
@@ -124,7 +124,7 @@ function custom_gallery($output, $attr)
     ]);
     if ($images) {
 
-        $columns = $attr['columns'] ?? 3;
+        $columns = $attr['columns'] ?? 1;
         $size = $attr['size'] ?? 'thumbnail';
         $link = $attr['link'] ?? 'attachment';
         $link_none = $link === 'none';
@@ -143,7 +143,7 @@ function custom_gallery($output, $attr)
         }
 
         $output .= "</div>"; //swiper-wrapper
-        $output .= "<div class='text-center spacer-element'>";
+        $output .= "<div class='text-center spacer-element swiper-controls-wrap'>";
         ob_start();
         get_template_part('components/slider-controls');
         $slider_controls = ob_get_clean();

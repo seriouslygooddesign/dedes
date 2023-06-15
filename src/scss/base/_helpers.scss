@@ -174,3 +174,46 @@
   margin: var(--spacer-element) 0 var(--spacer-element-md);
 }
 
+.card-alt {
+  --card-spacer: #{clamp-smart(25px, 80px)};
+  border-bottom: var(--border-width) solid var(--color-surface);
+  padding: var(--card-spacer) 0 !important;
+  &__imgs {
+    margin-bottom: var(--spacer-element);
+    @include bp(md) {
+      margin-bottom: 0;
+      .swiper {
+        margin-bottom: calc(var(--card-spacer) * -1);
+      }
+    }
+    img {
+      aspect-ratio: 4/3;
+    }
+  }
+  &__content {
+    > :first-child {
+      margin-top: 0;
+    }
+    > :last-child {
+      margin-bottom: 0;
+    }
+  }
+  .button--square {
+    padding: 0;
+  }
+  .swiper-controls-wrap {
+    min-height: var(--card-spacer);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 0;
+    --input-height: 2em;
+    @include bp(md) {
+      margin-top: 0;
+    }
+  }
+}
+
+.p-0 {
+  padding: 0 !important;
+}

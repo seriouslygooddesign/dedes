@@ -14,12 +14,11 @@ if ($loop) : ?>
         'modifier' => basename(__FILE__, '.php'),
     ];
     get_template_part('components/block', 'start', $block_args);
+    
+    get_template_part('components/block', 'header', ['class' => 'container']);
     ?>
     <div class="overflow-hidden">
         <div class="container" data-animate>
-            <div class="block-header text-center">
-                <h2>What's On</h2>
-            </div>
             <?php
             foreach ($loop as $post) :
                 setup_postdata($post);

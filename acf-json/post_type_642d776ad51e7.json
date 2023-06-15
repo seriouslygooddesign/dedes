@@ -64,10 +64,11 @@
     "supports": [
         "title",
         "editor",
+        "excerpt",
         "thumbnail"
     ],
     "taxonomies": "",
-    "has_archive": true,
+    "has_archive": false,
     "has_archive_slug": "",
     "rewrite": {
         "permalink_rewrite": "custom_permalink",
@@ -81,5 +82,5 @@
     "can_export": true,
     "delete_with_user": false,
     "register_meta_box_cb": "",
-    "modified": 1685096197
+    "modified": 1686844417
 }

@@ -8,6 +8,7 @@ $args = wp_parse_args(
 		'link_title' => get_sub_field('block_header_group')['link']['title'] ?? null,
 		'link_target' => get_sub_field('block_header_group')['link']['target'] ?? null,
 		'class' => false,
+		'extra_class' => false,
 	)
 );
 
@@ -18,7 +19,7 @@ $link = $link_url ? "<div class='col-auto'><p><a class='button' href='" . esc_ur
 if ($show) {
 	$class_result = $class ? "class='" . esc_attr($class) . "'" : ''; ?>
 	<div <?= $class_result ?> data-animate>
-		<div class="block-header">
+		<div class="block-header <?= $extra_class ?>">
 			<div class='row align-items-center'>
 				<div class='col'>
 					<?= wp_kses_post($content) ?>

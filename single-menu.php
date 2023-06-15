@@ -2,7 +2,7 @@
 get_template_part('components/page-header');
 
 if (have_rows('categories')) : ?>
-    <div class="spacer-section-pb target-content" data-animate>
+    <div class="spacer-section-pb target-content" data-animate style="--spacer-element: 1em;">
         <div class="target-content__buttons">
             <div class="button-menu">
                 <?php while (have_rows('categories')) : the_row(); ?>

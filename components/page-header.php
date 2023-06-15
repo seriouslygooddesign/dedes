@@ -1,6 +1,7 @@
 <?php
 $post_type = get_post_type();
 $img_options = get_field("banner_$post_type", 'options');
+
 $args = wp_parse_args($args,    [
     'title' => get_the_title(),
     'height' => 'min-height-small',
@@ -42,6 +43,14 @@ $block_class = get_core_filter_implode([
         <?php
         if (is_singular(['post', 'event'])) {
             echo get_the_date();
+        }
+        ?>
+        <?php
+        if (is_singular(['whats_on'])) {
+            $event_date = get_field('event_date');
+            if ($event_date) : ?>
+                <?php get_template_part('components/extra-field', null, ['icon' => 'calendar', 'content' => $event_date]); ?>
+        <?php endif;
         }
         ?>
     </div>

@@ -20,6 +20,11 @@ $themeColor: var(--color-primary);
         text-align: center;
         min-width: 4em;
     }
+    &-button-lock,
+    &-pagination-lock {
+        display: none !important;
+    }
+
     img {
         width: 100%;
     }

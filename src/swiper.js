@@ -1,13 +1,12 @@
 import "./scss/plugins/_swiper.scss";
 
 import Swiper, { Navigation, Pagination } from "swiper";
-import { hideSwiperControls } from './js/modules/hide-swiper-controls'
 
 const siteSliders = document.querySelectorAll("[data-swiper-slider]");
 if (siteSliders.length) {
   siteSliders.forEach((slider) => {
     const slidesPerView = Number(slider.getAttribute("data-slides-per-view"));
-    let slidesPerViewTablet = 2;
+    let slidesPerViewTablet = slidesPerView > 1 ? 2 : 1;
     if (slidesPerView >= 3) {
       slidesPerViewTablet = Math.round(slidesPerView / 2);
     }
@@ -28,21 +27,12 @@ if (siteSliders.length) {
       breakpoints: {
         576: {
           slidesPerView: slidesPerViewTablet,
-         
+
         },
         992: {
           slidesPerView: slidesPerView,
         },
       },
-      
-      on: {
-				init: function () {
-					hideSwiperControls(this)
-				},
-				resize: function () {
-					hideSwiperControls(this)
-				},
-			},
     });
   });
 }

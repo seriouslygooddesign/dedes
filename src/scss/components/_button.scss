@@ -19,9 +19,11 @@
   &--square {
     @include button-square;
   }
-  &--backgroundless:not(:hover):not(:focus) {
-    background-color: transparent;
-    color: inherit;
-    border-color: transparent;
+  &--backgroundless, .button-backgroundless & {
+    &:not(:hover):not(:focus) {
+      background-color: transparent;
+      color: inherit;
+      border-color: transparent;
+    }
   }
 }

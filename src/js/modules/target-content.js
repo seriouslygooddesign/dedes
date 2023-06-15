@@ -3,11 +3,11 @@ const TargetContent = () => {
     
     targetContents.forEach(targetContent => {
         const menu = targetContent.querySelector('.target-content__buttons');
-        const buttons = targetContent.querySelectorAll('.button');
+        const buttons = targetContent.querySelectorAll('.button-menu .button');
         const contents = targetContent.querySelectorAll('.target-content__content');
         const header = document.querySelector('header');
 
-        var scrollDisable = true;
+        let scrollDisable = true;
 
         function setActiveButton() {
             const menuBottom = menu.getBoundingClientRect().bottom + window.pageYOffset;
@@ -31,7 +31,7 @@ const TargetContent = () => {
                         const menuHeight = menu.getBoundingClientRect().height;
                         const headerHeight = header.getBoundingClientRect().height;
                         window.scrollTo({
-                            top: contentTop - menuHeight - headerHeight
+                            top: contentTop - menuHeight - headerHeight + 2
                         });
                     }
                     toggleActive(e.target);
