@@ -2,7 +2,7 @@
 $args = wp_parse_args(
     $args,
     array(
-        'image' => wp_get_attachment_image(get_post_thumbnail_id(), 'medium_large', false, ['class' => 'stretch']),
+        'image' => get_post_thumbnail_id(),
         'title' => get_the_title(),
         'content' => get_the_excerpt(),
         'img_ratio' => 'ratio-16-10',
@@ -18,8 +18,10 @@ $args = wp_parse_args(
 $link_title = null;
 $link_url = null;
 $link_target = null;
-
 extract($args);
+
+$image = wp_get_attachment_image($image, 'medium_large', false, ['class' => 'stretch']);
+
 
 if ($content && str_contains($content, 'href')) {
     $link = false;

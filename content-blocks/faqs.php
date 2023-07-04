@@ -15,7 +15,7 @@ if ($loop) :
     <div class="container">
         <div class="row gx-md-4">
             <?php if ($header_show) : ?>
-                <div class="col-md-4 vstack mb-spacer-element">
+                <div class="col-md-4 vstack mb-spacer-element" data-animate>
                     <?= $header_content ?>
                 </div>
             <?php endif; ?>

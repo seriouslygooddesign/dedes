@@ -1,30 +1,18 @@
-<?php get_header();
-get_template_part('components/content-blocks');
+<?php
+get_header();
 
-$loop = get_posts([
-    'post_type' => 'whats_on',
-    'posts_per_page' => 3,
-    'exclude' => get_the_ID()
-]);
-if ($loop) : ?>
+//Get Single What's On Data
+$is_main_site = is_main_site();
+switch_to_blog(1);
 
-    <div class="overflow-hidden">
-        <div class="container spacer-section-py" data-animate>
-            <div class="block-header">
-                <h2>Other Posts</h2>
-            </div>
-            <?php
-            foreach ($loop as $post) :
-                setup_postdata($post); ?>
-                <div class="col">
-                    <?php get_template_part('components/post'); ?>
-                </div>
-            <?php
-            endforeach;
-            wp_reset_postdata(); ?>
-        </div>
-    </div>
-<?php endif;
+$id = get_the_ID();
+if (!$is_main_site) {
+	$page_by_path = get_page_by_path(get_query_var(WHATS_ON_QUERY_VAR), 'OBJECT', WHATS_ON_POST_TYPE_NAME);
+	$id = $page_by_path->ID;
+}
+
+get_template_part('components/content-blocks', null, ['object' => $id]);
+
+restore_current_blog();
 
 get_footer();
-?>

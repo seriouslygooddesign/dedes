@@ -1,17 +1,20 @@
 <?php
-$post_type = get_post_type();
+$args = wp_parse_args($args,    [
+    'object' => get_the_ID(),
+]);
+$object = $args['object'];
+
+$post_type = get_post_type($object);
 $img_options = get_field("banner_$post_type", 'options');
 
 $args = wp_parse_args($args,    [
-    'title' => get_the_title(),
+    'title' => get_the_title($object),
     'height' => 'min-height-small',
-    'img_id' => $img_options && is_archive() ? $img_options : get_post_thumbnail_id(),
-    'img_alt' => get_the_title(),
-    'object' => get_the_ID(),
+    'img_id' => $img_options && is_archive() ? $img_options : get_post_thumbnail_id($object),
+    'img_alt' => get_the_title($object),
 ]);
-extract($args);
 
-$title = get_the_title($object);
+extract($args);
 
 $block_name = CONTENT_BLOCK_CLASS . ' ' . CONTENT_BLOCK_MODIFIER . basename(__FILE__, '.php');
 $block_class = get_core_filter_implode([
@@ -33,7 +36,12 @@ $block_class = get_core_filter_implode([
     ?>
     <div class="site-decor"></div>
     <div class="<?= CONTENT_BLOCK_CONTENT; ?> container-md spacer-section-py text-center" data-animate>
-        <?php get_template_part('components/breadcrumbs') ?>
+
+        <?php
+        if ($post_type != WHATS_ON_POST_TYPE_NAME) {
+            get_template_part('components/breadcrumbs');
+        } ?>
+
         <h1 class="uppercase page-header-title"><?= wp_kses_post($title); ?></h1>
         <?php
         $file = get_field('file');
@@ -44,17 +52,15 @@ $block_class = get_core_filter_implode([
             <a class="button button--outline uppercase" href="<?php echo esc_attr($url); ?>" download="">Download <?php echo esc_html($type); ?></a>
         <?php endif; ?>
         <?php
-        if (is_singular(['post', 'event'])) {
+        if (is_singular('post')) {
             echo get_the_date();
         }
         ?>
         <?php
-        if (is_singular(['whats_on'])) {
-            $event_date = get_field('event_date');
-            if ($event_date) : ?>
-                <?php get_template_part('components/extra-field', null, ['icon' => 'calendar', 'content' => $event_date]); ?>
+        $event_date = get_field('event_date', $object) ?? null;
+        if ($event_date) : ?>
+            <?php get_template_part('components/extra-field', null, ['icon' => 'calendar', 'content' => $event_date]); ?>
         <?php endif;
-        }
         ?>
     </div>
 </div>

@@ -20,108 +20,20 @@
             "endpoint": 0
         },
         {
-            "key": "field_648b31da87633",
-            "label": "",
-            "name": "",
-            "aria-label": "",
-            "type": "clone",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "clone": [
-                "group_6203d40d8296c"
-            ],
-            "display": "seamless",
-            "layout": "block",
-            "prefix_label": 0,
-            "prefix_name": 0
-        },
-        {
             "key": "field_645943ce9e43c",
-            "label": "Type",
-            "name": "type",
-            "aria-label": "",
-            "type": "button_group",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "choices": {
-                "latest": "Latest",
-                "select": "Select"
-            },
-            "default_value": "",
-            "return_format": "value",
-            "allow_null": 0,
-            "layout": "horizontal"
-        },
-        {
-            "key": "field_645943f89e43d",
-            "label": "What's On",
-            "name": "whats_on",
-            "aria-label": "",
-            "type": "relationship",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": [
-                [
-                    {
-                        "field": "field_645943ce9e43c",
-                        "operator": "==",
-                        "value": "select"
-                    }
-                ]
-            ],
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "post_type": [
-                "whats_on"
-            ],
-            "post_status": "",
-            "taxonomy": "",
-            "filters": [
-                "search"
-            ],
-            "return_format": "id",
-            "min": "",
-            "max": "",
-            "elements": ""
-        },
-        {
-            "key": "field_64074053c8d47",
             "label": "",
             "name": "",
             "aria-label": "",
             "type": "message",
             "instructions": "",
             "required": 0,
-            "conditional_logic": [
-                [
-                    {
-                        "field": "field_645943ce9e43c",
-                        "operator": "==",
-                        "value": "latest"
-                    }
-                ]
-            ],
+            "conditional_logic": 0,
             "wrapper": {
                 "width": "",
                 "class": "",
                 "id": ""
             },
-            "message": "Show Latest What's On",
+            "message": "Show Whats On",
             "new_lines": "wpautop",
             "esc_html": 0
         },
@@ -185,5 +97,5 @@
     "active": false,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1686843934
+    "modified": 1688476516
 }

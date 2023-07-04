@@ -20,6 +20,14 @@ if (function_exists('acf_add_options_page')) {
 		'menu_title'    => 'Styles',
 		'parent_slug'   => 'options',
 	));
+
+	if(is_main_site()){
+		acf_add_options_sub_page(array(
+		  'page_title'  => 'Sites',
+		  'menu_title'  => 'Sites',
+		  'parent_slug' => 'options',
+	  ));
+	}
 }
 
 //Wysiwyg Editor Height

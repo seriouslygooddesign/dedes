@@ -12,30 +12,19 @@
 		</div>
 	</div>
 	<?php
-	if (is_multisite()) {
-		$sites = get_sites(array(
-			'public' => 1,
-			'site__not_in' => get_current_blog_id(),
-		));
 
-		$visible_sites_count = array_reduce($sites, function ($count, $site) {
-			$site_id = $site->blog_id;
-			switch_to_blog($site_id);
-			$hide_site = get_field('hide_site', 'options');
-			restore_current_blog();
-
-			return $count + !$hide_site;
-		}, 0);
-
+	$dedes_sites = do_shortcode('[dedes-sites]');
+	if ($dedes_sites) {
 		$accordion_args = [
-			'total' => $visible_sites_count,
+			'total' => 1,
 			'label_class' => false,
 			'content_class' => 'container',
 			'title' => 'Discover Dedes Websites',
-			'text' => do_shortcode('[dedes-sites]'),
+			'text' => $dedes_sites,
 		];
 		get_template_part('components/accordion', null, $accordion_args);
 	}
+
 	?>
 
 	<div class="container spacer-element text-center color-text-muted fs-sm">

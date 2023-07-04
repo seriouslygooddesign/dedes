@@ -1,9 +1,13 @@
 <?php
+extract(wp_parse_args($args, [
+    'link' => get_permalink(),
+]));
+
 $image = get_the_post_thumbnail(get_the_ID(), 'small', ['class' => 'post-card__img']);
 $event_date = get_field('event_date');
 ?>
 <div data-animate>
-    <a href="<?php the_permalink(); ?>" class="post-card">
+    <a href="<?= $link; ?>" class="post-card">
         <div class="row align-items-center gx-3">
             <?php if ($image) : ?>
                 <div class="col-md-3">
@@ -21,7 +25,7 @@ $event_date = get_field('event_date');
                     <?php the_excerpt() ?>
                 </div>
             </div>
-            <?php if (in_array(get_post_type(), ['post', 'event'])) : ?>
+            <?php if (get_post_type() == 'post') : ?>
                 <div class="col col-md-auto post-card__date">
                     <div class="row g-2 align-items-center" style="min-width: 150px">
                         <div class="col-auto">

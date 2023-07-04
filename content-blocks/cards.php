@@ -13,7 +13,7 @@ get_template_part('components/block', 'start', $block_args);
 					<?php
 					$link = get_sub_field('link');
 					$card_args = array(
-						'image' => wp_get_attachment_image(get_sub_field('image'), 'small', false, ['class' => 'stretch']),
+						'image' => get_sub_field('image'),
 						'title' => get_sub_field('title'),
 						'content' => get_sub_field('content'),
 						'link' => $link ? [
