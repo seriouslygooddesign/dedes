@@ -14,9 +14,9 @@ $args = wp_parse_args(
 
 extract($args);
 
-$link = $link_url ? "<div class='col-auto'><p><a class='button' href='" . esc_url($link_url) . "' target='" . esc_attr($link_target) . "'>" . esc_html($link_title) . "</a></p></div>" : null;
 
 if ($show) {
+	$link = $link_url ? "<div class='col-auto'><p><a class='button' href='" . esc_url($link_url) . "' target='" . esc_attr($link_target) . "'>" . esc_html($link_title) . "</a></p></div>" : null;
 	$class_result = $class ? "class='" . esc_attr($class) . "'" : ''; ?>
 	<div <?= $class_result ?> data-animate>
 		<div class="block-header <?= $extra_class ?>">

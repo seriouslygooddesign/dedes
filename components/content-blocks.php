@@ -7,7 +7,7 @@ if (have_rows('content_blocks', $object)) {
 	while (have_rows('content_blocks', $object)) {
 		the_row();
 		if (get_core_hide_block()) {
-			get_template_part('content-blocks/' . get_row_layout());
+			get_template_part('content-blocks/' . get_row_layout(), null, ['object' => $object]);
 		}
 	}
 }

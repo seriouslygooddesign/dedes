@@ -1,5 +1,5 @@
 @mixin button() {
-  padding: 0 calc(var(--input-x-padding) * 1.4);
+  padding: 0.3em calc(var(--input-x-padding) * 1.4);
   min-height: var(--input-height);
   display: inline-flex;
   justify-content: center;

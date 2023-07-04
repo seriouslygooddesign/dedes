@@ -17,6 +17,8 @@
   &__button {
     width: 100%;
     text-transform: capitalize;
+    padding-left: var(--input-x-padding);
+    padding-right: var(--input-x-padding);
     &:not([aria-expanded="true"]) {
       .site-footer:not(.theme-color-dark) & {
         color: currentColor;
@@ -30,12 +32,12 @@
       }
       color: inherit;
       border-color: transparent;
-      background-color: var(--color-surface);
+      background-color: var(--color-surface-solid);
     }
   }
 
   &__icon {
-    font-size: 1.5em;
+    font-size: 1em;
     flex: 0 0 auto;
     transition: transform var(--transition);
   }

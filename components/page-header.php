@@ -7,8 +7,11 @@ $args = wp_parse_args($args,    [
     'height' => 'min-height-small',
     'img_id' => $img_options && is_archive() ? $img_options : get_post_thumbnail_id(),
     'img_alt' => get_the_title(),
+    'object' => get_the_ID(),
 ]);
 extract($args);
+
+$title = get_the_title($object);
 
 $block_name = CONTENT_BLOCK_CLASS . ' ' . CONTENT_BLOCK_MODIFIER . basename(__FILE__, '.php');
 $block_class = get_core_filter_implode([

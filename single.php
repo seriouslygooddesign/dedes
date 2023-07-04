@@ -50,6 +50,7 @@ endwhile;
 ?>
 
 <?php
+
 $related = get_posts(
 	array(
 		'numberposts'  => 3,
