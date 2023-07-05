@@ -1,5 +1,4 @@
 <?php
-//some comment
 define('WHATS_ON_POST_TYPE_NAME', 'whats_on');
 define('WHATS_ON_URL_PREFIX', 'whats-on');
 define('WHATS_ON_TEMPLATE_NAME', 'single-' . WHATS_ON_POST_TYPE_NAME . '.php');
