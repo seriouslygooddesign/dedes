@@ -1,4 +1,4 @@
-@include bp(lg, max) {
+@include bp(xl, max) {
   .is-locked {
     overflow: hidden;
   }
@@ -109,8 +109,9 @@
 }
 
 .custom-logo {
-  max-height: var(--header-height);
-  width: 100%;
+  height: var(--header-height);
+  width: auto;
+  object-fit: contain;
   padding: 0.3em 0;
 }
 

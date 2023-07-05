@@ -110,9 +110,13 @@ function custom_meta_description()
     switch_to_blog(1);
     global $wp;
     $post_id = url_to_postid(home_url($wp->request));
-    $post_description = get_post_meta($post_id, 'rank_math_description', true);
+    $post_description = get_the_excerpt($post_id);
+    $rank_math_description = get_post_meta($post_id, 'rank_math_description', true);
+    if ($rank_math_description) {
+        $post_description = $rank_math_description;
+    }
     restore_current_blog();
     if ($post_description) {
-        echo '<meta name="description" content="' . esc_html($post_description) . '">';
+        echo '<meta name="description" content="' . esc_attr($post_description) . '">';
     }
 }
