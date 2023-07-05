@@ -1,13 +1,24 @@
 .button-menu {
-    margin: 2em 0;
-    padding: 1em var(--container-padding);
+    padding-left: var(--container-padding);
+    padding-right: var(--container-padding);
     overflow-x: auto;
     white-space: nowrap;
     text-align: center;
-    @include bp(md, max) {
-        font-size: 0.75em;
+    &__button {
+        --color-link: var(--color-text-muted);
+        padding: var(--spacer-element) 0;
+        text-decoration-thickness: 2px;
+        text-underline-offset: calc(var(--spacer-element) + 1px);
+        margin-right: var(--spacer-element);
+        line-height: 1;
+        display: inline-block;
+        vertical-align: middle;
+        @include underline-reverse;
+        &:hover,
+        &.active {
+            --color-link: var(--color-primary);
+        }
     }
-
     .button {
         &:not(:last-child) {
             margin-right: var(--spacer-element-sm);
@@ -21,5 +32,7 @@
     }
     .active {
         pointer-events: none;
+        text-decoration-color: currentColor;
     }
+
 }

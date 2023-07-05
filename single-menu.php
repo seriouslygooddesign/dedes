@@ -6,8 +6,9 @@ if (have_rows('categories')) : ?>
         <div class="target-content__buttons">
             <div class="button-menu">
                 <?php while (have_rows('categories')) : the_row(); ?>
-                    <?php $title = get_sub_field('title'); ?>
-                    <a href="#<?= esc_attr(sanitize_title($title)) ?>" class="button<?= get_row_index() === 1 ? ' active' : ''; ?>"><?= esc_html($title); ?></a>
+                    <?php $title = get_sub_field('title');
+                    get_template_part('components/target-button', null, ['title' => $title, 'i' => get_row_index()]);
+                    ?>
                 <?php endwhile; ?>
             </div>
         </div>

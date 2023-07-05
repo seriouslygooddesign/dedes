@@ -6,7 +6,7 @@ const { WebpackManifestPlugin } = require("webpack-manifest-plugin");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 
 const outputPath = "dist";
-const localDomain = "sala-dining.multisite.local";
+const localDomain = "multisite.local";
 
 module.exports = (env, argv) => {
   const isProduction = argv.mode === 'production';

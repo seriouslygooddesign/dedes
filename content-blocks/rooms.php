@@ -19,13 +19,11 @@ if ($loop) : ?>
         <?php //Target Buttons 
         ?>
         <div class="target-content__buttons">
-            <div class="button-menu fs-sm">
+            <div class="button-menu">
                 <?php
-                $i = 0;
+                $i = 1;
                 foreach ($loop as $post) : setup_postdata($post);
-                    $title = get_the_title(); ?>
-                    <a href="#<?= esc_attr(sanitize_title($title)) ?>" class="button<?= $i == 0 ? ' active' : ''; ?>"><?= esc_html($title); ?></a>
-                <?php
+                    get_template_part('components/target-button', null, ['i' => $i]);
                     $i++;
                 endforeach;
                 wp_reset_postdata(); ?>

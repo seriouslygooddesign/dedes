@@ -11,7 +11,7 @@ if (have_rows('galleries')) :
 	$has_galleries = count($galleries) > 1 && array_column($galleries, 'title') ? 'galleries' : ''; ?>
 	<div class="<?= $has_galleries; ?>" data-animate>
 		<?php if ($has_galleries) : ?>
-			<div class="button-menu">
+			<div class="button-menu spacer-section-py">
 				<?php while (have_rows('galleries')) : the_row(); ?>
 					<?php $title = get_sub_field('title'); ?>
 					<button type="button" class="button<?= get_row_index() === 1 ? ' active' : ''; ?>"><?= esc_html($title); ?></button>

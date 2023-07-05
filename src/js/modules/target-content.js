@@ -3,7 +3,7 @@ const TargetContent = () => {
     
     targetContents.forEach(targetContent => {
         const menu = targetContent.querySelector('.target-content__buttons');
-        const buttons = targetContent.querySelectorAll('.button-menu .button');
+        const buttons = targetContent.querySelectorAll('.button-menu__button');
         const contents = targetContent.querySelectorAll('.target-content__content');
         const header = document.querySelector('header');
 
@@ -14,7 +14,7 @@ const TargetContent = () => {
             contents.forEach(content => {
                 const contentTop = content.getBoundingClientRect().top + window.pageYOffset;
                 const contentBottom = content.getBoundingClientRect().bottom + window.pageYOffset;
-                const activeButton = targetContent.querySelector(`.target-content__buttons .button[href="#${content.id}"]`);
+                const activeButton = targetContent.querySelector(`.button-menu__button[href="#${content.id}"]`);
                 if (contentTop - 50 <= menuBottom && contentBottom >= menuBottom && scrollDisable && activeButton) {
                     toggleActive(activeButton);
                 }
