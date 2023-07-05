@@ -1,4 +1,5 @@
 <?php
+
 $site_url = get_site_url();
 $is_main_site = is_main_site();
 $current_blog_id = get_current_blog_id();
