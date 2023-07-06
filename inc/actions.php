@@ -20,3 +20,25 @@ function remove_admin_login_header()
     remove_action('wp_head', '_admin_bar_bump_cb');
 }
 add_action('get_header', 'remove_admin_login_header');
+
+//Admin Panel CSS
+add_action('admin_head', 'custom_admin_panel_css');
+function custom_admin_panel_css()
+{
+    //Hide CPT links on main site
+    if (is_main_site()) {
+        echo '<style>
+        #adminmenu #menu-posts-faq,
+        #adminmenu #menu-posts-room,
+        #adminmenu #menu-posts-menu,
+        #adminmenu #menu-posts-team {
+            display:none;
+        }
+        </style>';
+    }
+    
+    //Hide "What's On" CPT link on child sites
+    if (!is_main_site()) {
+        echo '<style>#adminmenu #menu-posts-' . WHATS_ON_POST_TYPE_NAME . '{display:none;}</style>';
+    }
+}
