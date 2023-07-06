@@ -4,15 +4,6 @@ define('WHATS_ON_URL_PREFIX', 'whats-on');
 define('WHATS_ON_TEMPLATE_NAME', 'single-' . WHATS_ON_POST_TYPE_NAME . '.php');
 define('WHATS_ON_QUERY_VAR', 'whats_on_title');
 
-//Hide post type link in admin panel using CSS if not main site
-// add_action('admin_head', 'hide_whats_on_admin_link');
-function hide_whats_on_admin_link()
-{
-    if (!is_main_site()) {
-        echo '<style>#adminmenu #menu-posts-' . WHATS_ON_POST_TYPE_NAME . '{display:none;}</style>';
-    }
-}
-
 //Create ACF checkboxes to select where "what's on" should be displayed 
 add_action('acf/init', 'custom_acf_fields');
 function custom_acf_fields()
