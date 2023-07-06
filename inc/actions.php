@@ -38,7 +38,7 @@ function custom_admin_panel_css()
     }
     
     //Hide "What's On" CPT link on child sites
-    if (!is_main_site()) {
-        echo '<style>#adminmenu #menu-posts-' . WHATS_ON_POST_TYPE_NAME . '{display:none;}</style>';
-    }
+    // if (!is_main_site()) {
+    //     echo '<style>#adminmenu #menu-posts-' . WHATS_ON_POST_TYPE_NAME . '{display:none;}</style>';
+    // }
 }
