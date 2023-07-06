@@ -1,9 +1,4 @@
 <?php
-define('WHATS_ON_POST_TYPE_NAME', 'whats_on');
-define('WHATS_ON_URL_PREFIX', 'whats-on');
-define('WHATS_ON_TEMPLATE_NAME', 'single-' . WHATS_ON_POST_TYPE_NAME . '.php');
-define('WHATS_ON_QUERY_VAR', 'whats_on_title');
-
 //Create ACF checkboxes to select where "what's on" should be displayed 
 add_action('acf/init', 'custom_acf_fields');
 function custom_acf_fields()
