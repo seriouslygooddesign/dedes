@@ -19,15 +19,22 @@ if ($loop) : ?>
         <?php //Target Buttons 
         ?>
         <div class="target-content__buttons">
-            <div class="button-menu">
-                <?php
-                $i = 1;
-                foreach ($loop as $post) : setup_postdata($post);
-                    get_template_part('components/target-button', null, ['i' => $i]);
-                    $i++;
-                endforeach;
-                wp_reset_postdata(); ?>
-            </div>
+            <?php
+            $button_title = esc_html(get_the_title($loop[0]));
+            $select_box_item = '';
+            foreach ($loop as $post) : setup_postdata($post);
+                $title = esc_html(get_the_title());
+                $title = ucwords(strtolower($title));
+                $href = esc_attr(sanitize_title($title));
+                $select_box_item .= "<li class='select-box__item'><a class='select-box__link' href='#$href'>$title</a></li>";
+            endforeach;
+            $select_box_args = [
+                'item' => $select_box_item,
+                'button_title' => $button_title,
+            ];
+            wp_reset_postdata();
+            get_template_part('components/select-box', null, $select_box_args)
+            ?>
         </div>
 
         <?php //Block Header 

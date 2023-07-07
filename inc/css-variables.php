@@ -101,12 +101,14 @@ function css_variables()
         --color-secondary-rgb: $color_secondary_rgb;
         --color-secondary: rgb(var(--color-secondary-rgb));
         --color-surface: $color_surface; 
+        --color-gray-light: #f1f1f1; 
         --color-surface-solid: linear-gradient(var(--color-surface), var(--color-surface)), linear-gradient(var(--color-body), var(--color-body));
         --color-body: $color_body;
         --color-text-rgb: $color_text_rgb;
         --color-text: rgb(var(--color-text-rgb));
         --color-text-muted: rgba(var(--color-text-rgb),0.6);
         --color-white: #ffffff;
+        --color-surface-solid-darker:  linear-gradient(var(--color-surface), var(--color-surface)), linear-gradient(var(--color-surface), var(--color-surface)), linear-gradient(var(--color-white), var(--color-white));
         --color-white-muted: rgba(255, 255, 255, 0.6);
         --color-white-muted-max: rgba(255, 255, 255, 0.1);
         --color-error: #f44336;

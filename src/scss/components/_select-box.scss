@@ -1,0 +1,82 @@
+.select-box {
+    position: relative;
+    width: 100%;
+    background: var(--color-surface-solid-darker);
+    &__button {
+        position: relative;
+        z-index: 1;
+        width: 100%;
+        text-align: left;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        border: none;
+        background: none;
+        min-height: var(--header-height);
+        font-size: 1.1em;
+        padding: 0;
+        gap: 0.5em;
+        cursor: pointer;
+        &.active {
+            & + * {
+                opacity: 1;
+                visibility: visible;
+            }
+            .select-box__icon {
+                transform: rotate(180deg);
+            }
+        }
+    }
+    &__icon {
+        transition: transform var(--transition);
+        flex: 0 0 auto;
+    }
+    &__list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        overflow-y: auto;
+        max-height: 40vh;
+        overscroll-behavior: contain;
+    }
+    &__content {
+        background: var(--color-surface-solid-darker);
+        position: absolute;
+        visibility: hidden;
+        opacity: 0;
+        left: 0;
+        top: 100%;
+        width: 100%;
+        margin: -1px 0 0;
+        padding: var(--spacer-element-sm) 0 2em;
+        transition: opacity var(--transition), visibility var(--transition);
+    }
+    &__text {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+    &__item {
+        margin-top: 0;
+    }
+    &__link {
+        padding: 0.3em 0;
+        display: block;
+        &:not(:hover) {
+            --color-link: currentColor;
+        }
+    }
+    ::-webkit-scrollbar {
+        width: 12px;
+    }
+
+    ::-webkit-scrollbar-track {
+        background: var(--color-surface-solid);
+        border-radius: 10px;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        background: var(--color-surface);
+        border-width: 2px;
+    }
+}
