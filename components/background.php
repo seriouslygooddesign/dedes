@@ -40,7 +40,7 @@ if ($background && $background_type !== 'none') {
                 $poster = $poster_image['sizes']['large'];
             }
             echo sprintf(
-                "<video playsinline autoplay muted loop %s class='stretch'><source src='%s' type='%s'></video>",
+                "<video playsinline autoplay muted loop %s class='stretch'><source data-src='%s' type='%s'></video>",
                 $poster ? "poster='" . esc_url($poster) . "'" : '',
                 esc_url($src),
                 esc_attr($mime_type)

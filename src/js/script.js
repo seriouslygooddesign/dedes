@@ -5,6 +5,7 @@ import Animate from "./modules/animate";
 import GalleryNav from "./modules/gallery-nav";
 import TargetContent from "./modules/target-content";
 import SimpleParallax from "./modules/simple-parallax";
+import VideoAutoplay from "./modules/video-autoplay";
 
 
 //Accordion
@@ -28,3 +29,5 @@ TargetContent()
 // SimpleParallax
 SimpleParallax()
 
+// VideoAutoplay
+VideoAutoplay()
