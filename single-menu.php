@@ -7,13 +7,13 @@ if (have_rows('categories')) : ?>
         $button_title = esc_html(get_field('categories')[0]['title']);
         $select_box_item = '';
         $full_content = '';
-        $content = '';
 
         while (have_rows('categories')) : the_row();
             $title = esc_html(get_sub_field('title'));
             $title = ucwords(strtolower($title));
             $sanitize_title = esc_attr(sanitize_title($title));
-            
+            $content = '';
+
             $select_box_item .= "<li class='select-box__item'><a class='select-box__link' href='#$sanitize_title'>$title</a></li>";
             $select_box_args = [
                 'item' => $select_box_item,
