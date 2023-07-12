@@ -66,7 +66,7 @@ if ($loop) : ?>
                                 ?>
                             </div>
                             <div class="col-12 card-alt__content align-self-center">
-                                <?php the_title('<h4>', '</h4>') ?>
+                                <?php the_title('<h3 class="h4">', '</h3>') ?>
 
                                 <?php if ($capacity || $features) : ?>
                                     <div class="row gy-1">
