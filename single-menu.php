@@ -48,6 +48,12 @@ if (have_rows('categories')) : ?>
     </div>
 <?php endif; ?>
 
+<?php if (get_the_content()) : ?>
+    <div class="container spacer-section-pb">
+        <?php the_content() ?>
+    </div>
+<?php endif; ?>
+
 <?php
 get_footer();
 ?>
