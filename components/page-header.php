@@ -21,7 +21,7 @@ $block_class = get_core_filter_implode([
     $block_name,
     'color-text-white',
     'color-background-surface',
-    ' overflow-hidden',
+    'overflow-hidden',
     $height
 ]);
 ?>

@@ -8,7 +8,7 @@ $overlay-menu-breakpoint: xl;
   z-index: 1500;
   display: flex;
   align-items: center;
-  &:not(.theme-color-dark){
+  &:not(.theme-color-dark) {
     background: var(--color-surface-solid);
   }
   &-space {
@@ -30,11 +30,10 @@ $overlay-menu-breakpoint: xl;
   align-items: center;
   gap: var(--spacer-element);
 
-  .current-menu-item, .current-menu-parent, .current-menu-ancestor {
-    > a,
-    > .dropdown-toggle {
-      color: var(--color-current-link);
-    }
+  li.current-menu-ancestor > .dropdown-toggle,
+  li.current-menu-ancestor > a,
+  li.current-menu-item > a {
+    color: var(--color-current-link) !important;
   }
 
   li,
@@ -72,8 +71,7 @@ $overlay-menu-breakpoint: xl;
       }
 
       .dropdown-responsive {
-        --color-current-link: var(--color-text);
-        color: var(--color-text);
+     
         @include dropdown;
         &.element-collapse {
           display: block;

@@ -1,6 +1,6 @@
 .min-height {
   &-small {
-    min-height: clamp-smart(300px, 450px, 768px);
+    min-height: clamp-smart(300px, 500px, 768px);
   }
   &-medium {
     min-height: clamp-smart(400px, 600px, 768px);

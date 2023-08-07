@@ -1,5 +1,5 @@
 <?php
-$theme_color = get_core_theme_color();
+$theme_color = get_core_theme_color('header');
 
 $cta_link_shortcode = do_shortcode('[cta-link]');
 $custom_logo_id = get_custom_logo();

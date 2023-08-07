@@ -129,9 +129,9 @@ if (!function_exists('get_core_color_text_white')) {
 }
 //Theme Color
 if (!function_exists('get_core_theme_color')) {
-    function get_core_theme_color()
+    function get_core_theme_color($location)
     {
-        $theme_color = get_field('theme_color', 'options');
+        $theme_color = get_field($location . '_theme_color', 'options');
         if ($theme_color == 'dark') {
             $class = ' color-text-white color-background-primary theme-color-dark';
         }

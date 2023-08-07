@@ -23,22 +23,23 @@
 */
 
 .spacer-section {
-  &-p {
-    &t,
-    &y {
-      padding-top: var(--spacer-section);
+  @each $direction, $suffix in (top: "t", bottom: "b") {
+    // padding
+    &-p#{$suffix},
+    &-py {
+      padding-#{$direction}: var(--spacer-section);
+      &-half {
+        padding-#{$direction}: var(--spacer-section-half);
+      }
     }
-    &b,
-    &y {
-      padding-bottom: var(--spacer-section);
-    }
-  }
-  &-m {
-    &t {
-      margin-top: var(--spacer-section);
-    }
-    &b {
-      margin-bottom: var(--spacer-section);
+    
+    // margin
+    &-m#{$suffix},
+    &-my {
+      margin-#{$direction}: var(--spacer-section);
+      &-half {
+        margin-#{$direction}: var(--spacer-section-half);
+      }
     }
   }
 }

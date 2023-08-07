@@ -1,7 +1,7 @@
 <?php
 switch_to_blog(1);
 if (have_rows('sites', 'option')) : ?>
-    <div class="spacer-section-py fs-sm">
+    <div class="spacer-section-py-half fs-sm">
         <div class="row g-3 row-cols-sm-2 row-cols-lg-4 justify-content-center">
             <?php while (have_rows('sites', 'option')) : the_row(); ?>
                 <div class="col-12" data-animate>

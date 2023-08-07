@@ -301,8 +301,31 @@
         },
         {
             "key": "field_6470e44e747d9",
-            "label": "Theme Color",
-            "name": "theme_color",
+            "label": "Header Theme Color",
+            "name": "header_theme_color",
+            "aria-label": "",
+            "type": "button_group",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "light": "Light",
+                "dark": "Dark"
+            },
+            "default_value": "",
+            "return_format": "value",
+            "allow_null": 0,
+            "layout": "horizontal"
+        },
+        {
+            "key": "field_64d0b8fd8299f",
+            "label": "Footer Theme Color",
+            "name": "footer_theme_color",
             "aria-label": "",
             "type": "button_group",
             "instructions": "",
@@ -341,5 +364,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1685120102
+    "modified": 1691400463
 }

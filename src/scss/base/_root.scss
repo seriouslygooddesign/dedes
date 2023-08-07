@@ -40,6 +40,7 @@
   --spacer-element-md: #{clamp-smart(16px, 23px * 2)};
 
   --spacer-section: #{clamp-smart(30px, 90px)};
+  --spacer-section-half: calc(var(--spacer-section) / 2);
 
   --spacer-base: #{clamp-smart(20px, 30px)};
   --spacer-1: calc(var(--spacer-base) * 0.33);
@@ -79,5 +80,5 @@
   --sprite-arrow: url("../sprite/sprite.svg#arrow-usage");
   --sprite-chevron: url("../sprite/sprite.svg#chevron-usage");
   --site-arrow: var(--sprite-arrow);
-  --site-arrow-transform: rotate(-45deg)
+  --site-arrow-transform: rotate(-45deg);
 }

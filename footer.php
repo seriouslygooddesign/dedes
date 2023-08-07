@@ -1,6 +1,6 @@
 </main>
-<footer class="site-footer<?= get_core_theme_color() ?>">
-	<div class="container underline-reverse spacer-section-py">
+<footer class="site-footer<?= get_core_theme_color('footer') ?>">
+	<div class="container underline-reverse spacer-section-pt spacer-section-pb-half">
 		<div class="site-footer__widgets">
 			<?php
 			$footer_widget_counter = 1;

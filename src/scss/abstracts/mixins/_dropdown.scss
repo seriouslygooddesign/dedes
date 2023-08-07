@@ -7,13 +7,19 @@
   padding: var(--spacer-element-sm) 0;
   z-index: 10;
   white-space: nowrap;
-  background-color: var(--color-white);
   box-shadow: var(--shadow);
   transform: translateY(-10px);
   transition: opacity var(--transition), visibility var(--transition), transform var(--transition);
   opacity: 0;
   visibility: hidden;
-
+  background-color: var(--color-white);
+  .theme-color-dark & {
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    a {
+      color: inherit;
+    }
+  }
   ul {
     top: calc(var(--spacer-element-sm) * -1);
     left: 100%;

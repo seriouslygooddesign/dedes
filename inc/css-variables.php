@@ -109,7 +109,7 @@ function css_variables()
         --color-text-muted: rgba(var(--color-text-rgb),0.6);
         --color-white: #ffffff;
         --color-surface-solid-darker:  linear-gradient(var(--color-surface), var(--color-surface)), linear-gradient(var(--color-surface), var(--color-surface)), linear-gradient(var(--color-white), var(--color-white));
-        --color-white-muted: rgba(255, 255, 255, 0.6);
+        --color-white-muted: rgba(255, 255, 255, 0.7);
         --color-white-muted-max: rgba(255, 255, 255, 0.1);
         --color-error: #f44336;
         --color-success: #0f834d;

@@ -12,7 +12,9 @@ function generate_shortcode($field, $icon, $atts)
     $wrap = $a['wrap'] === 'true' ? true : false;
 
     $link = $link ?? false;
-    return get_core_icon_label($icon, $label, $link, $field, $wrap, $title);
+    if($label){
+        return get_core_icon_label($icon, $label, $link, $field, $wrap, $title);
+    }
 }
 
 $shortcodes = array(
