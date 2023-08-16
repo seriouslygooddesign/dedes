@@ -25,7 +25,7 @@ get_template_part('components/block', 'start', $block_args);
 ob_start();
 foreach ($loop as $post) :
     setup_postdata($post);
-    $title = '<h3 class="h6 fw-bold">' . get_the_title() . '</h3>';
+    $title = '<h3 class="h6">' . get_the_title() . '</h3>';
     $subtitle = get_field('subtitle');
     $subtitle = $subtitle ? "<p class='lh-sm'> $subtitle </p>" : '';
     $img = wp_get_attachment_image(get_post_thumbnail_id(), 'thumbnail', null, ['class' => 'img-rounded'])
@@ -49,8 +49,9 @@ foreach ($loop as $post) :
 endforeach;
 wp_reset_postdata();
 $slides = ob_get_clean(); ?>
+
 <div class="container text-center-md-max">
-    <div class="row gy-0" data-swiper-id="<?= wp_unique_id() ?>" data-swiper-slides-lg="1">
+    <div class="row gy-0" data-swiper-id="<?= wp_unique_id() ?>">
         <div class="col-md-8 col-lg-9 order-md-1">
             <div class="swiper" data-swiper-posts>
                 <div class="swiper-wrapper">
