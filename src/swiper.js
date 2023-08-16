@@ -52,7 +52,6 @@ sliderIds.forEach(slider => {
         nextEl: `[data-swiper-id="${swiperId}"] [data-swiper-button-next]`,
         prevEl: `[data-swiper-id="${swiperId}"] [data-swiper-button-prev]`,
       },
-      loop: false,
     })
 })
 
