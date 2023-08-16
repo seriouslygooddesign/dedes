@@ -178,3 +178,13 @@
 .p-0 {
   padding: 0 !important;
 }
+
+.img-rounded {
+  width: 5em !important;
+  border-radius: 100%;
+  aspect-ratio: 1;
+}
+ 
+.lh-sm {
+  line-height: 1.4;
+}

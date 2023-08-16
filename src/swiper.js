@@ -36,3 +36,52 @@ if (siteSliders.length) {
     });
   });
 }
+
+
+const sliderIds = document.querySelectorAll('[data-swiper-id]')
+sliderIds.forEach(slider => {
+  const swiperId = slider.getAttribute('data-swiper-id');
+  initSwiper(
+    {
+      selector: `[data-swiper-id="${swiperId}"] [data-swiper-posts]`,
+      pagination: {
+        el: `[data-swiper-id="${swiperId}"] [data-swiper-pagination]`,
+        type: "fraction",
+      },
+      navigation: {
+        nextEl: `[data-swiper-id="${swiperId}"] [data-swiper-button-next]`,
+        prevEl: `[data-swiper-id="${swiperId}"] [data-swiper-button-prev]`,
+      },
+      loop: false,
+    })
+})
+
+
+function initSwiper(options) {
+  const defaultOptions = {
+    modules: [Navigation, Pagination],
+    slidesPerView: 1,
+    spaceBetween: 20,
+    loop: true,
+    autoHeight: false,
+    pagination: {
+      el: "[data-swiper-pagination]",
+      type: "fraction",
+    },
+    navigation: {
+      nextEl: "[data-swiper-button-next]",
+      prevEl: "[data-swiper-button-prev]",
+    },
+  }
+
+  const config = { ...defaultOptions, ...options }
+
+  const sliders = document.querySelectorAll(config.selector);
+  if (sliders.length) {
+    sliders.forEach((slider) => {
+      new Swiper(slider, {
+        ...config,
+      });
+    });
+  }
+}

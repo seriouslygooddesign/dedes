@@ -161,7 +161,7 @@ function core_scripts()
 		// if the content blocks contain a slider
 	} else if (have_rows('content_blocks')) { ?>
 			<?php while (have_rows('content_blocks')) : the_row();
-				if (in_array(get_row_layout(), ['posts', 'rooms']) && get_core_hide_block()) {
+				if (in_array(get_row_layout(), ['posts', 'rooms', 'testimonials']) && get_core_hide_block()) {
 					swiper_js_css();
 				} ?>
 			<?php endwhile;

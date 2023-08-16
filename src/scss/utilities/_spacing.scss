@@ -8,6 +8,9 @@
   &t-0 {
     margin-top: 0;
   }
+  &t-spacer-element-half {
+    margin-top: var(--spacer-element-sm);
+  }
   &b-spacer-element {
     margin-bottom: var(--spacer-element);
   }
@@ -40,6 +43,14 @@
       &-half {
         margin-#{$direction}: var(--spacer-section-half);
       }
+    }
+  }
+}
+
+.gap {
+  @each $name, $value in $spacers {
+    &-#{$name} {
+      gap: var(--spacer-#{$name});
     }
   }
 }
