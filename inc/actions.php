@@ -30,6 +30,7 @@ function custom_admin_panel_css()
         echo '<style>
         #adminmenu #menu-posts-faq,
         #adminmenu #menu-posts-room,
+        #adminmenu #menu-posts-testimonial,
         #adminmenu #menu-posts-menu,
         #adminmenu #menu-posts-team {
             display:none;
