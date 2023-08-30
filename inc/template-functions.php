@@ -1,4 +1,20 @@
 <?php
+//Decode manifest.json to string to get a path to a file
+function get_core_enqueue_path($name, $template_directory_uri = true)
+{
+    $manifest_file_path = get_template_directory() . '/dist/manifest.json';
+    if (!file_exists($manifest_file_path)) return;
+    $manifest_file = file_get_contents($manifest_file_path);
+    $manifest_data = json_decode($manifest_file, true);
+    $result = $manifest_data[$name] ?? null;
+    $before_path = null;
+    if ($template_directory_uri) {
+        $before_path = get_template_directory_uri();
+    }
+    return $result ? $before_path . $result : null;
+}
+
+
 //Filter & Implode
 if (!function_exists('get_core_filter_implode')) {
     function get_core_filter_implode(array $array)

@@ -112,21 +112,11 @@ add_action('widgets_init', 'core_widgets_init');
 /**
  * Enqueue scripts and styles.
  */
-function get_asset_manifest($asset)
-{
-	$dir = '/dist/';
-	$manifest_file_path = get_template_directory() . $dir . 'manifest.json';
-
-	if (file_exists($manifest_file_path)) {
-		$manifest_data = json_decode(file_get_contents($manifest_file_path), true);
-		return  $dir . $manifest_data[$asset];
-	}
-}
 
 function swiper_js_css()
 {
-	wp_enqueue_style('swiper', get_template_directory_uri() . get_asset_manifest('swiper.css'), [], null);
-	wp_enqueue_script('core-defer-swiper', get_template_directory_uri() . get_asset_manifest('swiper.js'), [], null);
+	wp_enqueue_style('swiper', get_core_enqueue_path('swiper.css'), [], null);
+	wp_enqueue_script('core-defer-swiper', get_core_enqueue_path('swiper.js'), [], null);
 }
 
 function core_scripts()
@@ -139,8 +129,8 @@ function core_scripts()
 
 
 	//Core Files
-	wp_enqueue_style('main', get_template_directory_uri() . get_asset_manifest('main.css'), [], null);
-	wp_enqueue_script('core-defer-main', get_template_directory_uri() . get_asset_manifest('main.js'), [], null, true);
+	wp_enqueue_style('main', get_core_enqueue_path('main.css'), [], null);
+	wp_enqueue_script('core-defer-main', get_core_enqueue_path('main.js'), [], null, true);
 
 
 	// Swiper
@@ -184,3 +174,7 @@ function core_scripts()
 	require get_template_directory() . '/inc/gravity-forms.php';
 	require get_template_directory() . '/inc/css-variables.php';
 	require get_template_directory() . '/inc/whats-on.php';
+	if (class_exists('WooCommerce')) {
+		require get_template_directory() . '/inc/woocommerce.php';
+	}
+	

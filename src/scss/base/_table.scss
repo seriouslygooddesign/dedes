@@ -12,10 +12,10 @@ table {
     }
   }
   thead tr:last-child {
-    border-bottom: calc(var(--border-width) * 2) solid var(--color-primary);
+    border-bottom: calc(var(--border-width)) solid var(--color-primary);
   }
   tfoot tr:first-child {
-    border-top: calc(var(--border-width) * 2) solid var(--color-primary);
+    border-top: calc(var(--border-width)) solid var(--color-primary);
   }
   td,
   th {

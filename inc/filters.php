@@ -59,6 +59,9 @@ function add_attributes_to_script_tag($url)
     if (strpos($url, 'core-module')) {
         $url = str_replace(' src', ' type="module" src', $url);
     }
+    if (strpos($url, '-async-')) {
+        $url = str_replace('></script>', ' async></script>', $url);
+    }
     return $url;
 }
 add_filter('script_loader_tag', 'add_attributes_to_script_tag', 10);

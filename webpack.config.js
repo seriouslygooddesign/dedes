@@ -6,7 +6,7 @@ const { WebpackManifestPlugin } = require("webpack-manifest-plugin");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 
 const outputPath = "dist";
-const localDomain = "watergrill.dedes-multisite.local";
+const localDomain = "dechouse.dedes-multisite.local";
 
 module.exports = (env, argv) => {
   const isProduction = argv.mode === 'production';
@@ -17,11 +17,12 @@ module.exports = (env, argv) => {
       main: path.resolve(__dirname, "src/main.js"),
       swiper: path.resolve(__dirname, "src/swiper.js"),
       sprite: path.resolve(__dirname, "src/sprite.js"),
+      woocommerce: path.resolve(__dirname, "src/js/woocommerce.js"),
     },
     output: {
       path: path.resolve(__dirname, outputPath),
       filename: isProduction ? "[name]/[name].[contenthash].js" : "[name]/[name].js",
-      publicPath: ""
+      publicPath: "/" + outputPath,
     },
     externals: {
       jquery: "jQuery",

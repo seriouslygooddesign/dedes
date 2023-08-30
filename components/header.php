@@ -37,6 +37,8 @@ if ($custom_logo_id || $cta_link_shortcode || has_nav_menu('menu-1')) :
 
                 <?php
                 if (function_exists('core_woocommerce_header')) {
+
+                    echo !$custom_logo_id ? '<div class="col"></div>' : null;
                     echo '<div class="col-auto">';
                     core_woocommerce_header();
                     echo '</div>';

@@ -2,6 +2,7 @@
   width: 1.1em;
   height: 1.1em;
   display: inline-flex;
+  vertical-align: middle;
   &--chevron {
     @include mask-icon("chevron");
   }

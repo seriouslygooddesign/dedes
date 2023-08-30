@@ -1,13 +1,17 @@
 {
-  "main.css": "main/main.c49eaf2121f920cdfacb.css",
-  "main.js": "main/main.1b8c75928040c41821e5.js",
-  "swiper.css": "swiper/swiper.7c9307fe9555e0a3941c.css",
-  "swiper.js": "swiper/swiper.42d318b822b287e7e59a.js",
-  "sprite.js": "sprite/sprite.8e0a5187639e4b0cd676.js",
-  "sprite/sprite.svg": "sprite/sprite.svg",
-  "main.css.map": "main/main.c49eaf2121f920cdfacb.css.map",
-  "main.js.map": "main/main.1b8c75928040c41821e5.js.map",
-  "swiper.css.map": "swiper/swiper.7c9307fe9555e0a3941c.css.map",
-  "swiper.js.map": "swiper/swiper.42d318b822b287e7e59a.js.map",
-  "sprite.js.map": "sprite/sprite.8e0a5187639e4b0cd676.js.map"
+  "main.css": "/dist/main/main.afbef976622e363c8745.css",
+  "main.js": "/dist/main/main.1b8c75928040c41821e5.js",
+  "swiper.css": "/dist/swiper/swiper.7c9307fe9555e0a3941c.css",
+  "swiper.js": "/dist/swiper/swiper.42d318b822b287e7e59a.js",
+  "sprite.js": "/dist/sprite/sprite.2268597fd97e7a172d92.js",
+  "woocommerce.css": "/dist/woocommerce/woocommerce.988b40d49a2adfed2db0.css",
+  "woocommerce.js": "/dist/woocommerce/woocommerce.432784e349893076ed70.js",
+  "sprite/sprite.svg": "/dist/sprite/sprite.svg",
+  "main.css.map": "/dist/main/main.afbef976622e363c8745.css.map",
+  "main.js.map": "/dist/main/main.1b8c75928040c41821e5.js.map",
+  "swiper.css.map": "/dist/swiper/swiper.7c9307fe9555e0a3941c.css.map",
+  "swiper.js.map": "/dist/swiper/swiper.42d318b822b287e7e59a.js.map",
+  "sprite.js.map": "/dist/sprite/sprite.2268597fd97e7a172d92.js.map",
+  "woocommerce.css.map": "/dist/woocommerce/woocommerce.988b40d49a2adfed2db0.css.map",
+  "woocommerce.js.map": "/dist/woocommerce/woocommerce.432784e349893076ed70.js.map"
 }
