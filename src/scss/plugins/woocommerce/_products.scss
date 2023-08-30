@@ -39,6 +39,7 @@ ul.products {
 .site-product {
   position: relative;
   text-align: center;
+  height: 100%;
 
   .star-rating {
     margin: 0 auto;
@@ -63,11 +64,12 @@ ul.products {
       font-size: 1.125em;
     }
   }
-  
-  a {
+
+  > a {
+    height: inherit;
     padding-bottom: var(--spacer-element-sm);
     transition: background var(--transition);
-    &:hover  {
+    &:hover {
       background: var(--color-surface);
       img {
         scale: 1.05;
@@ -75,12 +77,9 @@ ul.products {
     }
   }
   img {
-    display: block;
-    width: 100%;
-    aspect-ratio: 1;
+    @include stretch;
     transition: scale var(--transition);
     will-change: scale;
-
   }
 }
 
@@ -101,5 +100,15 @@ ul.products {
         @include screen-reader;
       }
     }
+  }
+}
+
+.site-products {
+  @include reset-list;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(clamp-smart(150px, 300px), 1fr));
+  gap: var(--spacer-element);
+  li {
+    margin-top: 0;
   }
 }

@@ -403,7 +403,7 @@ add_action('woocommerce_after_shop_loop_item', function () {
 
 // Adding wrapper before the product image
 add_action('woocommerce_before_shop_loop_item_title', function() {
-    echo '<div class="overflow-hidden">';
+    echo '<div class="overflow-hidden ratio-1-1 color-background-surface">';
 }, 9);
 
 // Closing wrapper after the product image
