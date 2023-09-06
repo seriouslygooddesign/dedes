@@ -20,6 +20,7 @@ table {
   td,
   th {
     padding: 0.6em 0;
+    vertical-align: baseline;
     &:not(:first-child) {
       padding-left: 0.6em;
     }

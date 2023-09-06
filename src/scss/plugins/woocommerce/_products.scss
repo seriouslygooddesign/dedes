@@ -68,9 +68,10 @@ ul.products {
   > a {
     height: inherit;
     padding-bottom: var(--spacer-element-sm);
-    transition: background var(--transition);
+    transition: border-color var(--transition);
+    border-bottom: 2px solid transparent;
     &:hover {
-      background: var(--color-surface);
+      border-color: var(--color-primary);
       img {
         scale: 1.05;
       }
