@@ -9,16 +9,7 @@ get_template_part('components/page-header', null, $page_header_args);
     <?php if (have_posts()) : ?>
         <div class="row justify-content-center g-3 row-cols-md-3">
             <?php while (have_posts()) : the_post(); ?>
-                <div class="col-12" data-animate>
-                    <?php
-                    $card_args = array(                        
-                        'link' =>  [
-                            'link_title' => 'Show Menu',
-                            'link_url' => get_permalink(),
-                        ] 
-                    );
-                    get_template_part('components/card', null, $card_args); ?>
-                </div>
+                <?php get_template_part('components/menu'); ?>
             <?php endwhile; ?>
         </div>
         <?php get_template_part('components/pagination'); ?>

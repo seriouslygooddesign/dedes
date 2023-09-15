@@ -21,16 +21,7 @@ if ($loop) : ?>
             <?php
             foreach ($loop as $post) :
                 setup_postdata($post); ?>
-                <div class="col-12" data-animate>
-                    <?php
-                    $card_args = array( 
-                        'link' =>  [
-                            'link_title' => 'Show Menu',
-                            'link_url' => get_permalink(),
-                        ]
-                    );
-                    get_template_part('components/card', null, $card_args); ?>
-                </div>
+               <?php get_template_part('components/menu') ?>
             <?php
             endforeach;
             wp_reset_postdata(); ?>

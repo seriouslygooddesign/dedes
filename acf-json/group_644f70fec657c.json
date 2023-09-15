@@ -3,6 +3,29 @@
     "title": "Menu - Extra Fields",
     "fields": [
         {
+            "key": "field_65042c08e41a9",
+            "label": "Type",
+            "name": "type",
+            "aria-label": "",
+            "type": "button_group",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "menu": "Menu",
+                "link": "Link"
+            },
+            "default_value": "",
+            "return_format": "value",
+            "allow_null": 0,
+            "layout": "horizontal"
+        },
+        {
             "key": "field_645128b5d3682",
             "label": "File",
             "name": "file",
@@ -10,7 +33,15 @@
             "type": "file",
             "instructions": "",
             "required": 0,
-            "conditional_logic": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_65042c08e41a9",
+                        "operator": "==",
+                        "value": "menu"
+                    }
+                ]
+            ],
             "wrapper": {
                 "width": "",
                 "class": "",
@@ -30,7 +61,15 @@
             "type": "repeater",
             "instructions": "",
             "required": 0,
-            "conditional_logic": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_65042c08e41a9",
+                        "operator": "==",
+                        "value": "menu"
+                    }
+                ]
+            ],
             "wrapper": {
                 "width": "",
                 "class": "",
@@ -85,6 +124,7 @@
                     "collapsed": "",
                     "button_label": "Add Item",
                     "rows_per_page": 20,
+                    "parent_repeater": "field_644f70ffe5fb0",
                     "sub_fields": [
                         {
                             "key": "field_6450d96235def",
@@ -128,10 +168,33 @@
                             "append": "",
                             "parent_repeater": "field_644f7160e5fb2"
                         }
-                    ],
-                    "parent_repeater": "field_644f70ffe5fb0"
+                    ]
                 }
             ]
+        },
+        {
+            "key": "field_65042cade41aa",
+            "label": "Link",
+            "name": "link",
+            "aria-label": "",
+            "type": "link",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_65042c08e41a9",
+                        "operator": "==",
+                        "value": "link"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array"
         }
     ],
     "location": [
@@ -152,5 +215,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1686840345
+    "modified": 1694772439
 }
