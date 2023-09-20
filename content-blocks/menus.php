@@ -6,7 +6,7 @@ $loop = get_posts([
     'posts_per_page' => -1
 ]);
 
-$loop = get_sub_field('type') == 'select' ? get_sub_field($post_type) : $loop;
+$loop = get_sub_field('type') == 'select' ? get_sub_field('menus') : $loop;
 
 if ($loop) : ?>
     <?php
