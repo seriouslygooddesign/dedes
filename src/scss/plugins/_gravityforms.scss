@@ -2,12 +2,14 @@ div.gform_wrapper.gravity-theme {
   margin: var(--spacer-element) 0;
 
   @include bp(md, max) {
-    input:not([type="radio"]):not([type="checkbox"]):not([type="image"]):not(
-        [type="file"]
-      ) {
+    input:not([type="radio"]):not([type="checkbox"]):not([type="image"]):not([type="file"]) {
       min-height: var(--input-height);
       line-height: inherit;
     }
+  }
+  input[type="number"] {
+    padding-right: 0 !important;
+    line-height: calc(var(--input-height) - var(--border-width) * 2);
   }
 
   input[type="text"],
@@ -28,10 +30,13 @@ div.gform_wrapper.gravity-theme {
   select {
     font-size: inherit;
     padding: 0 var(--input-x-padding);
+    font-weight: 600;
+    flex: 1;
   }
 
   select[multiple],
   textarea {
+    font-weight: 600;
     font-size: inherit;
     padding: var(--input-y-padding) var(--input-x-padding);
   }
@@ -73,10 +78,13 @@ div.gform_wrapper.gravity-theme {
   }
 
   .description,
-  .gfield_description,
+  .gfield_description:not(.gfield_consent_description),
   .gsection_description,
-  .instruction {
+  .instruction,
+  .ginput_complex label {
     font-size: var(--fs-xs);
+    padding: 0 !important;
+    margin: 0 !important;
   }
   .gfield_label {
     margin: 0;
@@ -86,7 +94,7 @@ div.gform_wrapper.gravity-theme {
 
   .gchoice {
     display: flex;
-    align-items: center;
+    align-items: baseline;
   }
 
   .gfield_checkbox,
@@ -106,14 +114,16 @@ div.gform_wrapper.gravity-theme {
   }
 
   .ginput_container_time {
-    min-width: 5rem;
-    max-width: 5rem;
+    min-width: auto;
+    max-width: initial;
+    flex: 1;
   }
 
   .gform_footer,
   .gform_page_footer {
     padding: 0;
     margin: var(--spacer-element) 0 0;
+    text-align: center;
     .button {
       margin-bottom: 0;
     }
@@ -152,9 +162,103 @@ div.gform_wrapper.gravity-theme {
     color: inherit;
     font-weight: bold;
   }
-
+  option {
+    font-weight: inherit;
+  }
   .ginput_total {
     font-weight: bold;
     color: var(--color-primary);
+  }
+
+  .gf_progressbar {
+    background: var(--color-surface);
+    margin-bottom: var(--spacer-section-half);
+    border-radius: 0;
+    .gf_progressbar_percentage {
+      border-radius: inherit;
+      background: var(--color-primary);
+    }
+  }
+  .field_sublabel_below .ginput_complex {
+    align-items: center;
+  }
+  .gform_previous_button.button,
+  .gform_save_link.button {
+    &:not(:hover) {
+      @extend .button--outline;
+    }
+    @include button-hover;
+  }
+  .ginput_container_date {
+    position: relative;
+    .datepicker_with_icon {
+      padding-right: calc(var(--input-x-padding) * 3);
+    }
+  }
+  .ui-datepicker-trigger {
+    position: absolute;
+    right: var(--input-x-padding);
+  }
+  .gfield--width-third {
+    @include bp(lg, max) {
+      grid-column: span 12 !important;
+    }
+  }
+
+  ul.hstack {
+    padding: 0;
+    list-style: none;
+    justify-content: center;
+    > * {
+      flex: 0 0 clamp-smart(80px, 150px);
+    }
+  }
+  .gfield--input-type-singleproduct {
+    padding: var(--spacer-element);
+    background: var(--color-surface);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5em var(--spacer-element-md);
+    flex-direction: column;
+    @include bp(sm) {
+      flex-direction: row;
+    }
+    input {
+      background: var(--color-white);
+    }
+    .ginput_quantity_label {
+      font-size: var(--fs-xs);
+      opacity: 0.5;
+      order: 1;
+    }
+
+    .ginput_product_price {
+      font-size: var(--fs-lg);
+    }
+    .gfield_label_before_complex {
+      flex: 1;
+    }
+    .gfield_description {
+      padding-top: 0.5em !important;
+      border-top: 1px solid rgba(var(--color-text-rgb), 0.3);
+    }
+  }
+  .ginput_container_singleproduct {
+    display: flex;
+    flex-wrap: wrap;
+    flex: 0;
+    > * {
+      flex: 100%;
+    }
+  }
+  .gfield_label_product {
+    font-size: 1.4em;
+    line-height: 1.4;
+    color: var(--color-primary);
+  }
+  .gf_progressbar_wrapper + .gform_body {
+    .gform_page_footer {
+      margin-top: var(--spacer-section-half);
+    }
   }
 }

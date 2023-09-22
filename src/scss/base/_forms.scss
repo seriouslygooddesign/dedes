@@ -53,7 +53,6 @@ select {
   background-size: 0.6em;
   background-repeat: no-repeat;
   background-position: right 0.5em center;
-  line-height: var(--input-height);
   &:disabled {
     opacity: 1;
   }
@@ -127,9 +126,10 @@ textarea {
   display: inline-flex !important;
   align-items: center;
   font: inherit;
-  height: 1.5em;
-  width: 1.5em;
+  height: 1.2em;
+  width: 1.2em;
   margin: 0;
+  flex: 0 0 auto;
   place-content: center;
   &,
   & + label {
@@ -143,8 +143,8 @@ textarea {
     display: block;
     background-color: currentColor;
     border-radius: 0;
-    height: 0.7em;
-    width: 0.7em;
+    height: 50%;
+    width: 50%;
     scale: 0;
     transition: scale 0.12s;
   }
