@@ -262,3 +262,13 @@ div.gform_wrapper.gravity-theme {
     }
   }
 }
+.gravity-theme.ui-datepicker.gform-theme-datepicker .ui-datepicker-calendar  {
+  .ui-state-disabled .ui-state-default, .ui-state-default {
+    border-radius: 0;
+  }
+   td:not(.ui-datepicker-unselectable) .ui-state-default:hover, .ui-state-active {
+    background: var(--color-primary) !important;
+    border-color: var(--color-primary) !important;
+    color: var(--color-white) !important;
+  }
+}
