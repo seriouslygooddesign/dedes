@@ -139,7 +139,9 @@
       display: block;
       border-bottom: var(--border-width) solid var(--color-primary);
       text-decoration: none;
-      transition: border-color var(--transition), color var(--transition);
+      transition:
+        border-color var(--transition),
+        color var(--transition);
       &:hover {
         color: var(--color-primary);
       }
@@ -202,9 +204,15 @@
 }
 
 .single_variation_wrap {
-	width: 100%;
+  width: 100%;
 }
 
 .wc-pao-addons-container {
-	margin-bottom: var(--spacer-element);
+  margin-bottom: var(--spacer-element);
+}
+
+.woocommerce .pswp {
+  display: none;
+  opacity: 0;
+  visibility: hidden;
 }

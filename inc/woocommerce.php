@@ -49,6 +49,7 @@ function disable_wc_css_blocks()
 		'wc-blocks-style-cart',
 		'wc-blocks-style-checkout',
 		'wc-blocks-style-mini-cart-contents',
+		'photoswipe',
 	);
 
 	foreach ($styles as $style) {
@@ -56,6 +57,8 @@ function disable_wc_css_blocks()
 	}
 }
 add_action('wp_enqueue_scripts', 'disable_wc_css_blocks', 100);
+
+add_filter( 'woocommerce_single_product_photoswipe_enabled', '__return_false' );
 
 /**
  * WooCommerce Widgets
