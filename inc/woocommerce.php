@@ -49,7 +49,7 @@ function disable_wc_css_blocks()
 		'wc-blocks-style-cart',
 		'wc-blocks-style-checkout',
 		'wc-blocks-style-mini-cart-contents',
-		'photoswipe',
+		// 'photoswipe',
 	);
 
 	foreach ($styles as $style) {
@@ -58,7 +58,13 @@ function disable_wc_css_blocks()
 }
 add_action('wp_enqueue_scripts', 'disable_wc_css_blocks', 100);
 
-add_filter( 'woocommerce_single_product_photoswipe_enabled', '__return_false' );
+function disable_photoswipe()
+{
+	if (!is_product()) {
+		wp_deregister_style('photoswipe');
+	}
+}
+add_action('wp_enqueue_scripts', 'disable_photoswipe', 101);
 
 /**
  * WooCommerce Widgets
@@ -233,7 +239,7 @@ if (!function_exists('core_woocommerce_header')) {
 					core_woocommerce_cart_counter();
 					get_template_part('components/site-icon', null, ['icon' => 'cart']);
 					?>
-					
+
 				</a>
 			</li>
 		</ul>
@@ -405,13 +411,13 @@ add_action('woocommerce_after_shop_loop_item', function () {
 }, 100);
 
 // Adding wrapper before the product image
-add_action('woocommerce_before_shop_loop_item_title', function() {
-    echo '<div class="overflow-hidden ratio-1-1 color-background-surface">';
+add_action('woocommerce_before_shop_loop_item_title', function () {
+	echo '<div class="overflow-hidden ratio-1-1 color-background-surface">';
 }, 9);
 
 // Closing wrapper after the product image
-add_action('woocommerce_before_shop_loop_item_title', function() {
-    echo '</div>';
+add_action('woocommerce_before_shop_loop_item_title', function () {
+	echo '</div>';
 }, 11);
 
 //Loop - Wrap Product Buttons
