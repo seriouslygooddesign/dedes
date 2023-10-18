@@ -184,7 +184,24 @@
   border-radius: 100%;
   aspect-ratio: 1;
 }
- 
+
 .lh-sm {
   line-height: 1.4;
+}
+
+.page-header-container {
+  position: relative;
+  padding: var(--spacer-element) var(--spacer-section-half);
+  margin: var(--container-padding);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  aspect-ratio: 16/9;
+  width: 100%;
+  @include bp(md) {
+    width: 60%;
+  }
+  .site-decor {
+    z-index: -1;
+  }
 }

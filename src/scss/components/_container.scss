@@ -8,7 +8,7 @@
 
   &-xs {
     @extend .container;
-    max-width: calc(var(--container-width) * 0.4);
+    max-width: calc(var(--container-width) * 0.5);
   }
   &-sm {
     @extend .container;

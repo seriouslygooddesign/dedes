@@ -34,33 +34,37 @@ $block_class = get_core_filter_implode([
     ];
     get_template_part('components/background-image', null, $img_args);
     ?>
-    <div class="site-decor"></div>
-    <div class="<?= CONTENT_BLOCK_CONTENT; ?> container-md spacer-section-py text-center" data-animate>
+    <div class="<?= CONTENT_BLOCK_CONTENT; ?> container-md d-flex justify-content-center spacer-section-py-half text-center" data-animate>
+        <div class="page-header-container">
 
-        <?php
-        if ($post_type != WHATS_ON_POST_TYPE_NAME) {
-            get_template_part('components/breadcrumbs');
-        } ?>
+            <div class="site-decor"></div>
+            <div>
+                <?php
+                if ($post_type != WHATS_ON_POST_TYPE_NAME) {
+                    get_template_part('components/breadcrumbs');
+                } ?>
 
-        <h1 class="uppercase page-header-title"><?= wp_kses_post($title); ?></h1>
-        <?php
-        $file = get_field('file');
-        if ($file && is_single()) :
-            $url = $file['url'];
-            $type = $file['subtype'];
-        ?>
-            <a class="button button--outline uppercase" href="<?php echo esc_attr($url); ?>" download="">Download <?php echo esc_html($type); ?></a>
-        <?php endif; ?>
-        <?php
-        if (is_singular('post')) {
-            echo get_the_date();
-        }
-        ?>
-        <?php
-        $event_date = get_field('event_date', $object) ?? null;
-        if ($event_date) : ?>
-            <?php get_template_part('components/extra-field', null, ['icon' => 'calendar', 'content' => $event_date]); ?>
-        <?php endif;
-        ?>
+                <h1 class="uppercase page-header-title"><?= wp_kses_post($title); ?></h1>
+                <?php
+                $file = get_field('file');
+                if ($file && is_single()) :
+                    $url = $file['url'];
+                    $type = $file['subtype'];
+                ?>
+                    <p><a class="button button--outline uppercase" href="<?php echo esc_attr($url); ?>" download="">Download <?php echo esc_html($type); ?></a></p>
+                <?php endif; ?>
+                <?php
+                if (is_singular('post')) {
+                    echo get_the_date();
+                }
+                ?>
+                <?php
+                $event_date = get_field('event_date', $object) ?? null;
+                if ($event_date) : ?>
+                    <?php get_template_part('components/extra-field', null, ['icon' => 'calendar', 'content' => $event_date]); ?>
+                <?php endif;
+                ?>
+            </div>
+        </div>
     </div>
 </div>
