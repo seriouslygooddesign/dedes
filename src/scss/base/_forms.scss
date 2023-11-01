@@ -63,8 +63,11 @@ input[type="number"] {
 }
 
 fieldset {
+  .payment_box.payment_method_stripe & {
+    border: 0;
+    padding: 0;
+  }
   margin: 0;
-  padding: 0.5em 1em;
   border: var(--border-width) solid var(--color-border);
 }
 
@@ -126,8 +129,8 @@ textarea {
   display: inline-flex !important;
   align-items: center;
   font: inherit;
-  height: 1.2em;
-  width: 1.2em;
+  height: 1.2em !important;
+  width: 1.2em !important;
   margin: 0;
   flex: 0 0 auto;
   place-content: center;

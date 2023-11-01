@@ -5,7 +5,8 @@
   &.u-columns {
     display: flex;
     flex-direction: column;
-    gap: var(--container-spacer);
+    align-items: flex-start;
+    gap: var(--container-padding);
     @include bp(md) {
       flex-direction: row;
       .col-1,
