@@ -17,6 +17,7 @@
   font-size: var(--fs-sm);
   padding: var(--spacer-2);
   background-color: var(--color-surface);
+  margin: var(--spacer-element) 0;
   > :first-child {
     margin-top: 0;
   }
