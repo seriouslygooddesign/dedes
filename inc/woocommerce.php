@@ -573,3 +573,6 @@ function custom_remove_icon($string, $cart_item_key)
 	$icon =  ob_get_clean();
 	return str_replace('&times;', $icon, $string);
 }
+
+//Trim zeros in price decimals
+add_filter( 'woocommerce_price_trim_zeros', '__return_true' );
