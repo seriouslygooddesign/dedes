@@ -154,7 +154,7 @@ function custom_gallery($output, $attr)
         $output .= "</div>"; //text-center
         $output .= "</div>"; //swiper
     }
-
+    swiper_js_css();
     return $output;
 }
 
