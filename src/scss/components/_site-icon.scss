@@ -21,6 +21,7 @@
     transform: var(--site-arrow-transform);
     vertical-align: middle;
     transition: transform var(--transition);
+    will-change: transform;
     a:hover & {
       transform: rotate(0deg) translate(0);
     }
