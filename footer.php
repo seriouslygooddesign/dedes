@@ -21,6 +21,7 @@
 			'content_class' => 'container',
 			'title' => 'Discover Dedes Websites',
 			'text' => $dedes_sites,
+			'faq_scheme' => false
 		];
 		get_template_part('components/accordion', null, $accordion_args);
 	}
