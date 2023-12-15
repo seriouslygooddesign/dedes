@@ -159,7 +159,7 @@ if (!function_exists('get_core_theme_color')) {
 //Edit First <p> In Accordion for SEO
 function get_core_accordion_first_p($content)
 {
-    return preg_replace('/<p>/', '<p itemprop="text">', $content, 1);
+    return preg_replace('/<p/', '<p itemprop="text"', $content, 1);
 }
 
 //Icon Label Component
