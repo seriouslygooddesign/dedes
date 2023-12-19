@@ -27,7 +27,7 @@ if ($loop) :
                         'total' => $total,
                         'current' => $i,
                         'title' => get_the_title(),
-                        'text' => get_the_content(),
+                        'text' => apply_filters('the_content', get_the_content()),
                     ];
                     get_template_part('components/accordion', null, $accordion_args);
                     $i++;
