@@ -9,6 +9,7 @@ $total = count($loop);
 $i = 1;
 $header_show = get_sub_field('block_header_show');
 $header_content = get_sub_field('block_header');
+$faq_schema = get_sub_field('faq_schema');
 
 if ($loop) :
 ?>
@@ -28,6 +29,7 @@ if ($loop) :
                         'current' => $i,
                         'title' => get_the_title(),
                         'text' => apply_filters('the_content', get_the_content()),
+                        'faq_schema' => $faq_schema
                     ];
                     get_template_part('components/accordion', null, $accordion_args);
                     $i++;

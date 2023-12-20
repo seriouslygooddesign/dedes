@@ -67,7 +67,8 @@
             "return_format": "object",
             "min": "",
             "max": "",
-            "elements": ""
+            "elements": "",
+            "bidirectional_target": []
         },
         {
             "key": "field_64a3cd28954b8",
@@ -101,6 +102,7 @@
                 "id": ""
             },
             "clone": [
+                "field_6582d503ed43f",
                 "field_601cf17342c32",
                 "field_602382c8dbe0f",
                 "field_60f6785eda58b"
@@ -129,5 +131,5 @@
     "active": false,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1688459646
+    "modified": 1703073121
 }
