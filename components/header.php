@@ -10,11 +10,12 @@ if ($custom_logo_id || $cta_link_shortcode || has_nav_menu('menu-1')) :
 ?>
 
     <header class="site-header underline-reverse<?= $extra_class . $theme_color; ?>">
-
-        <div class="hide-header-element<?= $custom_logo_id ? ' order-1' : null; ?>">
-            <?php get_template_part('components/toggle-menu') ?>
-        </div>
-
+        <?php
+        if (has_nav_menu('menu-1')) : ?>
+            <div class="hide-header-element<?= $custom_logo_id ? ' order-1' : null; ?>">
+                <?php get_template_part('components/toggle-menu') ?>
+            </div>
+        <?php endif ?>
         <div class="container-fluid">
             <div class="row gx-2 gx-md-3 align-items-center site-header-space">
                 <?php

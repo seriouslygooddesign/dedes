@@ -20,7 +20,10 @@
                 "top": "Padding Top",
                 "bottom": "Padding Bottom"
             },
-            "default_value": [],
+            "default_value": [
+                "top",
+                "bottom"
+            ],
             "return_format": "value",
             "allow_custom": 0,
             "layout": "vertical",
@@ -709,5 +712,5 @@
     "active": false,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1703073066
+    "modified": 1703755660
 }

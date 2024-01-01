@@ -10,7 +10,7 @@ function fb_mce_editor_buttons($buttons)
 add_filter('tiny_mce_before_init', 'fb_mce_before_init');
 function fb_mce_before_init($settings)
 {
-    $heading_order = 'h1,h2,h3,h4,h5,h6';
+    $heading_order = 'h1,h2,h3,h4,h5,h6,p';
     $style_formats = array(
         array(
             'title' => 'Heading Size',

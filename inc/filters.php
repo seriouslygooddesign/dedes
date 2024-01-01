@@ -39,12 +39,14 @@ add_filter('get_the_archive_title', 'my_theme_archive_title');
 
 
 //Read More
-function new_excerpt_length($length) {
+function new_excerpt_length($length)
+{
     return 25;
 }
 add_filter('excerpt_length', 'new_excerpt_length', 999);
 
-function new_excerpt_more($more) {
+function new_excerpt_more($more)
+{
     return '...';
 }
 add_filter('excerpt_more', 'new_excerpt_more');
@@ -105,7 +107,7 @@ function add_custom_attributes_to_gallery_links($link_html, $id, $size)
     $full_img_src = $full_img_object[0];
     $full_img_width = $full_img_object[1];
     $full_img_height = $full_img_object[2];
-    $preview_img = wp_get_attachment_image($id, 'medium_large');
+    $preview_img = wp_get_attachment_image($id, 'medium_large', null, ['loading' => 'lazy']);
 
     wp_enqueue_style('photoswipe', get_template_directory_uri() . '/src/static-plugins/photoswipe/photoswipe.css', array(), '1.1.8');
     wp_enqueue_script('photoswipe-core-module', get_template_directory_uri() . '/src/static-plugins/photoswipe/photoswipe.js', array(), '1.1.8');
@@ -132,7 +134,7 @@ function custom_gallery($output, $attr)
         $link = $attr['link'] ?? 'attachment';
         $link_none = $link === 'none';
 
-        $output = "<div class='swiper swiper--center' data-photoswipe data-swiper-slider data-slides-per-view='$columns'><div class='swiper-wrapper'>";
+        $output = "<div class='swiper swiper--center swiper--gallery' data-photoswipe data-swiper-slider data-slides-per-view='$columns'><div class='swiper-wrapper'>";
 
         foreach ($images as $image) {
             $image_id = $image->ID;
@@ -146,7 +148,7 @@ function custom_gallery($output, $attr)
         }
 
         $output .= "</div>"; //swiper-wrapper
-        $output .= "<div class='text-center spacer-element swiper-controls-wrap'>";
+        $output .= "<br><div class='text-center spacer-element swiper-controls-wrap'>";
         ob_start();
         get_template_part('components/slider-controls');
         $slider_controls = ob_get_clean();
@@ -157,4 +159,3 @@ function custom_gallery($output, $attr)
     swiper_js_css();
     return $output;
 }
-

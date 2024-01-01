@@ -1,15 +1,16 @@
 $themeColor: var(--color-primary);
 @import "swiper/scss";
-
+@import "../abstracts/variables";
+@import "../abstracts/mixins/breakpoints";
 .swiper {
     &-wrapper--autoheight-sm-none {
-        @media (min-width:576px) {
+        @include bp(sm) {
             height: initial !important;
             align-items: initial !important;
         }
     }
     &-button-disabled {
-        opacity: .1;
+        opacity: 0.1;
         background: var(--color-text);
         pointer-events: none;
     }
@@ -27,5 +28,10 @@ $themeColor: var(--color-primary);
 
     img {
         width: 100%;
+    }
+    @include bp(sm) {
+        &.swiper--gallery[data-photoswipe] img {
+            aspect-ratio: 4/3;
+        }
     }
 }
