@@ -11,7 +11,7 @@
   &-fullheight {
     min-height: 100vh;
   }
-  .site-header + .site-content &-fullheight {
+  body:has(header) &-fullheight {
     min-height: calc(100vh - var(--header-height));
   }
 }
