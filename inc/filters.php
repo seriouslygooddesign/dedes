@@ -110,7 +110,7 @@ function add_custom_attributes_to_gallery_links($link_html, $id, $size)
     $preview_img = wp_get_attachment_image($id, 'medium_large', null, ['loading' => 'lazy']);
 
     wp_enqueue_style('photoswipe', get_template_directory_uri() . '/src/static-plugins/photoswipe/photoswipe.css', array(), '1.1.8');
-    wp_enqueue_script('photoswipe-core-module', get_template_directory_uri() . '/src/static-plugins/photoswipe/photoswipe.js', array(), '1.1.8');
+    wp_enqueue_script('photoswipe-core-module', get_template_directory_uri() . '/src/static-plugins/photoswipe/photoswipe.js', array(), '1.1.16');
 
     $link_html = "<a data-cropped='true' data-pswp-width='$full_img_width' data-pswp-height='$full_img_height' href='$full_img_src'>$preview_img</a>";
     return $link_html;
