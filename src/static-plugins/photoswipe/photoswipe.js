@@ -1,9 +1,23 @@
-import PhotoSwipeLightbox from "./photoswipe-lightbox.esm.js";
-import PhotoSwipe from "./photoswipe.esm.js";
+const originPath = window.location.origin + "/wp-content/themes/dedes/src/static-plugins/photoswipe/";
+const photoSwipeLightboxPath = originPath + "photoswipe-lightbox.esm.js";
+const photoSwipePath = originPath + "photoswipe.esm.js";
 
-const lightbox = new PhotoSwipeLightbox({
-  gallery: "[data-photoswipe]",
-  children: "a",
-  pswpModule: PhotoSwipe,
+// Dynamically import modules using import()
+import(photoSwipeLightboxPath).then((module) => {
+  const PhotoSwipeLightbox = module.default;
+
+  import(photoSwipePath).then((photoSwipeModule) => {
+    const PhotoSwipe = photoSwipeModule.default;
+
+    const lightbox = new PhotoSwipeLightbox({
+      gallery: "[data-photoswipe]",
+      children: "a",
+      pswpModule: PhotoSwipe,
+    });
+    lightbox.init();
+  }).catch((error) => {
+    console.error("Error importing PhotoSwipe module:", error);
+  });
+}).catch((error) => {
+  console.error("Error importing PhotoSwipeLightbox module:", error);
 });
-lightbox.init();
