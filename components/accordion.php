@@ -30,7 +30,7 @@ if ($current === 1) echo "<div class='accordion' $faq_schema_page>"; //open pare
 ?>
 <div class="accordion__item" data-animate <?= $faq_schema_question; ?>>
     <h3 class="accordion__title h5">
-        <button type="button" id=" <?= $accordion_title_id; ?>" aria-expanded="false" aria-controls="<?= $accordion_id; ?>" class="accordion__button button">
+        <button type="button" id="<?= $accordion_title_id; ?>" aria-expanded="false" aria-controls="<?= $accordion_id; ?>" class="accordion__button button">
             <span <?= $label_class; ?> <?= $faq_schema_name; ?>><?= esc_html($title); ?></span>
             <?php get_template_part('components/site-icon', null, ['icon' => 'chevron', 'class' => 'accordion__icon']); ?>
         </button>
