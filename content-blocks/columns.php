@@ -40,7 +40,7 @@ $content_class = CONTENT_BLOCK_CONTENT . " " . get_core_container_width();
 					}
 				?>
 					<div class="<?= $column_width_class ?>" data-animate>
-						<?php the_sub_field('column'); ?>
+						<?= get_sub_field('column'); ?>
 					</div>
 				<?php endwhile; ?>
 			</div>
