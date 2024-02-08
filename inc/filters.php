@@ -148,7 +148,7 @@ function custom_gallery($output, $attr)
         }
 
         $output .= "</div>"; //swiper-wrapper
-        $output .= "<div class='text-center spacer-element swiper-controls-wrap'>";
+        $output .= "<div class='text-center swiper-controls-wrap'>";
         ob_start();
         get_template_part('components/slider-controls');
         $slider_controls = ob_get_clean();
