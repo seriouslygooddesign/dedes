@@ -15,13 +15,10 @@ $args = wp_parse_args(
         ]
     )
 );
-$link_title = null;
-$link_url = null;
-$link_target = null;
+$link_title = $link_url = $link_target = null;
 extract($args);
 
 $image = wp_get_attachment_image($image, 'medium_large', false, ['class' => 'stretch']);
-
 
 if ($content && str_contains($content, 'href')) {
     $link = false;

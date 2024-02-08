@@ -3,6 +3,9 @@
   height: 1.1em;
   display: inline-flex;
   vertical-align: middle;
+  .hstack & {
+    flex: 1 0 auto;
+  }
   &--chevron {
     @include mask-icon("chevron");
   }

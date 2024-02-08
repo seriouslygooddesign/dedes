@@ -54,3 +54,21 @@ function core_apply_acf_modifications()
 <?php
 }
 add_action('acf/input/admin_footer', 'core_apply_acf_modifications');
+
+//Custom Styles
+function my_acf_admin_head()
+{
+?>
+    <style type="text/css">
+        .acf-gallery {
+            height: 400px !important;
+        }
+		.acf-repeater .acf-row:nth-child(even) .acf-fields {
+			background: #f7f7f7;
+		}
+
+    </style>
+<?php
+}
+
+add_action('acf/input/admin_head', 'my_acf_admin_head');

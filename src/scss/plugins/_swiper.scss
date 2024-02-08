@@ -34,4 +34,24 @@ $themeColor: var(--color-primary);
             aspect-ratio: 4/3;
         }
     }
+    .swiper-controls-wrap {
+        position: absolute;
+        background: linear-gradient(0deg, var(--color-text) 0%, rgba(255, 255, 255, 0) 100%);
+        z-index: 1;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        min-height: var(--card-spacer);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 0;
+        --input-height: 2.5em;
+        color: var(--color-white);
+        --color-button-background-hover: transparent;
+        --color-button-background: transparent;
+        @include bp(md) {
+            margin-top: 0;
+        }
+    }
 }

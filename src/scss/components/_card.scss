@@ -97,13 +97,13 @@ $card-spacer: 0.65em;
     border-bottom: var(--border-width) solid var(--color-surface);
     padding: var(--card-spacer) 0 !important;
     &__imgs {
-      margin-bottom: var(--spacer-element);
-      @include bp(md) {
-        margin-bottom: 0;
-        .swiper {
-          margin-bottom: calc(var(--card-spacer) * -1);
-        }
-      }
+      // margin-bottom: var(--spacer-element);
+      // @include bp(md) {
+      //   margin-bottom: 0;
+      //   .swiper {
+      //     margin-bottom: calc(var(--card-spacer) * -1);
+      //   }
+      // }
       img {
         aspect-ratio: 4/3;
       }
@@ -118,17 +118,6 @@ $card-spacer: 0.65em;
     }
     .button--square {
       padding: 0;
-    }
-    .swiper-controls-wrap {
-      min-height: var(--card-spacer);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      margin-bottom: 0;
-      --input-height: 2em;
-      @include bp(md) {
-        margin-top: 0;
-      }
     }
   }
 }

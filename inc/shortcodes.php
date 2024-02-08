@@ -2,17 +2,21 @@
 /*------------------------------------*\
 	Shortcodes
 \*------------------------------------*/
-function generate_shortcode($field, $icon, $atts)
+function generate_shortcode($field, $icon, $atts, $content)
 {
     $field = str_replace('-', '_', $field);
     extract(get_field($field, 'option'));
     $a = shortcode_atts(array(
         'wrap' => 'true',
+        'title' => $title,
+        'link' => '',
     ), $atts);
     $wrap = $a['wrap'] === 'true' ? true : false;
-
+    $title = $a['title'];
+    $link = $a['link'] ?: $link;
     $link = $link ?? false;
-    if($label){
+    $label = $content ?: $label;
+    if ($label) {
         return get_core_icon_label($icon, $label, $link, $field, $wrap, $title);
     }
 }
@@ -25,8 +29,8 @@ $shortcodes = array(
 );
 
 foreach ($shortcodes as $shortcode => $icon) {
-    add_shortcode($shortcode, function ($atts) use ($shortcode, $icon) {
-        return generate_shortcode($shortcode, $icon, $atts);
+    add_shortcode($shortcode, function ($atts, $content) use ($shortcode, $icon) {
+        return generate_shortcode($shortcode, $icon, $atts, $content);
     });
 }
 
@@ -57,9 +61,10 @@ function cta_link()
 }
 
 add_shortcode('dedes-sites', 'dedes_sites');
-function dedes_sites()
+function dedes_sites($atts)
 {
     ob_start();
-    get_template_part('components/sites');
+    $args = shortcode_atts(['type' => ''], $atts);
+    get_template_part('components/sites', $args['type']);
     return ob_get_clean();
 }

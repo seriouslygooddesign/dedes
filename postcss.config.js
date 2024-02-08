@@ -5,12 +5,12 @@ const cssnano = require("cssnano")({
 module.exports = ({ env }) =>
   env === "production"
     ? {
-        plugins: [
-          require("postcss-combine-media-query"),
-          require("autoprefixer"),
-          cssnano,
-        ],
-      }
+      plugins: [
+        require("postcss-combine-media-query"),
+        require("autoprefixer"),
+        cssnano,
+      ],
+    }
     : {
-        plugins: [require("autoprefixer")],
-      };
+      plugins: [require("autoprefixer")],
+    };

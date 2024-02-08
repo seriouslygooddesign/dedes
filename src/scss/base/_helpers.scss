@@ -205,3 +205,8 @@
     z-index: -1;
   }
 }
+
+.pswp.pswp--open:not(.pswp--ui-visible) {
+  opacity: 0 !important;
+  transition: 0.1s !important;
+}

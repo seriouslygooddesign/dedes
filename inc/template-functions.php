@@ -134,10 +134,12 @@ if (!function_exists('get_core_horizontal_align')) {
 if (!function_exists('get_core_color_text_white')) {
     function get_core_color_text_white($smart = true)
     {
-        $color_text_white = get_sub_field('background')['text_settings']['white_text_color'];
+        $bg = get_sub_field('background');
+        if (!$bg) return;
+        $color_text_white = $bg['text_settings']['white_text_color'];
         $color_text_class = "color-text-white";
         if ($smart) {
-            $bg_type = get_sub_field('background')['bg_type'];
+            $bg_type = $bg['bg_type'];
             return $bg_type !== 'none' && $color_text_white ? $color_text_class : null;
         }
         return $color_text_white ? $color_text_class : null;
@@ -192,14 +194,17 @@ function get_core_icon_label($icon = 'email', $label = 'Label', $href = '#', $ty
     $icon_html = ob_get_clean();
 
     // Determine content
-    $content = ($href) ? "<a $attributes>$label</a>" : $label;
+    $content = $href ? "<a $attributes>$label</a>" : $label;
 
     // Prepare wrapping tags if required
-    $before = $wrap ? '<p class="contact-spacer">' : '';
+    $wrap_class = $title ? ' class="contact-spacer"' : '';
+    $before = $wrap ? "<p$wrap_class>" : '';
     $after = $wrap ? '</p>' : '';
 
+    $content = $title ? "$before<span class='icon-label'>$icon_html$title</span><span class='d-block text-indent fs-lg'>$content</span>$after" : "$before<a class='hstack gap-1 d-inline-flex' $attributes>$icon_html$label</a>$after";
+
     // Construct the result
-    return "$before<span class='icon-label'>$icon_html$title</span><span class='d-block text-indent fs-lg'>$content</span>$after";
+    return $content;
 }
 
 //Column Width

@@ -7,15 +7,21 @@ if (have_rows('sites', 'option')) : ?>
                 <div class="col-12" data-animate>
                     <?php
                     $link = get_sub_field('link');
+                    $cta_link = get_sub_field('cta_link');
                     $args = array(
                         'image' => get_sub_field('image'),
+                        'gallery' => get_sub_field('gallery'),
                         'title' => get_sub_field('title'),
-                        'decor' => false,
-                        'content' => get_sub_field('description'),
+                        'content' => get_sub_field('content'),
                         'link' => $link ? [
                             'link_title' => 'Visit website',
                             'link_url' => $link,
                             'link_target' => '_blank',
+                        ] : null,
+                        'cta_link' => $cta_link ? [
+                            'link_title' => $cta_link['title'],
+                            'link_url' => $cta_link['url'],
+                            'link_target' => $cta_link['target'] ? $cta_link['target'] : '_blank',
                         ] : null,
                     );
                     get_template_part('components/card', null, $args) ?>

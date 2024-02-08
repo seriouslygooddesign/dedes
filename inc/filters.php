@@ -148,7 +148,7 @@ function custom_gallery($output, $attr)
         }
 
         $output .= "</div>"; //swiper-wrapper
-        $output .= "<br><div class='text-center spacer-element swiper-controls-wrap'>";
+        $output .= "<div class='text-center spacer-element swiper-controls-wrap'>";
         ob_start();
         get_template_part('components/slider-controls');
         $slider_controls = ob_get_clean();
@@ -159,3 +159,25 @@ function custom_gallery($output, $attr)
     swiper_js_css();
     return $output;
 }
+
+
+//Exclude post type from WordPress link builder
+function exclude_post_type_from_link_builder($query)
+{
+    $cpts_to_remove = [
+        'global_content_block',
+        'testimonial',
+        'faq',
+        'menu',
+        'room',
+    ];
+    foreach ($cpts_to_remove as $cpt) {
+        $key = array_search($cpt, $query['post_type']);
+        if ($key) {
+            unset($query['post_type'][$key]);
+        }
+    }
+    return $query;
+}
+add_filter('wp_link_query_args', 'exclude_post_type_from_link_builder');
+

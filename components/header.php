@@ -5,7 +5,7 @@ $cta_link_shortcode = do_shortcode('[cta-link]');
 $custom_logo_id = get_custom_logo();
 $has_logo = $custom_logo_id ? ' has-logo' : '';
 $extra_class = $has_logo;
-
+$menu_wrap_class = !$cta_link_shortcode && !$custom_logo_id ?   'col d-flex justify-content-center' : 'col-auto';
 if ($custom_logo_id || $cta_link_shortcode || has_nav_menu('menu-1')) :
 ?>
 
@@ -22,7 +22,7 @@ if ($custom_logo_id || $cta_link_shortcode || has_nav_menu('menu-1')) :
                 if ($custom_logo_id) echo "<div class='col d-flex'>$custom_logo_id</div>"; ?>
                 <?php
                 if (has_nav_menu('menu-1')) : ?>
-                    <div class="col-auto">
+                    <div class="<?= $menu_wrap_class ?>">
                         <div class="overlay-menu<?= $custom_logo_id ? ' overlay-menu--right' : ' overlay-menu--left'; ?>">
                             <div class="overlay-menu__header hide-header-element">
                                 <?php get_template_part('components/toggle-menu', null, ['label' => 'close', 'area' => 'Close Menu']) ?>

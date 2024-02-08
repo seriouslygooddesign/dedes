@@ -1,9 +1,10 @@
 <?php
 $background = get_sub_field('background');
+if (!$background) return;
 $background_type = $background['bg_type'];
 $background_overlay = $background['text_settings']['background_overlay'];
 
-if ($background && $background_type !== 'none') {
+if ($background_type !== 'none') {
 
     //Background Color
     if ($background_type === 'color') {

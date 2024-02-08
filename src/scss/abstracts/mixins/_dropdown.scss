@@ -7,14 +7,20 @@
   padding: var(--spacer-element-sm) 0;
   z-index: 10;
   white-space: nowrap;
+  background-color: var(--color-white);
   box-shadow: var(--shadow);
-  transform: translateY(-10px);
-  transition: opacity var(--transition), visibility var(--transition), transform var(--transition);
+  translate: 0 10px;
+  transition: opacity var(--transition), visibility var(--transition), translate var(--transition);
   opacity: 0;
   visibility: hidden;
-  background-color: var(--color-white);
+  &::after {
+    content: '';
+    @include stretch;
+    opacity: .95;
+    z-index: -1;
+    background: var(--header-background-color);
+  }
   .theme-color-dark & {
-    background-color: var(--color-primary);
     color: var(--color-white);
     a {
       color: inherit;
@@ -37,5 +43,5 @@
 @mixin dropdown-visible() {
   visibility: visible;
   opacity: 1;
-  transform: translateY(0);
+  translate: 0;
 }

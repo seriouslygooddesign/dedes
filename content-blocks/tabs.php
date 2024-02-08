@@ -27,7 +27,7 @@ get_template_part('components/block', 'start', $block_args);
                     <?php get_template_part('components/tab', null, ['i' => $i, 'class' => 'tab--accordion d-md-none']); ?>
                     <div data-tab-id="<?= $i; ?>" class="tab__content element-collapse<?= $i === 1 ? ' element-show' : null; ?>">
                         <h3 class="tab-title"><?= esc_html(get_sub_field('title')) ?></h3>
-                        <?php the_sub_field('text'); ?>
+                        <?= get_sub_field('text'); ?>
                     </div>
                 <?php
                     $i++;

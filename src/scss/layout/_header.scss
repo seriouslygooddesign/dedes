@@ -8,9 +8,7 @@ $overlay-menu-breakpoint: xl;
   z-index: 1500;
   display: flex;
   align-items: center;
-  &:not(.theme-color-dark) {
-    background: var(--color-surface-solid);
-  }
+  background: var(--header-background-color);
   &-space {
     min-height: var(--header-height);
   }
@@ -65,6 +63,9 @@ $overlay-menu-breakpoint: xl;
   &--responsive {
     //Desktop - Start
     @include bp($overlay-menu-breakpoint) {
+      > li > a {
+        min-height: var(--header-height);
+      }
       .dropdown-toggle {
         pointer-events: none;
         padding: var(--spacer-element-sm) var(--spacer-element) var(--spacer-element-sm) calc(var(--spacer-element) / 4);

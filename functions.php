@@ -174,7 +174,8 @@ function core_scripts()
 	require get_template_directory() . '/inc/gravity-forms.php';
 	require get_template_directory() . '/inc/css-variables.php';
 	require get_template_directory() . '/inc/whats-on.php';
+	require get_template_directory() . '/inc/image-validation.php';
+
 	if (class_exists('WooCommerce')) {
 		require get_template_directory() . '/inc/woocommerce.php';
 	}
-	
