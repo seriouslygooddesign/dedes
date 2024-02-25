@@ -103,11 +103,12 @@ function add_custom_upload_mimes($existing_mimes)
 //Add Custom Attributes To Gallery Links
 function add_custom_attributes_to_gallery_links($link_html, $id, $size)
 {
+    $size = $size == '1536x1536' ? $size : 'medium_large';
     $full_img_object = wp_get_attachment_image_src($id, '1536x1536');
     $full_img_src = $full_img_object[0];
     $full_img_width = $full_img_object[1];
     $full_img_height = $full_img_object[2];
-    $preview_img = wp_get_attachment_image($id, 'medium_large', null, ['loading' => 'lazy']);
+    $preview_img = wp_get_attachment_image($id, $size, null, ['loading' => 'lazy']);
 
     wp_enqueue_style('photoswipe', get_template_directory_uri() . '/src/static-plugins/photoswipe/photoswipe.css', array(), '1.1.8');
     wp_enqueue_script('photoswipe-core-module', get_template_directory_uri() . '/src/static-plugins/photoswipe/photoswipe.js', array(), '1.1.16');

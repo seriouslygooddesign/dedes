@@ -29,7 +29,7 @@ foreach ($links as $key => $link) {
         <?php
         if ($gallery) {
             $images_string = implode(',', $gallery);
-            $shortcode = sprintf('[gallery ids="%s,%s" columns="1"]', esc_attr($featured_image), esc_attr($images_string));
+            $shortcode = sprintf('[gallery ids="%s,%s" columns="1" size="1536x1536"]', esc_attr($featured_image), esc_attr($images_string));
             echo do_shortcode($shortcode);
         } else {
             echo $featured_image ? wp_get_attachment_image($featured_image, 'medium_large', null, ['class' => 'img-stretch', 'loading' => 'lazy']) : '';
