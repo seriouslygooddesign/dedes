@@ -137,7 +137,7 @@ function custom_gallery($output, $attr)
         $count = count($images);
         $slidesPerView = $columns;
         $slidesPerViewTablet = round($slidesPerView / 2);
-        $slidesPerViewMobile = round($slidesPerViewTablet / 2); 
+        $slidesPerViewMobile = round($slidesPerViewTablet / 2);
 
         $swiper_options = json_encode(array(
             'slidesPerView' => $slidesPerViewMobile,
@@ -162,7 +162,7 @@ function custom_gallery($output, $attr)
             $image_id = $image->ID;
             $output .= "<div class='swiper-slide text-center'>";
             if ($link_none) {
-                $output .= wp_get_attachment_image($image_id, $size);
+                $output .= wp_get_attachment_image($image_id, $size, null, ['loading' => 'lazy']);
             } else {
                 $output .= wp_get_attachment_link($image_id, $size);
             }

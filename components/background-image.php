@@ -18,7 +18,7 @@ if ($img_id) {
     $img_args = [
         'class' => 'img-parallax stretch',
         'alt' => esc_attr($img_alt),
-        'loading' => 'eager'
+        'loading' => 'lazy'
     ];
 
     $image = wp_get_attachment_image($img_id, '2048x2048', false, $img_args);

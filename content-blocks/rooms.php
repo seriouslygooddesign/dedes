@@ -61,7 +61,7 @@ if ($loop) : ?>
                                     $shortcode = sprintf('[gallery ids="%s,%s" columns="1"]', esc_attr($featured_image), esc_attr($images_string));
                                     echo do_shortcode($shortcode);
                                 } else {
-                                    echo wp_get_attachment_link($featured_image);
+                                    echo wp_get_attachment_link($featured_image, 'medium', null, ['loading' => 'lazy']);
                                 }
                                 ?>
                             </div>

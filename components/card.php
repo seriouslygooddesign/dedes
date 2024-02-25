@@ -18,7 +18,7 @@ $args = wp_parse_args(
 $link_title = $link_url = $link_target = null;
 extract($args);
 
-$image = wp_get_attachment_image($image, 'medium_large', false, ['class' => 'stretch']);
+$image = wp_get_attachment_image($image, 'medium_large', false, ['class' => 'stretch', 'loading' => 'lazy']);
 
 if ($content && str_contains($content, 'href')) {
     $link = false;

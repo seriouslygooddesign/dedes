@@ -37,7 +37,7 @@ $swiper_options = json_encode(array(
                         $title = '<h3 class="h6">' . esc_html(get_the_title()) . '</h3>';
                         $subtitle = esc_html(get_field('subtitle'));
                         $subtitle = $subtitle ? "<p class='lh-sm'> $subtitle </p>" : '';
-                        $img = wp_get_attachment_image(get_post_thumbnail_id(), 'thumbnail', null, ['class' => 'img-rounded'])
+                        $img = wp_get_attachment_image(get_post_thumbnail_id(), 'thumbnail', null, ['class' => 'img-rounded', 'loading' => 'lazy'])
                     ?>
                         <div class='swiper-slide'>
                             <div class="row gy-md-2 gy-lg-4">
