@@ -34,10 +34,13 @@ $themeColor: var(--color-primary);
             margin-bottom: var(--spacer-element);
         }
     }
-    @include bp(sm) {
-        &.swiper--gallery[data-photoswipe] img {
-            aspect-ratio: 4/3;
-        }
+    .gallery-stretch &--gallery {
+        height: 100%;
+        margin-bottom: 0;
+    }
+    &.swiper--gallery a > img {
+        aspect-ratio: 4/3;
+        height: 100%;
     }
     .swiper-controls-wrap {
         position: absolute;

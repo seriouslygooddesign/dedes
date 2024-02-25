@@ -29,6 +29,11 @@
   &-column-reverse {
     flex-direction: column-reverse;
   }
+  &-md-row-reverse {
+    @include bp(md) {
+      flex-direction: row-reverse;
+    }
+  }
   &-md-row {
     @include bp(md) {
       flex-direction: row;
@@ -209,4 +214,12 @@
 .pswp.pswp--open:not(.pswp--ui-visible) {
   opacity: 0 !important;
   transition: 0.1s !important;
+}
+
+.title-decore {
+  position: sticky;
+  top: calc(var(--header-height) * 1.2);
+  color: var(--color-primary);
+  writing-mode: vertical-lr;
+  scale: -1;
 }

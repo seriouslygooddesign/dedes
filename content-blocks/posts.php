@@ -10,10 +10,22 @@ if ($loop) : ?>
         'modifier' => basename(__FILE__, '.php'),
         'class'=>'overflow-hidden'
     ];
+    $swiper_options = json_encode(array(
+        'slidesPerView' => 1,
+        'autoHeight' => true,
+        'breakpoints' => [
+            '768' => [
+                'slidesPerView' => 2,
+            ],
+            '1200' => [
+                'slidesPerView' => 3,
+            ]
+        ],
+    ));
     get_template_part('components/block', 'start', $block_args); ?>
 
     <div class="container" data-animate>
-        <div class='swiper overflow-visible swiper--center' data-swiper-slider data-slides-per-view='3'>
+        <div class='swiper overflow-visible swiper--center' data-swiper='<?= $swiper_options ?>'>
             <div class="row align-items-center">
                 <div class="col">
                     <h2>Our Blog</h2>

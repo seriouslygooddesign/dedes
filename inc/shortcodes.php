@@ -4,8 +4,11 @@
 \*------------------------------------*/
 function generate_shortcode($field, $icon, $atts, $content)
 {
+    $link = $title = $label = '';
     $field = str_replace('-', '_', $field);
-    extract(get_field($field, 'option'));
+    if (get_field($field, 'option')) {
+        extract(get_field($field, 'option'));
+    };
     $a = shortcode_atts(array(
         'wrap' => 'true',
         'title' => $title,
@@ -61,10 +64,9 @@ function cta_link()
 }
 
 add_shortcode('dedes-sites', 'dedes_sites');
-function dedes_sites($atts)
+function dedes_sites()
 {
     ob_start();
-    $args = shortcode_atts(['type' => ''], $atts);
-    get_template_part('components/sites', $args['type']);
+    get_template_part('components/sites');
     return ob_get_clean();
 }

@@ -63,10 +63,6 @@ function my_acf_admin_head()
         .acf-gallery {
             height: 400px !important;
         }
-		.acf-repeater .acf-row:nth-child(even) .acf-fields {
-			background: #f7f7f7;
-		}
-
     </style>
 <?php
 }

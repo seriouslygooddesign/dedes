@@ -20,20 +20,22 @@ $block_args = [
     'modifier' => basename(__FILE__, '.php'),
 ];
 get_template_part('components/block', 'start', $block_args);
-?>
-<?php get_template_part('components/block', 'header', ['class' => 'container']);
+get_template_part('components/block', 'header', ['class' => 'container']);
+$swiper_options = json_encode(array(
+    'autoHeight' => true,
+));
 ?>
 
 <div class="container text-center-md-max">
-    <div class="row gy-0" data-swiper-id="<?= wp_unique_id() ?>">
+    <div class="row gy-0" data-swiper-navigation-parent>
         <div class="col-md-8 col-lg-9 order-md-1">
-            <div class="swiper" data-swiper-posts>
+            <div class="swiper" data-swiper='<?= $swiper_options ?>'>
                 <div class="swiper-wrapper">
                     <?php
                     foreach ($loop as $post) :
                         setup_postdata($post);
-                        $title = '<h3 class="h6">' . get_the_title() . '</h3>';
-                        $subtitle = get_field('subtitle');
+                        $title = '<h3 class="h6">' . esc_html(get_the_title()) . '</h3>';
+                        $subtitle = esc_html(get_field('subtitle'));
                         $subtitle = $subtitle ? "<p class='lh-sm'> $subtitle </p>" : '';
                         $img = wp_get_attachment_image(get_post_thumbnail_id(), 'thumbnail', null, ['class' => 'img-rounded'])
                     ?>

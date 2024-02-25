@@ -109,6 +109,7 @@ function fb_mce_before_init($settings)
         ),
 
     );
+    $settings['paste_as_text'] = true;
     $settings['style_formats'] = json_encode($style_formats);
     return $settings;
 }

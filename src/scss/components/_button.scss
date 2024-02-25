@@ -26,4 +26,19 @@
       border-color: transparent;
     }
   }
+  &-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .5em 1em;
+    .button--backgroundless {
+      padding-inline: 0;
+      &:hover {
+        background-color: transparent !important;
+        border-color: transparent !important;
+        color: var(--color-link) !important;
+      }
+    }
+  }
 }
+
+

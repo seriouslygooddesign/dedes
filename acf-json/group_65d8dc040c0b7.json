@@ -1,31 +1,9 @@
 {
-    "key": "group_65c3d68f7a45d",
+    "key": "group_65d8dc040c0b7",
     "title": "Venues",
     "fields": [
         {
-            "key": "field_65c3dbfb70729",
-            "label": "",
-            "name": "",
-            "aria-label": "",
-            "type": "clone",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "clone": [
-                "group_6203d40d8296c"
-            ],
-            "display": "seamless",
-            "layout": "block",
-            "prefix_label": 0,
-            "prefix_name": 0
-        },
-        {
-            "key": "field_65c3d68fa9305",
+            "key": "field_65d8dc0409912",
             "label": "",
             "name": "",
             "aria-label": "",
@@ -61,5 +39,5 @@
     "active": false,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1707395859
+    "modified": 1708710968
 }

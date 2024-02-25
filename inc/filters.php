@@ -129,12 +129,34 @@ function custom_gallery($output, $attr)
     ]);
     if ($images) {
 
-        $columns = $attr['columns'] ?? 1;
+        $columns = $attr['columns'] ?? 3;
         $size = $attr['size'] ?? 'thumbnail';
         $link = $attr['link'] ?? 'attachment';
         $link_none = $link === 'none';
 
-        $output = "<div class='swiper swiper--center swiper--gallery' data-photoswipe data-swiper-slider data-slides-per-view='$columns'><div class='swiper-wrapper'>";
+        $count = count($images);
+        $slidesPerView = $columns;
+        $slidesPerViewTablet = round($slidesPerView / 2);
+        $slidesPerViewMobile = round($slidesPerViewTablet / 2); 
+
+        $swiper_options = json_encode(array(
+            'slidesPerView' => $slidesPerViewMobile,
+            'spaceBetween' => 0,
+            'loop' => $count > $slidesPerViewMobile,
+            'autoHeight' => $link_none,
+            'breakpoints' => [
+                '768' => [
+                    'slidesPerView' => $slidesPerViewTablet,
+                    'loop' => $count > $slidesPerViewTablet,
+                ],
+                '1200' => [
+                    'slidesPerView' => $slidesPerView,
+                    'loop' => $count > $slidesPerView,
+                ]
+            ],
+        ));
+
+        $output = "<div class='swiper swiper--center swiper--gallery' data-photoswipe data-swiper='$swiper_options'><div class='swiper-wrapper'>";
 
         foreach ($images as $image) {
             $image_id = $image->ID;
@@ -180,4 +202,3 @@ function exclude_post_type_from_link_builder($query)
     return $query;
 }
 add_filter('wp_link_query_args', 'exclude_post_type_from_link_builder');
-

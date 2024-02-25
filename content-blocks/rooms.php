@@ -58,7 +58,7 @@ if ($loop) : ?>
                                 $featured_image = get_post_thumbnail_id();
                                 if ($gallery) {
                                     $images_string = implode(',', $gallery);
-                                    $shortcode = sprintf('[gallery ids="%s,%s"]', esc_attr($featured_image), esc_attr($images_string));
+                                    $shortcode = sprintf('[gallery ids="%s,%s" columns="1"]', esc_attr($featured_image), esc_attr($images_string));
                                     echo do_shortcode($shortcode);
                                 } else {
                                     echo wp_get_attachment_link($featured_image);

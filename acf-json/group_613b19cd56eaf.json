@@ -59,27 +59,6 @@
                     "parent_repeater": "field_613b2bdd77c63"
                 },
                 {
-                    "key": "field_6435a6d51a2e1",
-                    "label": "Panel Decor",
-                    "name": "panel_decor",
-                    "aria-label": "",
-                    "type": "true_false",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "message": "",
-                    "default_value": 0,
-                    "ui_on_text": "",
-                    "ui_off_text": "",
-                    "ui": 1,
-                    "parent_repeater": "field_613b2bdd77c63"
-                },
-                {
                     "key": "field_613b2bf077c64",
                     "label": "Content",
                     "name": "content",
@@ -116,6 +95,27 @@
                     },
                     "placement": "top",
                     "endpoint": 0,
+                    "parent_repeater": "field_613b2bdd77c63"
+                },
+                {
+                    "key": "field_6435a6d51a2e1",
+                    "label": "Panel Decor",
+                    "name": "panel_decor",
+                    "aria-label": "",
+                    "type": "true_false",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "message": "",
+                    "default_value": 0,
+                    "ui_on_text": "",
+                    "ui_off_text": "",
+                    "ui": 1,
                     "parent_repeater": "field_613b2bdd77c63"
                 },
                 {
@@ -204,5 +204,5 @@
     "active": false,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1681237822
+    "modified": 1708344071
 }

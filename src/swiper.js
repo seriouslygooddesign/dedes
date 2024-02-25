@@ -2,85 +2,50 @@ import "./scss/plugins/_swiper.scss";
 
 import Swiper, { Navigation, Pagination } from "swiper";
 
-const siteSliders = document.querySelectorAll("[data-swiper-slider]");
-if (siteSliders.length) {
-  siteSliders.forEach((slider) => {
-    const slidesPerView = Number(slider.getAttribute("data-slides-per-view"));
-    let slidesPerViewTablet = slidesPerView > 1 ? 2 : 1;
-    if (slidesPerView >= 3) {
-      slidesPerViewTablet = Math.round(slidesPerView / 2);
-    }
-    const slidesPerViewMobile = slidesPerView > 4 ? 2 : 1;
-    const siteSlider = new Swiper(slider, {
+const swiperPrefix = 'data-swiper';
+const swiperSliders = document.querySelectorAll(`[${swiperPrefix}]`);
+if (swiperSliders.length) {
+
+  swiperSliders.forEach(swiperSlider => {
+    const navigationOutsideWrapper = swiperSlider.closest('[data-swiper-navigation-parent]');
+
+    const navigationEl = (direction = '', type = 'navigation') => {
+      direction = direction ? `='${direction}'` : '';
+      const navigationEl = `[${swiperPrefix}-navigation${direction}]`;
+      const paginationEl = `[${swiperPrefix}-pagination]`;
+      const selector = type == 'navigation' ? navigationEl : paginationEl;
+      const output = navigationOutsideWrapper
+        ? navigationOutsideWrapper.querySelector(selector)
+        : swiperSlider.querySelector(selector);
+        
+      return output;
+    };
+
+    const defaultSwiperOptions = {
       modules: [Navigation, Pagination],
-      slidesPerView: slidesPerViewMobile,
-      spaceBetween: 14,
-      autoHeight: true,
+      spaceBetween: 20,
       pagination: {
-        el: "[data-swiper-pagination]",
-        type: "fraction",
+        el: navigationEl(null, 'pagination'),
+        type: 'fraction',
+        clickable: true,
       },
       navigation: {
-        nextEl: "[data-swiper-button-next]",
-        prevEl: "[data-swiper-button-prev]",
+        nextEl: navigationEl('next'),
+        prevEl: navigationEl('prev'),
       },
-      breakpoints: {
-        576: {
-          slidesPerView: slidesPerViewTablet,
+    };
 
-        },
-        992: {
-          slidesPerView: slidesPerView,
-        },
-      },
-    });
+    let customSwiperOptions = swiperSlider.getAttribute(swiperPrefix);
+    customSwiperOptions = customSwiperOptions ? JSON.parse(customSwiperOptions) : null;
+
+    const swiperOptions = customSwiperOptions ? {
+      ...defaultSwiperOptions,
+      ...customSwiperOptions
+    } : defaultSwiperOptions;
+
+    if (!navigationEl()) swiperOptions.navigation = false;
+    if (!navigationEl(null, 'pagination')) swiperOptions.pagination = false;
+
+    new Swiper(swiperSlider, swiperOptions);
   });
-}
-
-
-const sliderIds = document.querySelectorAll('[data-swiper-id]')
-sliderIds.forEach(slider => {
-  const swiperId = slider.getAttribute('data-swiper-id');
-  initSwiper(
-    {
-      selector: `[data-swiper-id="${swiperId}"] [data-swiper-posts]`,
-      pagination: {
-        el: `[data-swiper-id="${swiperId}"] [data-swiper-pagination]`,
-        type: "fraction",
-      },
-      navigation: {
-        nextEl: `[data-swiper-id="${swiperId}"] [data-swiper-button-next]`,
-        prevEl: `[data-swiper-id="${swiperId}"] [data-swiper-button-prev]`,
-      },
-    })
-})
-
-
-function initSwiper(options) {
-  const defaultOptions = {
-    modules: [Navigation, Pagination],
-    slidesPerView: 1,
-    spaceBetween: 20,
-    loop: true,
-    autoHeight: false,
-    pagination: {
-      el: "[data-swiper-pagination]",
-      type: "fraction",
-    },
-    navigation: {
-      nextEl: "[data-swiper-button-next]",
-      prevEl: "[data-swiper-button-prev]",
-    },
-  }
-
-  const config = { ...defaultOptions, ...options }
-
-  const sliders = document.querySelectorAll(config.selector);
-  if (sliders.length) {
-    sliders.forEach((slider) => {
-      new Swiper(slider, {
-        ...config,
-      });
-    });
-  }
 }
