@@ -2,8 +2,11 @@
 $condition = get_row_index() % 2 !== 0;
 $row_reverse = $condition ? ' flex-md-row-reverse' : '';
 $color_background = !$condition ? ' color-background-surface' : '';
-$content = get_sub_field('content');
+$description = esc_html(get_sub_field('description'));
+$title = ($title = esc_html(get_sub_field('title'))) ? "<h2>$title</h2>" : '';
+$content = ($content = get_sub_field('content')) ? $content : $title . $description;
 $gallery = get_sub_field('gallery');
+$featured_image = get_sub_field('image');
 $links = [
     'custom_link' => get_sub_field('custom_link'),
     'link' => get_sub_field('link'),
@@ -21,16 +24,20 @@ foreach ($links as $key => $link) {
 }
 ?>
 <div class="row g-0<?= $row_reverse ?>">
-    <div class="col-md-6 gallery-stretch" data-animate>
+    <div class="col-md-6 gallery-stretch pos-rel" data-animate>
+        <div class='stretch color-background-muted'></div>
         <?php
-        $images_string = implode(',', $gallery);
-        $shortcode = sprintf('[gallery ids="%s" columns="1"]', esc_attr($images_string));
-        
-        echo do_shortcode($shortcode);
+        if ($gallery) {
+            $images_string = implode(',', $gallery);
+            $shortcode = sprintf('[gallery ids="%s,%s" columns="1"]', esc_attr($featured_image), esc_attr($images_string));
+            echo do_shortcode($shortcode);
+        } else {
+            echo $featured_image ? wp_get_attachment_image($featured_image, 'medium_large', null, ['class' => 'img-stretch']) : '';
+        }
         ?>
     </div>
     <div class="col-md-6 d-flex pos-rel align-items-center<?= $color_background ?>" data-animate>
-        <div class="container-sm container--panel spacer-section-py">
+        <div class="container-sm container--panel py-md-max-0 spacer-section-py">
             <?= $content ?? '' ?>
             <?= $link_result ? "<div class='button-group'>$link_result</div>" : '' ?>
         </div>

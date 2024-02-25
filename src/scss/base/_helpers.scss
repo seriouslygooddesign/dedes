@@ -223,3 +223,15 @@
   writing-mode: vertical-lr;
   scale: -1;
 }
+
+.img-stretch {
+  height: 100%;
+  width: 100%;
+}
+
+.py-md-max-0 {
+  @include bp(md, max) {
+    padding-top: 0 !important;
+  }
+}
+

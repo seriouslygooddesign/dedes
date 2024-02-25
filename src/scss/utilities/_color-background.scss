@@ -11,6 +11,10 @@
   &-surface {
     background: var(--color-surface);
   }
+  &-muted {
+    background: var(--color-text-muted);
+    opacity: .05;
+  }
   &-dark {
     background: var(--color-text);
   }
