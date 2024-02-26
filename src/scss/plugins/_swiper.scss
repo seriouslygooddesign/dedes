@@ -10,8 +10,8 @@ $themeColor: var(--color-primary);
         }
     }
     &-button-disabled {
+        --color-button-background: var(--color-text); 
         opacity: 0.1;
-        background: var(--color-text);
         pointer-events: none;
     }
     &-controls {
@@ -55,7 +55,9 @@ $themeColor: var(--color-primary);
         justify-content: center;
         align-items: center;
         color: var(--color-white);
-        --color-button-background-hover: transparent;
-        --color-button-background: transparent;
+        .button {
+            --color-button-background-hover: transparent;
+            --color-button-background: transparent;
+        }
     }
 }

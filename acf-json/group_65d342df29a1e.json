@@ -37,7 +37,7 @@
             "pagination": 0,
             "min": 1,
             "max": 0,
-            "collapsed": "",
+            "collapsed": "field_65d860ed6c795",
             "button_label": "Add Panel",
             "rows_per_page": 20,
             "sub_fields": [
@@ -146,6 +146,26 @@
             "endpoint": 0
         },
         {
+            "key": "field_65dc7c443f191",
+            "label": "Reverse Direction",
+            "name": "direction",
+            "aria-label": "",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "ui_on_text": "",
+            "ui_off_text": "",
+            "ui": 1
+        },
+        {
             "key": "field_65d342df44ca7",
             "label": "",
             "name": "",
@@ -160,7 +180,6 @@
                 "id": ""
             },
             "clone": [
-                "field_60b4c7c9b159a",
                 "field_60f6785eda58b"
             ],
             "display": "seamless",
@@ -187,5 +206,5 @@
     "active": false,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1708893731
+    "modified": 1708948657
 }

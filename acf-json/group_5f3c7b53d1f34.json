@@ -624,38 +624,6 @@
                     ],
                     "min": "",
                     "max": ""
-                },
-                "layout_65d8dc4eafd01": {
-                    "key": "layout_65d8dc4eafd01",
-                    "name": "venues",
-                    "label": "Venues",
-                    "display": "block",
-                    "sub_fields": [
-                        {
-                            "key": "field_65d8dc5fafd04",
-                            "label": "",
-                            "name": "",
-                            "aria-label": "",
-                            "type": "clone",
-                            "instructions": "",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "clone": [
-                                "group_65d8dc040c0b7"
-                            ],
-                            "display": "seamless",
-                            "layout": "block",
-                            "prefix_label": 0,
-                            "prefix_name": 0
-                        }
-                    ],
-                    "min": "",
-                    "max": ""
                 }
             },
             "min": "",
@@ -697,5 +665,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1708711046
+    "modified": 1708950791
 }

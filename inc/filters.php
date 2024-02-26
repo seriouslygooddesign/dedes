@@ -143,16 +143,14 @@ function custom_gallery($output, $attr)
         $swiper_options = json_encode(array(
             'slidesPerView' => $slidesPerViewMobile,
             'spaceBetween' => 0,
-            'loop' => $count > $slidesPerViewMobile,
+            'loop' => false,
             'autoHeight' => $link_none,
             'breakpoints' => [
                 '768' => [
                     'slidesPerView' => $slidesPerViewTablet,
-                    'loop' => $count > $slidesPerViewTablet,
                 ],
                 '1200' => [
                     'slidesPerView' => $slidesPerView,
-                    'loop' => $count > $slidesPerView,
                 ]
             ],
         ));

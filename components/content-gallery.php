@@ -1,5 +1,6 @@
 <?php
-$condition = get_row_index() % 2 !== 0;
+$args = wp_parse_args($args, ['direction' => false]);
+$condition = $args['direction'] ? get_row_index() % 2 == 0 : get_row_index() % 2 !== 0;
 $row_reverse = $condition ? ' flex-md-row-reverse' : '';
 $color_background = !$condition ? ' color-background-surface' : '';
 $description = esc_html(get_sub_field('description'));
@@ -19,7 +20,7 @@ foreach ($links as $key => $link) {
         $link_target = $link['target'] ?? '_blank';
         $link_class = $key == 'link' ? ' button--backgroundless' : '';
         $link_arrow = $key == 'link' ? ' <span class="site-icon site-icon--arrow">' : '';
-        $link_result .= "<a href='$link_url' class='button$link_class' target='$link_target'>$link_title$link_arrow</span></a>";
+        $link_result .= "<a href='" . esc_url($link_url) . "' class='button$link_class' target='" . esc_url($link_target) . "'>" . esc_html($link_title) . "$link_arrow</span></a>";
     endif;
 }
 ?>
