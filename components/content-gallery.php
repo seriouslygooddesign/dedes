@@ -1,11 +1,10 @@
 <?php
 $args = wp_parse_args($args, ['direction' => false]);
+
 $condition = $args['direction'] ? get_row_index() % 2 == 0 : get_row_index() % 2 !== 0;
 $row_reverse = $condition ? ' flex-md-row-reverse' : '';
 $color_background = !$condition ? ' color-background-surface' : '';
-$description = esc_html(get_sub_field('description'));
-$title = ($title = esc_html(get_sub_field('title'))) ? "<h2>$title</h2>" : '';
-$content = ($content = get_sub_field('content')) ? $content : $title . $description;
+$content = get_sub_field('content');
 $gallery = get_sub_field('gallery');
 $featured_image = get_sub_field('image');
 $links = [
@@ -30,11 +29,9 @@ foreach ($links as $key => $link) {
         <?php
         if ($gallery) {
             $images_string = implode(',', $gallery);
-            $shortcode = sprintf('[gallery ids="%s,%s" columns="1" size="1536x1536"]', esc_attr($featured_image), esc_attr($images_string));
+            $shortcode = sprintf('[gallery ids="%s" columns="1" size="1536x1536"]', esc_attr($images_string));
             echo do_shortcode($shortcode);
-        } else {
-            echo $featured_image ? wp_get_attachment_image($featured_image, 'medium_large', null, ['class' => 'img-stretch', 'loading' => 'lazy']) : '';
-        }
+        } 
         ?>
     </div>
     <div class="col-md-6 d-flex pos-rel align-items-center<?= $color_background ?>" data-animate>
