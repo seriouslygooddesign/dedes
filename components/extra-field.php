@@ -15,7 +15,7 @@ if ($content) :
             </div>
         <?php endif; ?>
         <div class="col">
-            <span><?= esc_html($content); ?></span>
+            <span class="post-card__event-label"><?= esc_html($content); ?></span>
         </div>
     </div>
 
