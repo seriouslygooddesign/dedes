@@ -50,10 +50,11 @@ function social_icons($atts)
 }
 
 add_shortcode('cta-link', 'cta_link');
-function cta_link()
+function cta_link($atts)
 {
     $link = get_field('cta_link', 'option');
-    $icon = '<span class="site-icon site-icon--arrow"></span>';
+    $icon = shortcode_atts(['icon' => 'true'], $atts)['icon'] === 'true'
+        ? '<span class="site-icon site-icon--arrow"></span>' : null;
 
     if ($link) {
         $link_url = esc_url($link['url']);
