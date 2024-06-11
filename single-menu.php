@@ -18,6 +18,7 @@ if (have_rows('categories')) : ?>
             $select_box_args = [
                 'item' => $select_box_item,
                 'button_title' => $button_title,
+                'container' => 'container-sm',
             ];
 
             if (have_rows('content')) :
@@ -53,6 +54,8 @@ if (have_rows('categories')) : ?>
         <?php the_content() ?>
     </div>
 <?php endif; ?>
+
+<?php get_template_part('content-blocks/global-content-blocks', null, ['global_content_blocks' => get_field('global_content_blocks', 'menu-options')]); ?>
 
 <?php
 get_footer();

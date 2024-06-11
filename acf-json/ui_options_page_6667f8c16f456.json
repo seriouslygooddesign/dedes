@@ -1,0 +1,22 @@
+{
+    "key": "ui_options_page_6667f8c16f456",
+    "title": "Menu Options",
+    "active": true,
+    "menu_order": 0,
+    "page_title": "Menu Options",
+    "menu_slug": "menu-options",
+    "parent_slug": "edit.php?post_type=menu",
+    "advanced_configuration": 1,
+    "icon_url": "",
+    "menu_title": "Menu Options",
+    "position": "",
+    "redirect": false,
+    "description": "",
+    "update_button": "Update",
+    "updated_message": "Options Updated",
+    "capability": "edit_posts",
+    "data_storage": "post_id",
+    "post_id": "menu-options",
+    "autoload": 0,
+    "modified": 1718090080
+}
