@@ -4,7 +4,7 @@
   "swiper.css": "/dist/swiper/swiper.b46a510f330c0ac21839.css",
   "swiper.js": "/dist/swiper/swiper.d405ba6c4da3f40d97ec.js",
   "sprite.js": "/dist/sprite/sprite.2268597fd97e7a172d92.js",
-  "woocommerce.css": "/dist/woocommerce/woocommerce.077d2136607556af319e.css",
+  "woocommerce.css": "/dist/woocommerce/woocommerce.560cec2693a8cdacde8b.css",
   "woocommerce.js": "/dist/woocommerce/woocommerce.432784e349893076ed70.js",
   "sprite/sprite.svg": "/dist/sprite/sprite.svg",
   "main.css.map": "/dist/main/main.33642e0b88a72bd63991.css.map",
@@ -12,6 +12,6 @@
   "swiper.css.map": "/dist/swiper/swiper.b46a510f330c0ac21839.css.map",
   "swiper.js.map": "/dist/swiper/swiper.d405ba6c4da3f40d97ec.js.map",
   "sprite.js.map": "/dist/sprite/sprite.2268597fd97e7a172d92.js.map",
-  "woocommerce.css.map": "/dist/woocommerce/woocommerce.077d2136607556af319e.css.map",
+  "woocommerce.css.map": "/dist/woocommerce/woocommerce.560cec2693a8cdacde8b.css.map",
   "woocommerce.js.map": "/dist/woocommerce/woocommerce.432784e349893076ed70.js.map"
 }
