@@ -3,7 +3,8 @@ $post_type = 'menu';
 
 $loop = get_posts([
     'post_type' => $post_type,
-    'posts_per_page' => -1
+    'posts_per_page' => -1,
+    'post_status' => is_user_logged_in() ? ['publish', 'private'] : ['publish'],
 ]);
 
 $loop = get_sub_field('type') == 'select' ? get_sub_field('menus') : $loop;
@@ -21,7 +22,7 @@ if ($loop) : ?>
             <?php
             foreach ($loop as $post) :
                 setup_postdata($post); ?>
-               <?php get_template_part('components/menu') ?>
+                <?php get_template_part('components/menu') ?>
             <?php
             endforeach;
             wp_reset_postdata(); ?>

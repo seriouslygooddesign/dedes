@@ -8,7 +8,8 @@ $post_type = get_post_type($object);
 $img_options = get_field("banner_$post_type", 'options');
 
 $args = wp_parse_args($args,    [
-    'title' => get_the_title($object),
+    'title' => get_sub_field('title_type') === 'custom_title' ? get_sub_field('title') : get_the_title($object),
+    'content' => get_sub_field('description') === 'custom_content' ? get_sub_field('custom_content') : null,
     'height' => 'min-height-small',
     'img_id' => $img_options && is_archive() ? $img_options : get_post_thumbnail_id($object),
     'img_alt' => get_the_title($object),
@@ -45,6 +46,7 @@ $block_class = get_core_filter_implode([
                 } ?>
 
                 <h1 class="uppercase page-header-title"><?= wp_kses_post($title); ?></h1>
+                <?= wp_kses_post($content) ?>
                 <?php
                 $file = get_field('file');
                 if ($file && is_single()) :
