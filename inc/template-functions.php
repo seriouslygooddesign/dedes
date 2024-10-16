@@ -165,7 +165,7 @@ function get_core_accordion_first_p($content)
 }
 
 //Icon Label Component
-function get_core_icon_label($icon = 'email', $label = 'Label', $href = '#', $type = '', $wrap = false, $title)
+function get_core_icon_label($title, $icon = 'email', $label = 'Label', $href = '#', $type = '', $wrap = false)
 {
     $label = nl2br(esc_html($label));
     $href = esc_html($href);
