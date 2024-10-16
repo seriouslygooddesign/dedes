@@ -127,12 +127,12 @@
   width: var(--decor-width);
   background: var(--color-primary);
   opacity: 0.8;
-  border-radius: 50%;
+  border-radius: var(--decor-border-radius, 50%);
   aspect-ratio: 1;
   translate: -50% -50%;
   transition: width calc(var(--transition-duration) * 1.4) var(--transition-timing-function);
   a:hover & {
-    width: 150%;
+    width: var(--decor-width-hover, 150%);
   }
 }
 
@@ -232,5 +232,18 @@
 .py-md-max-0 {
   @include bp(md, max) {
     padding-top: 0 !important;
+  }
+}
+
+body {
+  #sb_instagram #sbi_load .sbi_load_btn,
+  #sb_instagram .sbi_follow_btn a {
+    min-height: var(--input-height);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1em;
+    background: var(--color-primary);
+    border-radius: 0;
   }
 }

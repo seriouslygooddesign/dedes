@@ -26,7 +26,7 @@
     transition: transform var(--transition);
     will-change: transform;
     a:hover & {
-      transform: rotate(0deg) translate(0);
+      transform: var(--site-arrow-transform-hover, rotate(0deg) translate(0));
     }
     &::after {
       content: "";
@@ -43,7 +43,9 @@
     height: 2.5em;
     flex: 0 0 auto;
     border-radius: 100%;
-    transition: background-color var(--transition), color var(--transition);
+    transition:
+      background-color var(--transition),
+      color var(--transition);
     background: var(--color-primary);
     color: var(--color-white);
     .color-text-white & {

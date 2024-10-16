@@ -149,33 +149,33 @@ function core_scripts()
 		swiper_js_css();
 
 		// if the content blocks contain a slider
-	} else if (have_rows('content_blocks')) { ?>
-			<?php while (have_rows('content_blocks')) : the_row();
-				if (in_array(get_row_layout(), ['posts', 'rooms', 'whats_on', 'testimonials']) && get_core_hide_block()) {
-					swiper_js_css();
-				} ?>
-			<?php endwhile;
-		}
+	} else if (have_rows('content_blocks')) {
+		while (have_rows('content_blocks')) : the_row();
+			if (in_array(get_row_layout(), ['posts', 'rooms', 'whats_on', 'testimonials']) && get_core_hide_block()) {
+				swiper_js_css();
+			}
+		endwhile;
 	}
-	add_action('wp_enqueue_scripts', 'core_scripts');
+}
+add_action('wp_enqueue_scripts', 'core_scripts');
 
 
-	/**
-	 * Require
-	 */
-	require get_template_directory() . '/inc/variables.php';
-	require get_template_directory() . '/inc/template-functions.php';
-	require get_template_directory() . '/inc/template-tags.php';
-	require get_template_directory() . '/inc/acf.php';
-	require get_template_directory() . '/inc/actions.php';
-	require get_template_directory() . '/inc/filters.php';
-	require get_template_directory() . '/inc/shortcodes.php';
-	require get_template_directory() . '/inc/tiny-mce.php';
-	require get_template_directory() . '/inc/gravity-forms.php';
-	require get_template_directory() . '/inc/css-variables.php';
-	require get_template_directory() . '/inc/whats-on.php';
-	require get_template_directory() . '/inc/image-validation.php';
+/**
+ * Require
+ */
+require get_template_directory() . '/inc/variables.php';
+require get_template_directory() . '/inc/template-functions.php';
+require get_template_directory() . '/inc/template-tags.php';
+require get_template_directory() . '/inc/acf.php';
+require get_template_directory() . '/inc/actions.php';
+require get_template_directory() . '/inc/filters.php';
+require get_template_directory() . '/inc/shortcodes.php';
+require get_template_directory() . '/inc/tiny-mce.php';
+require get_template_directory() . '/inc/gravity-forms.php';
+require get_template_directory() . '/inc/css-variables.php';
+require get_template_directory() . '/inc/whats-on.php';
+require get_template_directory() . '/inc/image-validation.php';
 
-	if (class_exists('WooCommerce')) {
-		require get_template_directory() . '/inc/woocommerce.php';
-	}
+if (class_exists('WooCommerce')) {
+	require get_template_directory() . '/inc/woocommerce.php';
+}
