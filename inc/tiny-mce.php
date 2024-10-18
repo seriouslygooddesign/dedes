@@ -70,6 +70,11 @@ function fb_mce_before_init($settings)
                     'classes' => 'color-text-primary'
                 ),
                 array(
+                    'title' => 'Secondary',
+                    'inline' => 'span',
+                    'classes' => 'color-text-secondary'
+                ),
+                array(
                     'title' => 'Muted',
                     'inline' => 'span',
                     'classes' => 'color-text-muted'
