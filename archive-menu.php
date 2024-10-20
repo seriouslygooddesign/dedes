@@ -7,7 +7,7 @@ get_template_part('components/page-header', null, $page_header_args);
 ?>
 <div class="container spacer-section-py">
     <?php if (have_posts()) : ?>
-        <div class="row justify-content-center g-3 row-cols-md-3">
+        <div class="row justify-content-center g-3 row-cols-sm-2 row-cols-md-3">
             <?php while (have_posts()) : the_post(); ?>
                 <?php get_template_part('components/menu'); ?>
             <?php endwhile; ?>

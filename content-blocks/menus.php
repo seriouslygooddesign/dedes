@@ -18,7 +18,7 @@ if ($loop) : ?>
     get_template_part('components/block', 'header', ['class' => 'container']); ?>
 
     <div class="container">
-        <div class="row justify-content-center g-3 row-cols-md-3">
+        <div class="row justify-content-center g-3 row-cols-sm-2 row-cols-md-3">
             <?php
             foreach ($loop as $post) :
                 setup_postdata($post); ?>

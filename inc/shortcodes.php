@@ -20,7 +20,7 @@ function generate_shortcode($field, $icon, $atts, $content)
     $link = $link ?? false;
     $label = $content ?: $label;
     if ($label) {
-        return get_core_icon_label($icon, $label, $link, $field, $wrap, $title);
+        return get_core_icon_label($title, $icon, $label, $link, $field, $wrap);
     }
 }
 
