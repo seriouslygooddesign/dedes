@@ -10,7 +10,7 @@ $spacers: (
   2: $spacer * 0.5,
   3: $spacer,
   4: $spacer * 1.5,
-  5: var(--container-padding),
+  5: var(--container-padding)
 );
 $grid-gutter-width: $spacer;
 $grid-breakpoints: (
@@ -19,5 +19,5 @@ $grid-breakpoints: (
   md: 768px,
   lg: 992px,
   xl: 1200px,
-  xxl: 1600px,
+  xxl: 1600px
 );

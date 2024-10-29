@@ -19,7 +19,7 @@
 			'total' => 1,
 			'label_class' => false,
 			'content_class' => 'container',
-			'title' => 'Discover Dedes Websites',
+			'title' => 'Discover Other Dedes Venues',
 			'text' => $dedes_sites
 		];
 		get_template_part('components/accordion', null, $accordion_args);

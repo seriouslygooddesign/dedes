@@ -72,7 +72,6 @@ $overlay-menu-breakpoint: xl;
       }
 
       .dropdown-responsive {
-     
         @include dropdown;
         &.element-collapse {
           display: block;
