@@ -24,7 +24,6 @@
 		];
 		get_template_part('components/accordion', null, $accordion_args);
 	}
-
 	?>
 
 	<div class="container spacer-element text-center color-text-muted fs-sm">

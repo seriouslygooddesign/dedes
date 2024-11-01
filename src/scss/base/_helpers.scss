@@ -238,6 +238,7 @@
 body {
   #sb_instagram #sbi_load .sbi_load_btn,
   #sb_instagram .sbi_follow_btn a {
+    padding-inline: 1em;
     min-height: var(--input-height);
     display: inline-flex;
     align-items: center;
@@ -245,5 +246,61 @@ body {
     font-size: 1em;
     background: var(--color-primary);
     border-radius: 0;
+    box-shadow: none !important;
+    transition:
+      background var(--transition),
+      color var(--transition);
+    .sbi_btn_text {
+      transition: none !important;
+    }
+    &:hover {
+      background: var(--color-primary) !important;
+      color: var(--color-white) !important;
+    }
   }
+}
+
+#tripleseat_embed_form {
+  table {
+    margin-top: 0;
+  }
+  h2 {
+    font-size: var(--h6);
+  }
+  tr:not(:first-child) h2 {
+    margin-top: var(--spacer-element);
+  }
+  .button,
+  tbody tr {
+    border-color: transparent !important;
+  }
+
+  .g-recaptcha {
+    > div {
+      width: 100% !important;
+    }
+  }
+
+  #submit_spinner + a {
+    margin-top: var(--spacer-element);
+  }
+
+  @include bp(sm, max) {
+    table tfoot tr,
+    table tbody tr {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+  .button {
+    font-size: 1em !important;
+  }
+}
+
+#tsLeadSuccessMessage {
+  font-size: var(--h4);
+}
+.errorExplanation {
+  padding: var(--spacer-element) !important;
+  border-color: transparent !important;
 }

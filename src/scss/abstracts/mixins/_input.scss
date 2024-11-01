@@ -2,7 +2,7 @@
   padding: 0 var(--input-x-padding);
   min-height: var(--input-height);
   background: var(--color-input-background);
-  border: var(--border-width) solid var(--color-input-border);
+  border: var(--border-width) solid var(--color-input-border) !important;
   color: inherit;
   border-radius: 0;
   transition: border-color var(--transition);

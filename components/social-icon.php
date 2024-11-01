@@ -4,6 +4,9 @@ $args = wp_parse_args($args, [
     'url' => '#',
 ]);
 $icon = $args['icon'];
+if ($icon === 'instagram_alt') {
+    $icon = 'instagram';
+}
 $url = esc_url($args['url']);
 if (!$url) {
     return;

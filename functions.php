@@ -175,6 +175,7 @@ require get_template_directory() . '/inc/gravity-forms.php';
 require get_template_directory() . '/inc/css-variables.php';
 require get_template_directory() . '/inc/whats-on.php';
 require get_template_directory() . '/inc/image-validation.php';
+require get_template_directory() . '/inc/popups.php';
 
 if (class_exists('WooCommerce')) {
 	require get_template_directory() . '/inc/woocommerce.php';

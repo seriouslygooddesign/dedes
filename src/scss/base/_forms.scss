@@ -15,7 +15,7 @@ input[type="datetime-local"],
 input[type="color"],
 select,
 textarea {
-  width: 100%;
+  width: 100% !important;
   @include input-base;
   &:hover {
     @include input-hover;
@@ -66,7 +66,6 @@ fieldset {
   .payment_box.payment_method_stripe & {
     border: 0;
     padding: 0;
-    
   }
   margin: 0;
   border: var(--border-width) solid var(--color-border);

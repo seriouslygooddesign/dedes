@@ -40,7 +40,7 @@
                 },
                 {
                     "key": "field_62b47b35eabce",
-                    "label": "Instagram",
+                    "label": "Instagram - Primary",
                     "name": "instagram",
                     "aria-label": "",
                     "type": "text",
@@ -53,10 +53,32 @@
                         "id": ""
                     },
                     "default_value": "",
+                    "maxlength": "",
+                    "allow_in_bindings": 1,
                     "placeholder": "",
                     "prepend": "",
-                    "append": "",
-                    "maxlength": ""
+                    "append": ""
+                },
+                {
+                    "key": "field_67226346afaa1",
+                    "label": "Instagram - Secondary",
+                    "name": "instagram_alt",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "allow_in_bindings": 0,
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": ""
                 },
                 {
                     "key": "field_62b47b3deabcf",
@@ -159,5 +181,5 @@
     "active": false,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1685006745
+    "modified": 1730306972
 }

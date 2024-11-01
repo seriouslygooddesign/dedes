@@ -135,7 +135,7 @@ function custom_gallery($output, $attr)
         $link = $attr['link'] ?? 'attachment';
         $link_none = $link === 'none';
 
-        $count = count($images);
+
         $slidesPerView = $columns;
         $slidesPerViewTablet = round($slidesPerView / 2);
         $slidesPerViewMobile = round($slidesPerViewTablet / 2);
@@ -187,6 +187,7 @@ function exclude_post_type_from_link_builder($query)
 {
     $cpts_to_remove = [
         'global_content_block',
+        'main-popup',
         'testimonial',
         'faq',
         'menu',
