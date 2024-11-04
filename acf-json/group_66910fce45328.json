@@ -23,12 +23,12 @@
             "append": ""
         },
         {
-            "key": "field_66910fce412c0",
-            "label": "Trigger Selector",
-            "name": "popup_trigger_selector",
+            "key": "field_6728afa091f46",
+            "label": "Shortcode",
+            "name": "popup_trigger_shortcode",
             "aria-label": "",
             "type": "text",
-            "instructions": "For more than one selector, separate by comma (,)\r\neg: <code>a[href=\"#popup\"], .button-class, #button-id<\/code>",
+            "instructions": "<table class=\"shortcode-description\">\r\n    <thead>\r\n        <tr>\r\n            <th>Parameter<\/th>\r\n            <th>Description<\/th>\r\n            <th>Example Usage<\/th>\r\n        <\/tr>\r\n    <\/thead>\r\n    <tbody>\r\n        <tr>\r\n            <td><strong>id<\/strong><\/td>\r\n            <td><strong>Required.<\/strong> The numeric ID of the popup that should be triggered. This ID corresponds to the post ID of the Popup CPT (Custom Post Type).<\/td>\r\n            <td><code>id=\"1\"<\/code><\/td>\r\n        <\/tr>\r\n        <tr>\r\n            <td><strong>site_id<\/strong><\/td>\r\n            <td><strong>Optional<\/strong>. The ID of the site for multisite environments where the popup is located. Defaults to the current site if not specified.<\/td>\r\n            <td><code>site_id=\"1\"<\/code><\/td>\r\n        <\/tr>\r\n        <tr>\r\n            <td><strong>label<\/strong><\/td>\r\n            <td><strong>Optional<\/strong>. The text that will be displayed on the popup trigger button. Defaults to \"Show More\" if not specified.<\/td>\r\n            <td><code>label=\"Click Here\"<\/code><\/td>\r\n        <\/tr>\r\n        <tr>\r\n            <td><strong>class<\/strong><\/td>\r\n            <td><strong>Optional<\/strong>. A CSS class to be applied to the popup trigger element. This allows for custom styling of the trigger link or button. By default, the shortcode has the class \"button\". If you want to have a plain link instead, leave the class empty using <code>class=\"\"<\/code>.<\/td>\r\n            <td><code>class=\"button\"<\/code><\/td>\r\n        <\/tr>\r\n    <\/tbody>\r\n<\/table>",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -36,40 +36,12 @@
                 "class": "",
                 "id": ""
             },
-            "default_value": "a[href=\"#popup\"]",
+            "default_value": "",
             "maxlength": "",
+            "allow_in_bindings": 0,
             "placeholder": "",
             "prepend": "",
             "append": ""
-        },
-        {
-            "key": "field_669116575946a",
-            "label": "Location",
-            "name": "popup_location",
-            "aria-label": "",
-            "type": "relationship",
-            "instructions": "Leave empty to load the popup on every page",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "post_type": "",
-            "post_status": "",
-            "taxonomy": "",
-            "filters": [
-                "search",
-                "post_type",
-                "taxonomy"
-            ],
-            "return_format": "id",
-            "min": "",
-            "max": "",
-            "elements": "",
-            "bidirectional": 0,
-            "bidirectional_target": []
         }
     ],
     "location": [
@@ -90,5 +62,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1730307754
+    "modified": 1730752217
 }

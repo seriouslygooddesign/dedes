@@ -11,20 +11,13 @@
 			?>
 		</div>
 	</div>
-	<?php
 
-	$dedes_sites = do_shortcode('[dedes-sites]');
-	if ($dedes_sites) {
-		$accordion_args = [
-			'total' => 1,
-			'label_class' => false,
-			'content_class' => 'container',
-			'title' => 'Discover Other Dedes Venues',
-			'text' => $dedes_sites
-		];
-		get_template_part('components/accordion', null, $accordion_args);
-	}
-	?>
+	<div class="color-background-surface spacer-section-pt spacer-section-pb-half">
+		<div class="container">
+			<h2 class="h5 text-center m-0" style="text-transform: initial;">Discover Dedes Venues</h2>
+			<?= do_shortcode('[dedes-sites]'); ?>
+		</div>
+	</div>
 
 	<div class="container spacer-element text-center color-text-muted fs-sm">
 		<?= esc_html(date('Y')); ?> <?php bloginfo('name'); ?>. All rights reserved | website by <a href="https://sgd.com.au/" target="_blank" rel="noopener noreferrer">SGD</a>

@@ -16,7 +16,7 @@ if ($title && $id) {
     $aria_labelledby = 'aria-labelledby="' . esc_attr($title_id) . '" ';
 }
 ?>
-<div <?= $popup_id_attr; ?>role="dialog" aria-modal="true" <?= $aria_labelledby; ?>class="main-popup" data-popup data-popup-trigger-selector="<?= esc_attr($selector); ?>">
+<div <?= $popup_id_attr; ?>role="dialog" aria-modal="true" <?= $aria_labelledby; ?>class="main-popup" data-popup data-popup-trigger-selector="<?= esc_attr($selector); ?>" hidden>
     <div class="main-popup__dialog">
         <div class="main-popup__main" data-popup-main>
             <div class="row g-0 justify-content-end">

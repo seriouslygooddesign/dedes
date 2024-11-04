@@ -130,4 +130,5 @@ const popups = document.querySelectorAll("[data-popup]");
 
 popups.forEach((popup) => {
 	new MainPopup(popup);
+	popup.removeAttribute("hidden");
 });

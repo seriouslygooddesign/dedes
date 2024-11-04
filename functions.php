@@ -161,6 +161,17 @@ add_action('wp_enqueue_scripts', 'core_scripts');
 
 
 /**
+ * Admin Panel CSS and JS
+ */
+function core_admin_enqueue()
+{
+	wp_enqueue_style('admin', get_core_enqueue_path('admin.css'), [], null);
+	wp_enqueue_script('admin', get_core_enqueue_path('admin.js'), ['acf', 'jquery'], null, ['strategy' => 'defer']);
+}
+
+add_action('admin_enqueue_scripts', 'core_admin_enqueue');
+
+/**
  * Require
  */
 require get_template_directory() . '/inc/variables.php';

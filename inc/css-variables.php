@@ -79,14 +79,14 @@ function css_variables()
                     $font_src = implode(', ', $font_src);
 
                     echo "
-    @font-face {
-        font-family: $font_title;
-        font-style: $font_style;
-        font-weight: $font_weight;
-        font-display: swap;
-        src: $font_src;
-    }
-";
+                            @font-face {
+                                font-family: $font_title;
+                                font-style: $font_style;
+                                font-weight: $font_weight;
+                                font-display: swap;
+                                src: $font_src;
+                            }
+                        ";
                 } //foreach font_variations
             } //if font_variations
         } //foreach fonts

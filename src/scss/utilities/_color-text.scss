@@ -7,6 +7,7 @@
   }
   &-white {
     --color-text-muted: var(--color-white-muted);
+    --color-surface: hsl(0 0% 100% / 0.05);
     color: var(--color-white);
 
     a:not([class]) {
