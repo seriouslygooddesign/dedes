@@ -26,6 +26,7 @@ function is_core_popup_exists($popup_id)
 {
     global $popup_cpt_name;
     $popup = get_post($popup_id);
+
     return $popup && $popup->post_type === $popup_cpt_name;
 }
 
@@ -61,10 +62,14 @@ function popup_trigger_shortcode($atts, $content = null)
             restore_current_blog();
             return;
         }
-        $popups[] = [
-            'id' => $id,
-            'site_id' => $site_id
-        ];
+
+        if (!in_array(['id' => $id, 'site_id' => $site_id], $popups)) {
+            $popups[] = [
+                'id' => $id,
+                'site_id' => $site_id
+            ];
+        }
+
         $front_end_id .= "-$site_id";
         restore_current_blog();
     } elseif (!in_array($id, $popups) && is_core_popup_exists($id)) {
