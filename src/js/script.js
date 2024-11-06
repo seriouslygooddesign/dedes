@@ -6,7 +6,7 @@ import GalleryNav from "./modules/gallery-nav";
 import TargetContent from "./modules/target-content";
 import SimpleParallax from "./modules/simple-parallax";
 import VideoAutoplay from "./modules/video-autoplay";
-
+import Popup from "./modules/popup";
 
 //Accordion
 Accordion();
@@ -21,13 +21,16 @@ MobileMenu();
 Animate();
 
 //GalleryNav
-GalleryNav()
+GalleryNav();
 
 //TargetContent
-TargetContent()
+TargetContent();
 
 // SimpleParallax
-SimpleParallax()
+SimpleParallax();
 
 // VideoAutoplay
-VideoAutoplay()
+VideoAutoplay();
+
+// Popups;
+Popup();

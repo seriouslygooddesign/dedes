@@ -17,7 +17,6 @@ module.exports = (env, argv) => {
 			main: path.resolve(__dirname, "src/main.js"),
 			swiper: path.resolve(__dirname, "src/swiper.js"),
 			sprite: path.resolve(__dirname, "src/sprite.js"),
-			popup: path.resolve(__dirname, "src/js/popup.js"),
 			admin: path.resolve(__dirname, "src/js/admin-panel.js"),
 			woocommerce: path.resolve(__dirname, "src/js/woocommerce.js"),
 		},
