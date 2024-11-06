@@ -23,12 +23,30 @@
             "append": ""
         },
         {
-            "key": "field_6728afa091f46",
+            "key": "field_6729e42c802f2",
             "label": "Shortcode",
+            "name": "",
+            "aria-label": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0,
+            "selected": 0
+        },
+        {
+            "key": "field_6728afa091f46",
+            "label": "",
             "name": "popup_trigger_shortcode",
             "aria-label": "",
             "type": "text",
-            "instructions": "<table class=\"shortcode-description\">\r\n    <thead>\r\n        <tr>\r\n            <th>Parameter<\/th>\r\n            <th>Description<\/th>\r\n            <th>Example Usage<\/th>\r\n        <\/tr>\r\n    <\/thead>\r\n    <tbody>\r\n        <tr>\r\n            <td><strong>id<\/strong><\/td>\r\n            <td><strong>Required.<\/strong> The numeric ID of the popup that should be triggered. This ID corresponds to the post ID of the Popup CPT (Custom Post Type).<\/td>\r\n            <td><code>id=\"1\"<\/code><\/td>\r\n        <\/tr>\r\n        <tr>\r\n            <td><strong>site_id<\/strong><\/td>\r\n            <td><strong>Optional<\/strong>. The ID of the site for multisite environments where the popup is located. Defaults to the current site if not specified.<\/td>\r\n            <td><code>site_id=\"1\"<\/code><\/td>\r\n        <\/tr>\r\n        <tr>\r\n            <td><strong>label<\/strong><\/td>\r\n            <td><strong>Optional<\/strong>. The text that will be displayed on the popup trigger button. Defaults to \"Show More\" if not specified.<\/td>\r\n            <td><code>label=\"Click Here\"<\/code><\/td>\r\n        <\/tr>\r\n        <tr>\r\n            <td><strong>class<\/strong><\/td>\r\n            <td><strong>Optional<\/strong>. A CSS class to be applied to the popup trigger element. This allows for custom styling of the trigger link or button. By default, the shortcode has the class \"button\". If you want to have a plain link instead, leave the class empty using <code>class=\"\"<\/code>.<\/td>\r\n            <td><code>class=\"button\"<\/code><\/td>\r\n        <\/tr>\r\n    <\/tbody>\r\n<\/table>",
+            "instructions": "",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -42,6 +60,42 @@
             "placeholder": "",
             "prepend": "",
             "append": ""
+        },
+        {
+            "key": "field_6729e45b802f3",
+            "label": "Parameters",
+            "name": "",
+            "aria-label": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0,
+            "selected": 0
+        },
+        {
+            "key": "field_6729e488802f4",
+            "label": "",
+            "name": "",
+            "aria-label": "",
+            "type": "message",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "<strong>Example Popup Shortcode<\/strong>\r\n\r\n<code>[popup_trigger id=\"1\" label=\"Learn More\" site_id=\"1\" type=\"link\" class=\"custom-class\"]<\/code>\r\n\r\n<table class=\"shortcode-description striped\">\r\n    <thead>\r\n        <tr>\r\n            <th>Parameter<\/th>\r\n            <th>Description<\/th>\r\n            <th>Example Usage<\/th>\r\n        <\/tr>\r\n    <\/thead>\r\n    <tbody>\r\n        <tr>\r\n            <td><strong>id<\/strong><\/td>\r\n            <td><strong style=\"color: red\">Required.<\/strong> The numeric ID of the popup that should be triggered. This ID should match the post ID of the Popup CPT used to create the popup content. Make sure the popup is published for the shortcode to work correctly.<\/td>\r\n            <td><code>id=\"1\"<\/code><\/td>\r\n        <\/tr>\r\n        <tr>\r\n            <td><strong>label<\/strong><\/td>\r\n            <td><strong style=\"color: #2271b1\">Optional.<\/strong> The text that will be displayed as the clickable label for the popup trigger. By default, it uses the label \"Learn More\" if not specified.<\/td>\r\n            <td><code>label=\"Learn More\"<\/code><\/td>\r\n        <\/tr>\r\n        <tr>\r\n            <td><strong>site_id<\/strong><\/td>\r\n            <td><strong style=\"color: #2271b1\">Optional.<\/strong> Used in a multisite environment to specify the site ID where the popup is located. If the popup is located on a different site, use this attribute to switch to that site. Defaults to the current site if not specified.<\/td>\r\n            <td><code>site_id=\"1\"<\/code><\/td>\r\n        <\/tr>\r\n        <tr>\r\n            <td><strong>type<\/strong><\/td>\r\n            <td><strong style=\"color: #2271b1\">Optional.<\/strong> Defines the type of trigger element. Possible values are \"button\" (default) for a button-like trigger or \"link\" for a hyperlink-style trigger.<\/td>\r\n            <td><code>type=\"link\"<\/code><\/td>\r\n        <\/tr>\r\n        <tr>\r\n            <td><strong>class<\/strong><\/td>\r\n            <td><strong style=\"color: #2271b1\">Optional.<\/strong> Adds a CSS class to the popup trigger element, allowing you to apply custom styles. If not specified and the type is set to \"button\" the default class is \"button\".<\/td>\r\n            <td><code>class=\"custom-class\"<\/code><\/td>\r\n        <\/tr>\r\n    <\/tbody>\r\n<\/table>",
+            "new_lines": "wpautop",
+            "esc_html": 0
         }
     ],
     "location": [
@@ -62,5 +116,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1730752217
+    "modified": 1730816625
 }

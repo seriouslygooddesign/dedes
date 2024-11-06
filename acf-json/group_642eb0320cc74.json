@@ -17,6 +17,27 @@
                 "id": ""
             },
             "return_format": "array"
+        },
+        {
+            "key": "field_672a3b859c277",
+            "label": "Global Call To Action Content",
+            "name": "global_cta",
+            "aria-label": "",
+            "type": "wysiwyg",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "allow_in_bindings": 0,
+            "tabs": "all",
+            "toolbar": "full",
+            "media_upload": 1,
+            "delay": 0
         }
     ],
     "location": [
@@ -37,5 +58,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1730447849
+    "modified": 1730821115
 }

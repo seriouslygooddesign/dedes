@@ -12,7 +12,7 @@
     text-align: center;
     display: flex;
     flex-direction: column;
-    gap: var(--spacer-element);
+    gap: 2em;
   }
   .menu {
     display: flex;
@@ -20,6 +20,7 @@
     gap: var(--spacer-element) var(--spacer-5);
     flex-wrap: wrap;
     justify-content: center;
+    margin-block: 0;
     @include bp(md) {
       flex-direction: row;
     }

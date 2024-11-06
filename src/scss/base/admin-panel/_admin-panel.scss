@@ -46,42 +46,29 @@ table.media .column-title .media-icon img {
   display: none;
 }
 
-.popup-trigger-shortcode {
-  display: flex;
-  flex-direction: column;
-  .acf-label {
-    display: contents;
-    > p {
-      margin: 0;
-      order: 2;
+.shortcode-description {
+  order: 1;
+  margin-bottom: 10px;
+  text-align: left;
+  border-collapse: collapse;
+  border: 1px solid rgba(#333, 0.1);
+  width: 100%;
+
+  td,
+  th {
+    padding: 0.6em 1em;
+    vertical-align: baseline;
+    max-width: 700px;
+    border-bottom: 1px solid rgba(#333, 0.1);
+  }
+  thead {
+    th {
+      padding-block: 1em;
     }
   }
-  .shortcode-description {
-    order: 1;
-    margin-block: 1.25em 0;
-    text-align: left;
-    border-collapse: collapse;
-    border: 1px solid rgba(#333, 0.1);
-
-    td,
-    th {
-      padding: 0.6em 1em;
-      vertical-align: baseline;
-      max-width: 700px;
-      border-bottom: 1px solid rgba(#333, 0.1);
-    }
-    tbody tr:nth-child(odd) {
-      background: rgba(#333, 0.05);
-    }
-    thead {
-      th {
-        padding-block: 1em;
-      }
-    }
-    code {
-      padding: 0;
-      background: transparent;
-      font-weight: bold;
-    }
+  code {
+    padding: 0;
+    background: transparent;
+    font-weight: bold;
   }
 }

@@ -39,7 +39,7 @@
   --spacer-element-sm: calc(var(--spacer-element) / 2);
   --spacer-element-md: #{clamp-smart(16px, 23px * 2)};
 
-  --spacer-section: #{clamp-smart(30px, 90px)};
+  --spacer-section: #{clamp-smart(40px, 90px)};
   --spacer-section-half: calc(var(--spacer-section) / 2);
 
   --spacer-base: #{clamp-smart(20px, 30px)};

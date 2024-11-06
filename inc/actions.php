@@ -25,8 +25,9 @@ add_action('get_header', 'remove_admin_login_header');
 add_action('admin_head', 'custom_admin_panel_css');
 function custom_admin_panel_css()
 {
-    // Hide "What's On" CPT link on child sites
+    // Hide "What's On" CPT link and "Global CTA Content" field on child sites
     if (!is_main_site()) {
         echo '<style>#adminmenu #menu-posts-' . WHATS_ON_POST_TYPE_NAME . '{display:none;}</style>';
+        echo '<style>#wpbody [data-name="global_cta"] {display:none;}</style>';
     }
 }

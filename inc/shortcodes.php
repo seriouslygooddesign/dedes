@@ -64,6 +64,15 @@ function cta_link($atts)
     }
 }
 
+add_shortcode('global-cta-content', 'global_cta_content');
+function global_cta_content()
+{
+    switch_to_blog(1);
+    $content = get_field('global_cta', 'option');
+    restore_current_blog();
+    return $content;
+}
+
 add_shortcode('dedes-sites', 'dedes_sites');
 function dedes_sites()
 {

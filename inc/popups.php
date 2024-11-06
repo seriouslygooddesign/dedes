@@ -9,7 +9,7 @@ function generate_popup_trigger_shortcode_in_admin_panel($field)
     $field['wrapper']['class'] = 'popup-trigger-shortcode';
 
     // Generate the shortcode for the popup trigger
-    $field['value'] = '[popup_trigger id="' . esc_attr($popup_id) . '" label="Show More"]';
+    $field['value'] = '[popup_trigger id="' . esc_attr($popup_id) . '" label="Learn More"]';
 
     // If the post is not published, add an instruction to publish it
     if (get_post_status($popup_id) !== 'publish') {
@@ -31,51 +31,49 @@ function is_core_popup_exists($popup_id)
 }
 
 add_shortcode('popup_trigger', 'popup_trigger_shortcode');
-function popup_trigger_shortcode($atts, $content = null)
+function popup_trigger_shortcode($atts)
 {
     global $popups;
 
+    $label_text = "Learn More";
     $atts = shortcode_atts(
         [
             'id' => null,
             'site_id' => get_current_blog_id(),
-            'label' => 'Show More',
-            'class' => 'button',
+            'label' => $label_text,
+            'type' => 'button',
+            'class' => null,
         ],
         $atts,
         'popup_trigger'
     );
     extract($atts);
 
-    $content = $content ?: $label;
-    if (!$content) return;
+    $content = $label ?: $label_text;
 
     $id = is_numeric($id) ? intval($id) : null;
-    if (!$id) return;
-
-    $front_end_id = $id;
-
     $site_id = is_numeric($site_id) ? intval($site_id) : null;
-    if ($site_id && $site_id !== get_current_blog_id() && get_blog_details($site_id)) {
-        switch_to_blog($site_id);
-        if (!is_core_popup_exists($id)) {
-            restore_current_blog();
-            return;
-        }
 
-        if (!in_array(['id' => $id, 'site_id' => $site_id], $popups)) {
-            $popups[] = [
-                'id' => $id,
-                'site_id' => $site_id
-            ];
-        }
+    if (!$id || !$site_id || !get_blog_details($site_id)) return;
 
-        $front_end_id .= "-$site_id";
+    switch_to_blog($site_id);
+    if (!is_core_popup_exists($id)) {
         restore_current_blog();
-    } elseif (!in_array($id, $popups) && is_core_popup_exists($id)) {
-        $popups[] = $id;
+        return;
     }
 
+    if (!in_array(['id' => $id, 'site_id' => $site_id], $popups)) {
+        $popups[] = [
+            'id' => $id,
+            'site_id' => $site_id
+        ];
+    }
+
+    restore_current_blog();
+
+    $front_end_id = "$id-$site_id";
+
+    $class = $type === 'button' && $class === null ? "button" : $class;
     $class_attr = $class ? " class='" . esc_attr($class) . "'" : '';
     return '<a href="#"' . $class_attr . ' data-popup-trigger="' . esc_attr($front_end_id) . '">' . esc_html($content) . '</a>';
 };
@@ -98,26 +96,17 @@ function display_core_popups()
     wp_enqueue_script('popup');
 
     foreach ($popups as $popup) {
-        $id = $front_end_id = $selector = $content = $title = null;
 
-        if (is_numeric($popup)) {
-            $id = $popup;
-            $front_end_id = $id;
-        }
+        if (!is_array($popup) || !isset($popup['id']) || !isset($popup['site_id'])) continue;
 
-        $is_popup_from_other_site = is_array($popup) && isset($popup['id']) && isset($popup['site_id']);
-
-        if ($is_popup_from_other_site) {
-            $id = $popup['id'];
-            $site_id = $popup['site_id'];
-            $front_end_id = "$id-$site_id";
-            switch_to_blog($popup['site_id']);
-        }
+        $id = $popup['id'];
+        $site_id = $popup['site_id'];
+        $front_end_id = "$id-$site_id";
+        switch_to_blog($site_id);
 
         if (is_core_popup_exists($id) && get_post_status($id) === 'publish') {
             $title = get_field('popup_title', $id);
             $content = apply_filters('the_content', get_the_content(false, false, $id));
-
             $selector = "[data-popup-trigger='$front_end_id']";
 
             $args = [
@@ -128,10 +117,7 @@ function display_core_popups()
             ];
             get_template_part('components/popup', null, $args);
         }
-
-        if ($is_popup_from_other_site) {
-            restore_current_blog();
-        }
+        restore_current_blog();
     }
 }
 add_action('wp_footer', 'display_core_popups');

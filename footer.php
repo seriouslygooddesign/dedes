@@ -1,6 +1,6 @@
 </main>
 <footer class="site-footer<?= get_core_theme_color('footer') ?>">
-	<div class="container underline-reverse spacer-section-pt spacer-section-pb-half">
+	<div class="container underline-reverse spacer-section-py">
 		<div class="site-footer__widgets">
 			<?php
 			$footer_widget_counter = 1;
@@ -14,7 +14,7 @@
 
 	<div class="color-background-surface spacer-section-pt spacer-section-pb-half">
 		<div class="container">
-			<h2 class="h5 text-center m-0" style="text-transform: initial;">Discover Dedes Venues</h2>
+			<h2 class="h5 text-center m-0" style="text-transform: initial;" data-animate>Discover Dedes Venues</h2>
 			<?= do_shortcode('[dedes-sites]'); ?>
 		</div>
 	</div>
