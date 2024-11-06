@@ -24,7 +24,7 @@
             "name": "global_cta",
             "aria-label": "",
             "type": "wysiwyg",
-            "instructions": "",
+            "instructions": "<a target=\"_blank\" href=\"https:\/\/codex.wordpress.org\/Shortcode_API\">Shortcode:<\/a> [global-cta-content]",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -58,5 +58,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1730821115
+    "modified": 1730884532
 }
