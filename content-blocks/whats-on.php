@@ -27,7 +27,7 @@ if ($loop) : ?>
     }
     ?>
     <div class="container" data-animate>
-        <div class="row">
+        <div class="row gy-5">
             <?php
             foreach ($loop as $post) :
                 setup_postdata($post);
