@@ -89,6 +89,10 @@
   text-transform: uppercase;
 }
 
+.icon-inline {
+  vertical-align: inherit !important;
+  margin-right: 0.25em;
+}
 .contact-spacer {
   &:not(:first-child) {
     margin-top: 3em;

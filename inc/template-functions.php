@@ -236,3 +236,15 @@ function overlay_menu_toggle_button($label, $icon)
 <?php
     return ob_get_clean();
 }
+
+//Icon
+function get_core_icon($icon = '', $class = '')
+{
+    $args = [
+        'icon' => $icon,
+        'class' => $class ? $class : null,
+    ];
+    ob_start();
+    get_template_part('components/site-icon', null, $args);
+    return ob_get_clean();
+}

@@ -22,10 +22,12 @@ if ($loop) : ?>
     ];
     get_template_part('components/block', 'start', $block_args);
 
-    get_template_part('components/block', 'header', ['class' => 'container', 'content' => "<h2>What's On</h2>", 'show' => true]);
+    if (!is_page(WHATS_ON_URL_PREFIX)) {
+        get_template_part('components/block', 'header', ['class' => 'container', 'content' => "<h2>What's On</h2>", 'show' => true]);
+    }
     ?>
-    <div class="overflow-hidden">
-        <div class="container" data-animate>
+    <div class="container" data-animate>
+        <div class="row">
             <?php
             foreach ($loop as $post) :
                 setup_postdata($post);
@@ -33,7 +35,21 @@ if ($loop) : ?>
                 if (!$is_main_site) {
                     $link = $site_url . '/' . WHATS_ON_URL_PREFIX . '/' . $post->post_name;
                 }
-                get_template_part('components/post', null, ['link' => $link]);
+                $event_date = ($event_date = esc_html(get_field('event_date'))) ? "<span>" . get_core_icon('calendar', 'icon-inline fs-xs') . $event_date . "</span>" : null;
+                $location = ($location = esc_html(get_field('location'))) ? "<span>" . get_core_icon('pin', 'icon-inline fs-xs') . $location . "</span>" : null;
+                $content_top = $event_date || $location ? "<div class='fs-sm color-text-primary vstack gap-0'>$event_date$location</div>" : null;
+                $content = "<p>" . get_the_excerpt() . "</p>";
+                $card_args = [
+                    'content' => "<div class='vstack gap-1'>$content_top$content</div>",
+                    'link' => [
+                        'link_title' => null,
+                        'link_url' => get_permalink(),
+                        'link_target' => '_self',
+                    ]
+                ];
+                echo "<div class='col-md-6 col-lg-4'>";
+                get_template_part('components/card', null, $card_args);
+                echo "</div>";
             endforeach;
             wp_reset_postdata(); ?>
         </div>

@@ -20,7 +20,7 @@ extract($args);
 
 $image = wp_get_attachment_image($image, 'medium_large', false, ['class' => 'stretch', 'loading' => 'lazy']);
 
-if ($content && str_contains($content, 'href')) {
+if ($content && str_contains($content, 'a href')) {
     $link = false;
 }
 
