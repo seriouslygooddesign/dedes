@@ -41,6 +41,7 @@ if ($loop) : ?>
                 $content = "<p>" . get_the_excerpt() . "</p>";
                 $card_args = [
                     'content' => "<div class='vstack gap-1'>$content_top$content</div>",
+                    'image_holder' => true,
                     'link' => [
                         'link_title' => null,
                         'link_url' => get_permalink(),

@@ -3,6 +3,7 @@ $args = wp_parse_args(
     $args,
     array(
         'image' => get_post_thumbnail_id(),
+        'image_holder' => false,
         'title' => get_the_title(),
         'content' => get_the_excerpt(),
         'img_ratio' => 'ratio-16-10',
@@ -31,8 +32,8 @@ if ($link) {
 $card_start = $link ? "a href='" . esc_url($link_url) . "' target='" . esc_attr($link_target) . "'" : "div";
 echo "<$card_start class='card $extra_class'>";
 ?>
-<?php if ($image) : ?>
-    <div class="color-background-surface overflow-hidden <?= $decor && $title ? 'card__header' : $img_ratio; ?>">
+<?php if ($image || $image_holder) : ?>
+    <div class="color-background-primary overflow-hidden <?= $decor && $title ? 'card__header' : $img_ratio; ?>">
         <?= get_core_remove_width_height_attr($image); ?>
         <?php if ($title && $decor) : ?>
             <div class="overflow-hidden stretch">
