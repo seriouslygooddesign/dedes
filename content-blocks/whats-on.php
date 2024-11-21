@@ -55,7 +55,12 @@ if ($loop) : ?>
             wp_reset_postdata(); ?>
         </div>
     </div>
-    <?php
-    get_template_part('components/block', 'end'); ?>
-<?php endif;
+    <?php get_template_part('components/block', 'end'); ?>
+
+<?php elseif (is_page(WHATS_ON_URL_PREFIX)) : ?>
+    <div class="container spacer-section-py">
+        <h2 class="h4 text-center">No Events at the Moment – Stay Tuned for Updates!</h2>
+    </div>
+<?php
+endif;
 restore_current_blog();
