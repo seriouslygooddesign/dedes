@@ -69,19 +69,6 @@ function add_attributes_to_script_tag($url)
 add_filter('script_loader_tag', 'add_attributes_to_script_tag', 10);
 
 
-// Change the button text after clicking it
-function gf_change_submit_button_text($button, $form)
-{
-    $dom = new DOMDocument();
-    $dom->loadHTML('<?xml encoding="utf-8" ?>' . $button);
-    $input = $dom->getElementsByTagName('input')->item(0);
-    $onclick = $input->getAttribute('onclick');
-    $onclick .= " this.value='Sending...'";
-    $input->setAttribute('onclick', $onclick);
-    return $dom->saveHtml($input);
-}
-add_filter('gform_submit_button', 'gf_change_submit_button_text', 10, 2);
-
 //Disable wpo-plugins-tables-list.json file
 add_filter('wpo_update_plugin_json', '__return_false');
 
