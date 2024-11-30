@@ -19,7 +19,7 @@ $args = wp_parse_args(
 $link_title = $link_url = $link_target = null;
 extract($args);
 
-$image = wp_get_attachment_image($image, 'medium_large', false, ['class' => 'stretch', 'loading' => 'lazy']);
+$image = is_int($image) ? $image = wp_get_attachment_image($image, 'medium_large', false, ['class' => 'stretch', 'loading' => 'lazy']) : $image;
 
 if ($content && str_contains($content, 'a href')) {
     $link = false;
