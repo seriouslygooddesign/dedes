@@ -36,9 +36,6 @@ echo "<$card_start class='card $extra_class'>";
     <div class="color-background-primary overflow-hidden <?= $decor && $title ? 'card__header' : $img_ratio; ?>">
         <?= get_core_remove_width_height_attr($image); ?>
         <?php if ($title && $decor) : ?>
-            <div class="overflow-hidden stretch">
-                <div class="site-decor"></div>
-            </div>
             <h3 class="h4 m-0 card__title"><?= esc_html($title) ?></h3>
         <?php endif; ?>
     </div>

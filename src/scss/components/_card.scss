@@ -46,7 +46,25 @@ $card-spacer: 0.65em;
   }
   &__title {
     position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     color: var(--color-white);
+    padding: 0.5em 0;
+    width: 100%;
+    min-height: 4em;
+    z-index: 1;
+    &::after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: calc(100% + var(--spacer-element) * 2);
+      height: 100%;
+      background: rgba(var(--color-primary-rgb), 0.75);
+      translate: -50% -50%;
+      z-index: -1;
+    }
   }
 
   &__content + &__link {
