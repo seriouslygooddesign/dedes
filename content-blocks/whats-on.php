@@ -73,8 +73,9 @@ if ($loop) : ?>
             <?php
             foreach ($loop as $post) :
                 setup_postdata($post);
-
+                restore_current_blog();
                 $link = get_permalink();
+                switch_to_blog(1);
                 $title = get_the_title();
                 $image = get_post_thumbnail_id();
                 $content = '';
