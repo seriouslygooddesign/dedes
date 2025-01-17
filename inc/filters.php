@@ -55,14 +55,8 @@ add_filter('excerpt_more', 'new_excerpt_more');
 // Add custom attributes to the script tag
 function add_attributes_to_script_tag($url)
 {
-    if (strpos($url, 'core-defer')) {
-        $url = str_replace(' src', ' defer src', $url);
-    }
     if (strpos($url, 'core-module')) {
         $url = str_replace(' src', ' type="module" src', $url);
-    }
-    if (strpos($url, '-async-')) {
-        $url = str_replace('></script>', ' async></script>', $url);
     }
     return $url;
 }
@@ -164,7 +158,6 @@ function custom_gallery($output, $attr)
         $output .= "</div>"; //text-center
         $output .= "</div>"; //swiper
     }
-    swiper_js_css();
     return $output;
 }
 

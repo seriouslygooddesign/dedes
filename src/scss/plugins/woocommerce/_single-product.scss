@@ -211,3 +211,23 @@
 .wc-pao-addons-container {
   margin-bottom: var(--spacer-element);
 }
+
+.variations {
+  .reset_variations {
+    padding-inline: 0;
+    background: none;
+    border: none;
+    cursor: pointer;
+    transition:
+      color var(--transition),
+      text-decoration-color var(--transition);
+    @include underline-base;
+    @include underline-reverse;
+  }
+  tbody tr {
+    border-top: none;
+  }
+  td:has(> .reset_variations) {
+    text-align: right;
+  }
+}

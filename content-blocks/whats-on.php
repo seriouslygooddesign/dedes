@@ -73,9 +73,8 @@ if ($loop) : ?>
             <?php
             foreach ($loop as $post) :
                 setup_postdata($post);
-                restore_current_blog();
-                $link = get_permalink();
-                switch_to_blog(1);
+
+                $link = '';
                 $title = get_the_title();
                 $image = get_post_thumbnail_id();
                 $content = '';
@@ -95,11 +94,13 @@ if ($loop) : ?>
                     $content_top = $event_date || $location ? "<div class='fs-sm color-text-primary vstack gap-0'>$event_date$location</div>" : null;
                     $content_excerpt = "<p>" . get_the_excerpt() . "</p>";
                     $content = "<div class='vstack gap-1'>$content_top$content_excerpt</div>";
+                    restore_current_blog();
                     $link = [
                         'link_title' => null,
-                        'link_url' => $link,
+                        'link_url' => get_permalink(),
                         'link_target' => '_self',
                     ];
+                    switch_to_blog(1);
                 }
 
                 $card_args = [

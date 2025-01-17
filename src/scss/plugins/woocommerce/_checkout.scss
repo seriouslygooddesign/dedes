@@ -73,12 +73,20 @@ form.woocommerce-checkout {
     }
   }
 
+  .woocommerce-shipping-totals.shipping {
+    td:not(:first-child) {
+      padding-left: 0;
+      text-align: left;
+    }
+  }
+
   td,
   th {
     &:last-child {
       text-align: right;
     }
   }
+
   @include bp(md) {
     &:before,
     &:after {

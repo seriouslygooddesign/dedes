@@ -113,12 +113,6 @@ add_action('widgets_init', 'core_widgets_init');
  * Enqueue scripts and styles.
  */
 
-function swiper_js_css()
-{
-	wp_enqueue_style('swiper', get_core_enqueue_path('swiper.css'), [], null);
-	wp_enqueue_script('core-defer-swiper', get_core_enqueue_path('swiper.js'), [], null);
-}
-
 function core_scripts()
 {
 	//Dequeue
@@ -127,35 +121,13 @@ function core_scripts()
 	wp_dequeue_style('wc-blocks-style');
 	wp_dequeue_script('comment-reply');
 
-
 	//Core Files
 	wp_enqueue_style('main', get_core_enqueue_path('main.css'), [], null);
-	wp_enqueue_script('core-defer-main', get_core_enqueue_path('main.js'), [], null, true);
+	wp_enqueue_script('main', get_core_enqueue_path('main.js'), [], null, ['strategy' => 'defer']);
 
-
-	// Swiper
-	global $post;
-	global $wpdb;
-	$post_id = $post->ID ?? null;
-	$post_meta_sql = "select * from $wpdb->postmeta where post_id = {$post_id} and meta_key not like '\_%' and meta_value like '%[gallery%'";
-	$post_meta_results = $wpdb->get_results($post_meta_sql);
-
-	// run the has_shortcode() as usual, works for all the_content() cases
-	if (is_a($post, 'WP_Post') && has_shortcode($post->post_content, 'gallery')) {
-		swiper_js_css();
-	}
-	// for shortcodes in post_meta
-	else if (is_a($post, 'WP_Post') && !empty($post_meta_results)) {
-		swiper_js_css();
-
-		// if the content blocks contain a slider
-	} else if (have_rows('content_blocks')) {
-		while (have_rows('content_blocks')) : the_row();
-			if (in_array(get_row_layout(), ['posts', 'rooms', 'whats_on', 'testimonials']) && get_core_hide_block()) {
-				swiper_js_css();
-			}
-		endwhile;
-	}
+	//Swiper
+	wp_enqueue_style('swiper', get_core_enqueue_path('swiper.css'), [], null);
+	wp_enqueue_script('swiper', get_core_enqueue_path('swiper.js'), [], null, ['in_footer' => true, 'strategy' => 'async']);
 }
 add_action('wp_enqueue_scripts', 'core_scripts');
 
