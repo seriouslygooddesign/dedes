@@ -2,8 +2,9 @@ const Popup = () => {
 	class MainPopup {
 		constructor(popup) {
 			this.popup = popup;
+			this.popupData = JSON.parse(this.popup.dataset.popup);
 			this.main = this.popup.querySelector("[data-popup-main]");
-			this.togglerOpenSelectors = this.popup.dataset.popupTriggerSelector;
+			this.togglerOpenSelectors = this.popupData.selector || false;
 			this.togglersOpen =
 				this.togglerOpenSelectors && this.isValidSelector(this.togglerOpenSelectors)
 					? document.querySelectorAll(this.togglerOpenSelectors)
@@ -14,6 +15,18 @@ const Popup = () => {
 			this.lastFocusableElement = this.focusableElements[this.focusableElements.length - 1];
 			this.activeClass = "active";
 			this.popupOpenedBy = undefined;
+
+			this.autoOpen = this.popupData.autoOpen || false;
+			this.autoOpenCookieName = this.popup.id || "";
+			this.autoOpenCookieValue = this.autoOpen.key || "";
+			this.autoOpenExpires = this.autoOpen.expires || 0; //days
+			this.autoOpenDelay = this.autoOpen.delay || 0; //milliseconds
+
+			if (this.autoOpen && !this.isCookieExists()) {
+				setTimeout(() => {
+					this.popupShow();
+				}, this.autoOpenDelay);
+			}
 
 			const windowLocationHash = window.location.hash;
 			if (windowLocationHash) {
@@ -35,7 +48,7 @@ const Popup = () => {
 				});
 			}
 
-			if (this.togglersOpen.length) {
+			if (this.togglersClose.length) {
 				this.togglersClose.forEach((togglerClose) => {
 					togglerClose.addEventListener("click", (e) => {
 						e.preventDefault();
@@ -121,7 +134,36 @@ const Popup = () => {
 				this.popupOpenedBy?.focus({
 					preventScroll: true,
 				});
+				if (this.autoOpen && !this.isCookieExists()) {
+					this.setCookie(this.autoOpenCookieName, this.autoOpenCookieValue, this.autoOpenExpires);
+				}
 			}
+		}
+
+		setCookie(name, value, expires) {
+			if (!name || !value) return;
+			let expiresValue = "";
+			if (expires) {
+				const date = new Date();
+				date.setTime(date.getTime() + expires * 24 * 60 * 60 * 1000);
+				expiresValue = date.toUTCString();
+			}
+			document.cookie = `${name}=${value};expires=${expiresValue};path=/`;
+		}
+
+		getCookie(name) {
+			const cookieArray = document.cookie.split(";");
+			for (let i = 0; i < cookieArray.length; i++) {
+				const cookie = cookieArray[i].trim();
+				if (cookie.startsWith(`${name}=`)) {
+					return cookie.substring(name.length + 1);
+				}
+			}
+			return null;
+		}
+
+		isCookieExists() {
+			return this.getCookie(this.autoOpenCookieName) === this.autoOpenCookieValue;
 		}
 	}
 

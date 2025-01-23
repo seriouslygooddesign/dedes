@@ -30,6 +30,63 @@ function is_core_popup_exists($popup_id)
     return $popup && $popup->post_status === 'publish' && $popup->post_type === $popup_cpt_name;
 }
 
+function generate_popup_key($id, $site_id)
+{
+    return $id . '-' . $site_id;
+}
+
+//Check if current page/post has popups
+add_action('template_redirect', function () {
+    global $popups, $popup_cpt_name;
+
+    $popup_meta_query_args_global = [
+        'key'   => 'popup_trigger_selector_location',
+        'value' => 'global',
+        'compare' => '='
+    ];
+
+    $popup_meta_query_args = is_singular() ? [
+        'relation' => 'OR',
+        $popup_meta_query_args_global,
+        [
+            'relation' => 'AND',
+            [
+                'key'   => 'popup_trigger_selector_location',
+                'value' => 'select',
+                'compare' => '='
+            ],
+            [
+                'key'   => 'popup_trigger_selector_relationship',
+                'value' => serialize((string)get_the_ID()),
+                'compare' => 'LIKE'
+            ]
+        ]
+    ] : [
+        $popup_meta_query_args_global
+    ];
+
+    $found_popups = get_posts([
+        'post_type' => $popup_cpt_name,
+        'post_status' => 'publish',
+        'posts_per_page' => -1,
+        'fields' => 'ids',
+        'meta_query' => $popup_meta_query_args
+    ]);
+
+    if (!empty($found_popups)) {
+        foreach ($found_popups as $id) {
+            $site_id = get_current_blog_id();
+            $popup_key = generate_popup_key($id, $site_id);
+            if (!array_key_exists($popup_key, $popups)) {
+                $popups[$popup_key] = [
+                    'id' => $id,
+                    'site_id' => $site_id
+                ];
+            }
+        }
+    }
+});
+
 add_shortcode('popup_trigger', 'popup_trigger_shortcode');
 function popup_trigger_shortcode($atts)
 {
@@ -66,7 +123,7 @@ function popup_trigger_shortcode($atts)
     }
 
     // Add to global popups array if not already added
-    $popup_key = $id . '-' . $site_id;
+    $popup_key = generate_popup_key($id, $site_id);
     if (!array_key_exists($popup_key, $popups)) {
         $popups[$popup_key] = [
             'id' => $id,
@@ -110,6 +167,12 @@ function display_core_popups()
                 'content' => $content,
                 'title' => $title
             ];
+            if (get_field('popup_enable_auto_open', $id)) {
+                $args['auto_open'] = true;
+                $popup_auto_open_settings = get_field('popup_auto_open_settings', $id);
+                $args['auto_open_delay'] = $popup_auto_open_settings['delay'] * 1000;
+                $args['auto_open_expires'] = $popup_auto_open_settings['expires'];
+            }
             get_template_part('components/popup', null, $args);
         }
         restore_current_blog();
