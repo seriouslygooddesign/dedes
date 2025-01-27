@@ -42,7 +42,7 @@ $popup_data =  json_encode($popup_data);
                 <?php endif; ?>
                 <div class="col-auto">
                     <button class="main-popup__close-button button button--square button--white" aria-label="Close" type="button" data-popup-toggler-close>
-                        <?php get_template_part('components/site-icon', null, ['icon' => 'close', 'class' => 'toggler-button__icon']); ?>
+                        <?php get_template_part('components/site-icon', null, ['icon' => 'close', 'class' => 'toggler-button__icon fs-xl']); ?>
                     </button>
                 </div>
             </div>

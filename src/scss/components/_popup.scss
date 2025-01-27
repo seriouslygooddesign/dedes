@@ -4,7 +4,7 @@
     position: fixed;
     inset: 0;
     z-index: 2000;
-    background-color: var(--color-curtain);
+    background-color: rgba(0, 0, 0, 0.3);
     overflow-y: auto;
     overscroll-behavior: contain;
     opacity: 0;
@@ -19,7 +19,7 @@
 
     &__dialog {
         outline: none;
-        padding: var(--popup-spacer);
+        padding: calc(var(--header-height) + var(--spacer-element)) var(--popup-spacer);
     }
     &__main {
         background-color: var(--color-white);
