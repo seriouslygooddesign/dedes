@@ -57,7 +57,10 @@
     "rest_namespace": "wp\/v2",
     "rest_controller_class": "WP_REST_Posts_Controller",
     "menu_position": "",
-    "menu_icon": "dashicons-calendar-alt",
+    "menu_icon": {
+        "type": "dashicons",
+        "value": "dashicons-admin-post"
+    },
     "rename_capabilities": false,
     "singular_capability_name": "post",
     "plural_capability_name": "posts",
@@ -75,12 +78,13 @@
         "slug": "whats-on",
         "with_front": "0",
         "feeds": "0",
-        "pages": "1"
+        "pages": "0"
     },
     "query_var": "post_type_key",
     "query_var_name": "",
     "can_export": true,
     "delete_with_user": false,
     "register_meta_box_cb": "",
-    "modified": 1688565129
+    "enter_title_here": "",
+    "modified": 1741161848
 }

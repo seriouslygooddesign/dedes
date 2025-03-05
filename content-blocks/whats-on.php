@@ -95,11 +95,13 @@ if ($loop) : ?>
                     $content_excerpt = "<p>" . get_the_excerpt() . "</p>";
                     $content = "<div class='vstack gap-1'>$content_top$content_excerpt</div>";
                     restore_current_blog();
+
                     $link = [
                         'link_title' => null,
                         'link_url' => get_permalink(),
                         'link_target' => '_self',
                     ];
+
                     switch_to_blog(1);
                 }
 

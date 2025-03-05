@@ -26,4 +26,3 @@ if ($content_blocks = get_field('content_blocks')) {
 	}
 	?>
 	<main id="site-content" class="site-content">
-

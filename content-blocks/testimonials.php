@@ -48,9 +48,9 @@ $swiper_options = json_encode(array(
                                     </div>
                                 </div>
                                 <div class="col-12">
-                                    <p class="fs-xl">
-                                        <?= get_the_content() ?>
-                                    </p>
+                                    <div class="fs-xl">
+                                        <?= apply_filters('the_content', get_the_content()) ?>
+                                    </div>
                                 </div>
                             </div>
                         </div>
