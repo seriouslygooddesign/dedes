@@ -6,7 +6,6 @@ $img_options = get_field("banner_$post_type", 'options');
 $page_header_args = [
     'title' => $title,
     'img_id' => $post_type == 'post' || !$img_options ? get_post_thumbnail_id(get_option('page_for_posts', true)) : $img_options,
-    'img_alt' => $title
 ];
 get_template_part('components/page-header', null, $page_header_args);
 ?>

@@ -12,7 +12,6 @@ $args = wp_parse_args($args,    [
     'content' => get_sub_field('description') === 'custom_content' ? get_sub_field('custom_content') : null,
     'height' => 'min-height-small',
     'img_id' => $img_options && is_archive() ? $img_options : get_post_thumbnail_id($object),
-    'img_alt' => get_the_title($object),
 ]);
 
 extract($args);
@@ -31,7 +30,6 @@ $block_class = get_core_filter_implode([
     $img_args = [
         'curtain' => true,
         'img_id' => $img_id,
-        'img_alt' => $img_alt
     ];
     get_template_part('components/background-image', null, $img_args);
     ?>
