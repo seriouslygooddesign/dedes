@@ -6,7 +6,6 @@ import GalleryNav from "./modules/gallery-nav";
 import TargetContent from "./modules/target-content";
 import SimpleParallax from "./modules/simple-parallax";
 import VideoAutoplay from "./modules/video-autoplay";
-import Popup from "./modules/popup";
 
 //Accordion
 Accordion();
@@ -31,6 +30,3 @@ SimpleParallax();
 
 // VideoAutoplay
 VideoAutoplay();
-
-// Popups;
-Popup();
